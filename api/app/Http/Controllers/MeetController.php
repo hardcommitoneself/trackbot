@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreMeetRequest;
 use App\Http\Requests\UpdateMeetRequest;
+use App\Http\Resources\MeetResource;
 use App\Models\Meet;
+use Spatie\QueryBuilder\QueryBuilder;
 
 class MeetController extends Controller
 {
@@ -15,7 +17,11 @@ class MeetController extends Controller
      */
     public function index()
     {
-        //
+        return MeetResource::collection(
+            QueryBuilder::for(Meet::class)
+            ->allowedFilters(['name'])
+            ->get()
+        );
     }
 
     /**
