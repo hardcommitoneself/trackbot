@@ -3,22 +3,22 @@
 namespace App\Models;
 
 use App\Enums\Sport;
-use App\Traits\Uuid;
+use App\Traits\Uuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Meet extends Model
 {
     use HasFactory;
-    use Uuid;
+    use Uuids;
 
     protected $casts = [
-        'sport' => Sport::class,
-        'is_sanctioned' => 'boolean'
+        'sport'         => Sport::class,
+        'is_sanctioned' => 'boolean',
     ];
 
-    public function org()
+    public function organization()
     {
-        return $this->belongsTo(Org::class);
+        return $this->belongsTo(Organization::class);
     }
 }

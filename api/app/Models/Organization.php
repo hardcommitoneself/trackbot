@@ -2,25 +2,26 @@
 
 namespace App\Models;
 
-use App\Enums\OrgType;
+use App\Enums\OrganizationType;
 use App\Enums\Sport;
-use App\Traits\Uuid;
+use App\Traits\Uuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Org extends Model
+class Organization extends Model
 {
     use HasFactory;
-    use Uuid;
+    use Uuids;
 
     protected $guarded = [];
 
     protected $casts = [
-        'sport' => Sport::class,
-        'org_type' => OrgType::class,
+        'sport'             => Sport::class,
+        'organization_type' => OrganizationType::class,
     ];
 
-    public function meets() {
+    public function meets()
+    {
         return $this->hasMany(Meet::class);
     }
 

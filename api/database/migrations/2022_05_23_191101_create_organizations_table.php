@@ -4,19 +4,17 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
-     *
      * @return void
      */
     public function up()
     {
-        Schema::create('orgs', function (Blueprint $table) {
+        Schema::create('organizations', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->tinyInteger('sport'); // Sport Enum
-            $table->tinyInteger('org_type'); // OrgType Enum
+            $table->tinyInteger('organization_type'); // OrgType Enum
             $table->string('name', 100); // full name of the organization
             $table->string('abbr', 5)->unique(); // will be the primary identifier
             $table->timestamps();
@@ -25,11 +23,10 @@ return new class extends Migration
 
     /**
      * Reverse the migrations.
-     *
      * @return void
      */
     public function down()
     {
-        Schema::dropIfExists('orgs');
+        Schema::dropIfExists('organizations');
     }
 };

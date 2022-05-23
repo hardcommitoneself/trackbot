@@ -2,7 +2,7 @@
 
 namespace App\Enums;
 
-enum OrgType: int
+enum OrganizationType: int
 {
     case HIGH_SCHOOL = 1;
     case JUNIOR_HIGH = 2;

@@ -4,13 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreOrgRequest;
 use App\Http\Requests\UpdateOrgRequest;
-use App\Models\Org;
+use App\Models\Organization;
 
 class OrgController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
      * @return \Illuminate\Http\Response
      */
     public function index()
@@ -20,7 +19,6 @@ class OrgController extends Controller
 
     /**
      * Show the form for creating a new resource.
-     *
      * @return \Illuminate\Http\Response
      */
     public function create()
@@ -30,7 +28,6 @@ class OrgController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     *
      * @param  \App\Http\Requests\StoreOrgRequest  $request
      * @return \Illuminate\Http\Response
      */
@@ -41,45 +38,41 @@ class OrgController extends Controller
 
     /**
      * Display the specified resource.
-     *
-     * @param  \App\Models\Org  $org
+     * @param  \App\Models\Organization  $org
      * @return \Illuminate\Http\Response
      */
-    public function show(Org $org)
+    public function show(Organization $org)
     {
         //
     }
 
     /**
      * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Org  $org
+     * @param  \App\Models\Organization  $org
      * @return \Illuminate\Http\Response
      */
-    public function edit(Org $org)
+    public function edit(Organization $org)
     {
         //
     }
 
     /**
      * Update the specified resource in storage.
-     *
      * @param  \App\Http\Requests\UpdateOrgRequest  $request
-     * @param  \App\Models\Org  $org
+     * @param  \App\Models\Organization  $org
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateOrgRequest $request, Org $org)
+    public function update(UpdateOrgRequest $request, Organization $org)
     {
         //
     }
 
     /**
      * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Org  $org
+     * @param  \App\Models\Organization  $org
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Org $org)
+    public function destroy(Organization $org)
     {
         //
     }

@@ -2,7 +2,7 @@
 
 namespace App\Policies;
 
-use App\Models\Org;
+use App\Models\Organization;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
@@ -12,7 +12,6 @@ class OrgPolicy
 
     /**
      * Determine whether the user can view any models.
-     *
      * @param  \App\Models\User  $user
      * @return \Illuminate\Auth\Access\Response|bool
      */
@@ -23,19 +22,17 @@ class OrgPolicy
 
     /**
      * Determine whether the user can view the model.
-     *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Org  $org
+     * @param  \App\Models\Organization  $org
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, Org $org)
+    public function view(User $user, Organization $org)
     {
         //
     }
 
     /**
      * Determine whether the user can create models.
-     *
      * @param  \App\Models\User  $user
      * @return \Illuminate\Auth\Access\Response|bool
      */
@@ -46,48 +43,44 @@ class OrgPolicy
 
     /**
      * Determine whether the user can update the model.
-     *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Org  $org
+     * @param  \App\Models\Organization  $org
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, Org $org)
+    public function update(User $user, Organization $org)
     {
         //
     }
 
     /**
      * Determine whether the user can delete the model.
-     *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Org  $org
+     * @param  \App\Models\Organization  $org
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, Org $org)
+    public function delete(User $user, Organization $org)
     {
         //
     }
 
     /**
      * Determine whether the user can restore the model.
-     *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Org  $org
+     * @param  \App\Models\Organization  $org
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, Org $org)
+    public function restore(User $user, Organization $org)
     {
         //
     }
 
     /**
      * Determine whether the user can permanently delete the model.
-     *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Org  $org
+     * @param  \App\Models\Organization  $org
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, Org $org)
+    public function forceDelete(User $user, Organization $org)
     {
         //
     }
