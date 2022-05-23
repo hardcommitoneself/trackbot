@@ -21,7 +21,7 @@ Route::get('/', function () {
 Route::get('meets', function() {
     // If the Content-Type and Accept headers are set to 'application/json',
     // this will return a JSON structure. This will be cleaned up later.
-    return Meet::all();
+    return \App\Http\Resources\MeetResource::collection(Meet::all());
 });
 
 require __DIR__.'/auth.php';
