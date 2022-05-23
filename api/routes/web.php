@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Meet;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,6 +16,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return ['Laravel' => app()->version()];
+});
+
+Route::get('meets', function() {
+    // If the Content-Type and Accept headers are set to 'application/json',
+    // this will return a JSON structure. This will be cleaned up later.
+    return Meet::all();
 });
 
 require __DIR__.'/auth.php';

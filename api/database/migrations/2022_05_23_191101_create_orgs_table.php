@@ -14,12 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('orgs', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
             $table->tinyInteger('sport'); // Sport Enum
             $table->tinyInteger('org_type'); // OrgType Enum
             $table->string('name', 100); // full name of the organization
             $table->string('abbr', 5)->unique(); // will be the primary identifier
-            $table->uuid(); // Only expose UUIDs
             $table->timestamps();
         });
     }
