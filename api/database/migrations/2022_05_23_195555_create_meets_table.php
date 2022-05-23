@@ -13,12 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('orgs', function (Blueprint $table) {
+        Schema::create('meets', function (Blueprint $table) {
             $table->id();
             $table->tinyInteger('sport'); // Sport Enum
-            $table->tinyInteger('org_type'); // OrgType Enum
-            $table->string('name', 100); // full name of the organization
-            $table->string('abbr', 5)->unique(); // will be the primary identifier
+            $table->foreignId('org_id')->constrained('orgs')->cascadeOnDelete(); // the org that owns the meet
+            $table->string('name', 100)->fulltext(); // name of the meet
+            $table->text('info')->nullable(); // details about the meet
+            $table->boolean('is_sanctioned')->default(0); // has the meet been sanctioned by a governing body
             $table->uuid(); // Only expose UUIDs
             $table->timestamps();
         });
@@ -31,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('orgs');
+        Schema::dropIfExists('meets');
     }
 };

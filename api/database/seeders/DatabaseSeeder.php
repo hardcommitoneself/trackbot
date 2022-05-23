@@ -2,6 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Meet;
+use App\Models\Org;
+use Database\Factories\MeetFactory;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -14,11 +17,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+         $salem = Org::factory()
+             ->has(Meet::factory()->count(3))
+             ->create([
+             'name' => 'Salem Hills High School',
+         ]);
+
     }
 }
