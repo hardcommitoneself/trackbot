@@ -20,4 +20,4 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
 });
 
 Route::apiResource('meets', MeetController::class)
-    ->only(['index']);
+    ->only(['index', 'show']);

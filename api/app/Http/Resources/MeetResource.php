@@ -3,13 +3,27 @@
 namespace App\Http\Resources;
 
 use TiMacDonald\JsonApi\JsonApiResource;
+use TiMacDonald\JsonApi\Link;
+
+// https://github.com/timacdonald/json-api
 
 class MeetResource extends JsonApiResource
 {
     public function toAttributes($request): array
     {
         return [
-            'name' => $this->name,
+            'name'          => $this->name,
+            'sport'         => $this->sport->name,
+            'info'          => $this->info,
+            'is_sanctioned' => $this->is_sanctioned,
+        ];
+    }
+
+    protected function toLinks($request): array
+    {
+        return [
+            Link::self(route('meets.show', $this->resource)),
+            //'related' => 'https://example.com/related'
         ];
     }
 

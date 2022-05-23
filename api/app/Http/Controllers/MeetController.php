@@ -12,21 +12,20 @@ class MeetController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
         return MeetResource::collection(
             QueryBuilder::for(Meet::class)
-            ->allowedFilters(['name'])
-            ->get()
+                ->allowedFilters(['name'])
+                ->allowedSorts(['name'])
+                ->get()
         );
     }
 
     /**
      * Show the form for creating a new resource.
-     *
      * @return \Illuminate\Http\Response
      */
     public function create()
@@ -36,7 +35,6 @@ class MeetController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     *
      * @param  \App\Http\Requests\StoreMeetRequest  $request
      * @return \Illuminate\Http\Response
      */
@@ -47,18 +45,16 @@ class MeetController extends Controller
 
     /**
      * Display the specified resource.
-     *
      * @param  \App\Models\Meet  $meet
      * @return \Illuminate\Http\Response
      */
     public function show(Meet $meet)
     {
-        //
+        return MeetResource::make($meet);
     }
 
     /**
      * Show the form for editing the specified resource.
-     *
      * @param  \App\Models\Meet  $meet
      * @return \Illuminate\Http\Response
      */
@@ -69,7 +65,6 @@ class MeetController extends Controller
 
     /**
      * Update the specified resource in storage.
-     *
      * @param  \App\Http\Requests\UpdateMeetRequest  $request
      * @param  \App\Models\Meet  $meet
      * @return \Illuminate\Http\Response
@@ -81,7 +76,6 @@ class MeetController extends Controller
 
     /**
      * Remove the specified resource from storage.
-     *
      * @param  \App\Models\Meet  $meet
      * @return \Illuminate\Http\Response
      */
