@@ -9,14 +9,14 @@ class MeetResource extends JsonApiResource
     public function toAttributes($request): array
     {
         return [
-          'name' => $this->name
+            'name' => $this->name,
         ];
     }
 
-
-    public function toRelationships($request): array {
+    public function toRelationships($request): array
+    {
         return [
-            'org' => fn () => new OrgResource($this->org),
+            'organization' => fn() => new OrgResource($this->organization),
         ];
     }
 }
