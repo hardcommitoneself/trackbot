@@ -2,7 +2,7 @@
 
 namespace App\Enums;
 
-enum TimingTypeOld: string
+enum TimingType: string
 {
     case FAT = 'FAT';
     case HAND = 'HAND';
