@@ -12,7 +12,8 @@ return new class extends Migration {
     public function up()
     {
         Schema::create('organizations', function (Blueprint $table) {
-            $table->uuid('id')->primary();
+            $table->id();
+            $table->uuid();
             $table->char('sport', 5); // Sport Enum
             $table->char('organization_type', 20); // OrgType Enum
             $table->string('name', 100); // full name of the organization

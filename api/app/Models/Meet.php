@@ -3,14 +3,14 @@
 namespace App\Models;
 
 use App\Enums\Sport;
-use App\Traits\Uuids;
+use App\Models\Concerns\HasUuid;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Meet extends Model
 {
     use HasFactory;
-    use Uuids;
+    use HasUuid;
 
     protected $casts = [
         'sport'         => Sport::class,

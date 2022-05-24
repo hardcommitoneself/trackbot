@@ -4,14 +4,14 @@ namespace App\Models;
 
 use App\Enums\OrganizationType;
 use App\Enums\Sport;
-use App\Traits\Uuids;
+use App\Models\Concerns\HasUuid;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Organization extends Model
 {
     use HasFactory;
-    use Uuids;
+    use HasUuid;
 
     protected $guarded = [];
 
