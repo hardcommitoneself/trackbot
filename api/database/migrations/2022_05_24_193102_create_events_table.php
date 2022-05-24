@@ -431,7 +431,7 @@ return new class extends Migration {
         ]);
         Event::create([
             'constant'  => 'boys-2k',
-            'sport'     => 'TRACK',
+            'sport'     => 'XC',
             'gender'    => 'MALE',
             'mark_type' => 'TIME',
             'sort'      => 10040,
