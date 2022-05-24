@@ -19,7 +19,7 @@
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url("~/assets/fonts/titillium_web/TitilliumWeb-Semibold.ttf")
+  src: url("~/assets/fonts/titillium_web/TitilliumWeb-SemiBold.ttf")
     format("truetype");
 }
 @font-face {
