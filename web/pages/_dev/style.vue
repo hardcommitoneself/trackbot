@@ -102,9 +102,9 @@
                 </div>
               </NuxtLink>
             </div>
-            <div class="mt-9 font-mono">Forms Elements</div>
+            <div class="mt-9 font-mono">Forms</div>
             <p class="bot-input-label">Form Label</p>
-            <input class="bot-base-input" />
+            <input class="bot-base-input" placeholder="bot-base-input" />
           </div>
         </div>
 

@@ -105,5 +105,5 @@
 }
 
 .bot-input-label {
-    @apply pl-1 text-sm font-medium leading-5
+    @apply text-sm uppercase font-medium leading-5
 }
