@@ -14,6 +14,7 @@ class Meet extends Model
 
     protected $casts = [
         'sport'         => Sport::class,
+        'is_indoor'     => 'boolean',
         'is_sanctioned' => 'boolean',
     ];
 

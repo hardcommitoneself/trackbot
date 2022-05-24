@@ -24,8 +24,9 @@ class MeetFactory extends Factory
                     'Invite', 'Invitational', 'Meet', 'Championships', 'Challenge', 'First Flight', 'Early Bird',
                     'Last Chance',
                 ]),
+            'is_indoor'       => $this->faker->boolean,
             'is_sanctioned'   => $this->faker->boolean,
-            'info'            => $this->faker->realTextBetween(100, 500),
+            'information'     => $this->faker->realTextBetween(100, 500),
         ];
     }
 }

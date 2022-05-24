@@ -14,7 +14,8 @@ class MeetResource extends JsonApiResource
         return [
             'name'          => $this->name,
             'sport'         => $this->sport->name,
-            'info'          => $this->info,
+            'information'   => $this->information,
+            'is_indoor'     => $this->is_indoor,
             'is_sanctioned' => $this->is_sanctioned,
         ];
     }

@@ -18,7 +18,7 @@ class MeetController extends Controller
     {
         return MeetResource::collection(
             QueryBuilder::for(Meet::class)
-                ->allowedFilters(['name', 'sport'])
+                ->allowedFilters(['name', 'sport', 'is_sanctioned', 'is_indoor'])
                 ->allowedSorts(['name'])
                 ->get()
         );
