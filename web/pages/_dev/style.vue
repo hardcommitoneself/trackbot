@@ -24,9 +24,9 @@
         <li>Tailwind CSS - use {primary, secondary, tertiary} for colors.</li>
         <li>
           Icons -
-          <a target="_blank" href="https://heroicons.com"
-            >heroicons. Use outlines. space-x-1 between icon and text.</a
-          >
+          <a class="bot-href" target="_blank" href="https://heroicons.com"
+            >heroicons</a
+          >. Use outlines. space-x-1 between icon and text.
         </li>
         <li>
           Paddings / Margins - x = evens, y = odds.
@@ -79,7 +79,11 @@
             </div>
 
             <div class="mt-9 font-mono">Buttons</div>
-            <div class="flex items-center space-x-4">
+            <p>
+              Use default for all actions. Alt to be use for secondary actions
+              like cancel. Danger for data loss operations.
+            </p>
+            <div class="mt-1 flex items-center space-x-4">
               <NuxtLink class="bot-button">Button</NuxtLink>
               <NuxtLink class="bot-alt-button">Alt Button</NuxtLink>
               <NuxtLink class="bot-danger-button">
