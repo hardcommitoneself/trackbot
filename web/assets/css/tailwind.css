@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bot-button {
+    @apply inline-flex cursor-pointer items-center rounded-md border border-transparent bg-primary-400 px-4 py-1 transition ease-in-out hover:bg-primary-300 focus:outline-none focus:ring-2 focus:ring-primary-400 focus:ring-offset-2
+}

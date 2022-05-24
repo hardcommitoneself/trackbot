@@ -6,4 +6,13 @@ export default defineNuxtConfig({
     // https://tailwindcss.nuxtjs.org/
     '@nuxtjs/tailwindcss',
   ],
+
+  tailwindcss: {
+    cssPath: '~/assets/css/tailwind.css',
+},
+
+css: [
+    '~/assets/css/main.css',
+]
+
 });
