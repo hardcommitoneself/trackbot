@@ -10,6 +10,11 @@ it('should return 404 if a meet is not found', function () {
         ->assertStatus(Response::HTTP_NOT_FOUND);
 });
 
+it('should return 400 if attempting to filter by unsupported field', function () {
+    getJson(route('meets.index', ['filter[not-exists]' => 'not-exists']))
+        ->assertStatus(Response::HTTP_BAD_REQUEST);
+});
+
 it('show get a single meet', function () {
     $meet = Meet::factory()->create([
         'name' => 'Skyhawk Invite',
@@ -85,6 +90,56 @@ it('should filter meets based on name', function () {
         ->create();
 
     $meetResponse = getJson(route('meets.index', ['filter[name]' => 'XC']))
+        ->json('data');
+
+    expect($meetResponse)->sequence(
+        fn($meet) => $meet->attributes->name->toBe('XC Meet'),
+    );
+});
+
+it('should filter meets based on is_sanctioned', function () {
+    Meet::factory()->sequence(
+        ['name' => 'Skyhawk Invite', 'is_sanctioned' => 1],
+        ['name' => 'Utah County Invitational', 'is_sanctioned' => 1],
+        ['name' => 'XC Meet', 'sport' => 'XC', 'is_sanctioned' => 0]
+    )
+        ->count(3)
+        ->create();
+
+    $meetResponse = getJson(route('meets.index', ['filter[is_sanctioned]' => 1]))
+        ->json('data');
+
+    expect($meetResponse)->sequence(
+        fn($meet) => $meet->attributes->name->toBe('Skyhawk Invite'),
+        fn($meet) => $meet->attributes->name->toBe('Utah County Invitational'),
+    );
+
+    $meetResponse = getJson(route('meets.index', ['filter[is_sanctioned]' => 0]))
+        ->json('data');
+
+    expect($meetResponse)->sequence(
+        fn($meet) => $meet->attributes->name->toBe('XC Meet'),
+    );
+});
+
+it('should filter meets based on is_indoor', function () {
+    Meet::factory()->sequence(
+        ['name' => 'Skyhawk Invite', 'is_indoor' => 1],
+        ['name' => 'Utah County Invitational', 'is_indoor' => 1],
+        ['name' => 'XC Meet', 'sport' => 'XC', 'is_indoor' => 0]
+    )
+        ->count(3)
+        ->create();
+
+    $meetResponse = getJson(route('meets.index', ['filter[is_indoor]' => 1]))
+        ->json('data');
+
+    expect($meetResponse)->sequence(
+        fn($meet) => $meet->attributes->name->toBe('Skyhawk Invite'),
+        fn($meet) => $meet->attributes->name->toBe('Utah County Invitational'),
+    );
+
+    $meetResponse = getJson(route('meets.index', ['filter[is_indoor]' => 0]))
         ->json('data');
 
     expect($meetResponse)->sequence(

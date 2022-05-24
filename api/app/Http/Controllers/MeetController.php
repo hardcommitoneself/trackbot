@@ -6,6 +6,7 @@ use App\Http\Requests\StoreMeetRequest;
 use App\Http\Requests\UpdateMeetRequest;
 use App\Http\Resources\MeetResource;
 use App\Models\Meet;
+use Spatie\QueryBuilder\AllowedFilter;
 use Spatie\QueryBuilder\QueryBuilder;
 
 class MeetController extends Controller
@@ -18,7 +19,12 @@ class MeetController extends Controller
     {
         return MeetResource::collection(
             QueryBuilder::for(Meet::class)
-                ->allowedFilters(['name', 'sport', 'is_sanctioned', 'is_indoor'])
+                ->allowedFilters([
+                    'name',
+                    AllowedFilter::exact('sport'),
+                    AllowedFilter::exact('is_sanctioned'),
+                    AllowedFilter::exact('is_indoor'),
+                ])
                 ->allowedSorts(['name'])
                 ->get()
         );
