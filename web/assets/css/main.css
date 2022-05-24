@@ -43,6 +43,11 @@
   @apply bg-gray-100 dark:bg-gray-900;
 }
 
+/* default background and text colors */
+.bot-bg-and-text {
+    @apply text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-900
+}
+
 /* accents to the defaults - for use on cards, etc. */
 .bot-bg-and-text-accent {
     @apply bg-white dark:bg-gray-800
