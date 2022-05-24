@@ -2,9 +2,9 @@
 
 namespace App\Enums;
 
-enum Sport: int
+enum Sport: string
 {
-    case TRACK = 1;
-    case XC = 2;
+    case TRACK = "TRACK";
+    case XC = "XC";
 
 }

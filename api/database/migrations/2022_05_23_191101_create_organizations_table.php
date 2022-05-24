@@ -13,8 +13,8 @@ return new class extends Migration {
     {
         Schema::create('organizations', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->tinyInteger('sport'); // Sport Enum
-            $table->tinyInteger('organization_type'); // OrgType Enum
+            $table->char('sport', 5); // Sport Enum
+            $table->char('organization_type', 20); // OrgType Enum
             $table->string('name', 100); // full name of the organization
             $table->string('abbr', 5)->unique(); // will be the primary identifier
             $table->timestamps();

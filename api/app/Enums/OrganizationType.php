@@ -2,11 +2,10 @@
 
 namespace App\Enums;
 
-enum OrganizationType: int
+enum OrganizationType: string
 {
-    case HIGH_SCHOOL = 1;
-    case JUNIOR_HIGH = 2;
-    case COLLEGIATE = 3;
-    case TIMER = 4;
-
+    case HIGH_SCHOOL = "HIGH_SCHOOL";
+    case JUNIOR_HIGH = "JUNIOR_HIGH";
+    case COLLEGIATE = "COLLEGIATE";
+    case TIMER = "TIMER";
 }

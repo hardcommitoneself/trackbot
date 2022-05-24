@@ -13,7 +13,7 @@ return new class extends Migration {
     {
         Schema::create('meets', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->tinyInteger('sport'); // Sport Enum
+            $table->char('sport', 20); // Sport Enum
             $table->foreignUuid('organization_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
             $table->string('name', 100)->fulltext(); // name of the meet
             $table->text('info')->nullable(); // details about the meet
