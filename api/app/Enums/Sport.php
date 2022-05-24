@@ -6,5 +6,4 @@ enum Sport: string
 {
     case TRACK = "TRACK";
     case XC = "XC";
-
 }
