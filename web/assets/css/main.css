@@ -1,7 +1,64 @@
 @font-face {
-    font-family: 'TitilliumWeb';
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url('~/assets/fonts/titillium_web/TitilliumWeb-Regular.ttf') format('truetype');
-  }
+  font-family: "TitilliumWeb";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("~/assets/fonts/titillium_web/TitilliumWeb-Light.ttf")
+    format("truetype");
+}
+@font-face {
+  font-family: "TitilliumWeb";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("~/assets/fonts/titillium_web/TitilliumWeb-Regular.ttf")
+    format("truetype");
+}
+@font-face {
+  font-family: "TitilliumWeb";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("~/assets/fonts/titillium_web/TitilliumWeb-Semibold.ttf")
+    format("truetype");
+}
+@font-face {
+  font-family: "TitilliumWeb";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("~/assets/fonts/titillium_web/TitilliumWeb-Bold.ttf")
+    format("truetype");
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bot-text-color {
+  @apply text-gray-500 dark:text-gray-400;
+}
+
+.bot-bg-color {
+  @apply bg-gray-100 dark:bg-gray-900;
+}
+
+.bot-button {
+  @apply inline-flex cursor-pointer items-center rounded-md border border-transparent bg-primary-400 text-primary-900 px-4 py-1 transition ease-in-out hover:bg-primary-300 focus:outline-none focus:ring-2 focus:ring-primary-400 focus:ring-offset-2;
+}
+
+.bot-href-colors {
+  @apply text-primary-500 hover:text-primary-400;
+}
+
+.bot-href-alt-colors {
+  @apply text-secondary-500 hover:text-secondary-400;
+}
+
+.bot-href-border-bottom {
+  @apply border-b border-dashed border-primary-500;
+}
+
+.bot-href {
+    @apply cursor-pointer bot-href-colors bot-href-border-bottom;
+}
