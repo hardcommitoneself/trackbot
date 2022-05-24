@@ -30,7 +30,7 @@
               <li class="pl-8">
                 -
                 <span class="dev-db-attr">is_sanctioned</span>: Is the meet
-                sactioned by an outside party?
+                sactioned by an outside governing body?
               </li>
             </ul>
           </li>
