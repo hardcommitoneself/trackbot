@@ -18,7 +18,7 @@ class MeetController extends Controller
     {
         return MeetResource::collection(
             QueryBuilder::for(Meet::class)
-                ->allowedFilters(['name'])
+                ->allowedFilters(['name', 'sport'])
                 ->allowedSorts(['name'])
                 ->get()
         );
