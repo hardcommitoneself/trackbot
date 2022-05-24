@@ -5,6 +5,35 @@
       <h1 class="text-2xl">Database Design</h1>
       <h2 class="text-xl">Schema</h2>
       <ul>
+        <li class="dev-db-table">Events:</li>
+        <ul>
+          <li class="pl-4">
+            <span class="dev-db-section">description</span>: It holds static
+            information about the events and all related information - both XC
+            and TRACK.
+          </li>
+          <li class="pl-4">
+            <span class="dev-db-section">attributes</span>:
+            <ul>
+              <li class="pl-8">
+                - <span class="dev-db-attr">sport</span>: (Sport enum->name)
+                TRACK or XC.
+              </li>
+              <li class="pl-8">
+                - <span class="dev-db-attr">gender</span>: (Gender enum->name)
+                MALE or FEMALE or MIXED.
+              </li>
+              <li class="pl-8">
+                - <span class="dev-db-attr">mark_type</span>: (MarkType
+                enum->name) TIME or DISTANCE or SCORE.
+              </li>
+              <li class="pl-8">
+                - <span class="dev-db-attr">multiple booleans...</span>: Several
+                booleans (to allow simple filtering of events)
+              </li>
+            </ul>
+          </li>
+        </ul>
         <li class="dev-db-table">Meets:</li>
         <ul>
           <li class="pl-4">
