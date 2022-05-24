@@ -87,3 +87,15 @@
 .bot-href {
     @apply cursor-pointer bot-href-colors bot-href-border-bottom;
 }
+
+.dev-db-table {
+    @apply text-primary-500 font-mono mt-4
+}
+
+.dev-db-section {
+    @apply text-secondary-500 font-mono
+}
+
+.dev-db-attr {
+    @apply text-tertiary-500 font-mono
+}
