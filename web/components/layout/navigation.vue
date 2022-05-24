@@ -39,8 +39,8 @@
     </div >
 </template>
 <script>
-import Logo from "../core/logo.vue"
-import LogoType from "../core/logoType.vue"
+import Logo from "../core/Logo.vue"
+import LogoType from "../core/LogoType.vue"
 export default {
     components: {
         Logo,
