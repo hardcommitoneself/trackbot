@@ -12,4 +12,8 @@ export default defineNuxtConfig({
     "~/assets/css/main.css", 
     '@fortawesome/fontawesome-free/css/all.css'
   ],
+
+  colorMode: {
+    classSuffix: '',
+  }
 });

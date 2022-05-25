@@ -61,10 +61,10 @@
 
             <div class="mt-9 font-mono">Headings</div>
             <div class="space-y-1">
-              <HeaderH1>Heading 1 (page)</HeaderH1>
-              <HeaderH2>Heading 2 (section)</HeaderH2>
-              <HeaderH3>Heading 3 (sub-section)</HeaderH3>
-              <HeaderH4>Heading 4 (sub-sub-section)</HeaderH4>
+              <CoreHeaderH1>Heading 1 (page)</CoreHeaderH1>
+              <CoreHeaderH2>Heading 2 (section)</CoreHeaderH2>
+              <CoreHeaderH3>Heading 3 (sub-section)</CoreHeaderH3>
+              <CoreHeaderH4>Heading 4 (sub-sub-section)</CoreHeaderH4>
             </div>
 
             <div class="mt-9 font-mono">Text</div>
