@@ -31,7 +31,7 @@
                                     </div >
 
                                     <div id="search-modal" :class="['absolute top-14 inset-x-0 p-2 mx-auto transition transform w-full lg:w-3/4 origin-center z-50', {hidden: !openSearchModal}]" >
-                                        <v-base-card class="border dark:border-none border-gray-300 px-4">
+                                        <v-card-base class="border dark:border-none border-gray-300 px-4">
                                             <div class="flex items-center justify-between" >
                                                 <v-h4 >Search</v-h4 >
                                                 <div >
@@ -51,7 +51,7 @@
                                                 <!-- TODO: Add command palette -->
                                             </div >
                                             <div class="text-sm py-2 my-2" >Schools by name, mascot, or city</div >
-                                        </v-base-card>
+                                        </v-card-base>
                                     </div >
                                 </div >
                             </div >
@@ -108,7 +108,7 @@ import { defineComponent } from "vue"
 import VH4 from "../core/header/H4.vue"
 import VLogo from "../core/VLogo.vue"
 import VLogoType from "../core/VLogoType.vue"
-import VBaseCard from "../core/cards/VBaseCard.vue"
+import VCardBase from "../core/cards/VCardBase.vue"
 import VModeToggle from "../core/VModeToggle.vue"
 import JetResponsiveNavLink from "../jet/JetResponsiveNavLink.vue"
 
@@ -123,7 +123,7 @@ export default defineComponent({
         VH4,
         VLogo,
         VLogoType,
-        VBaseCard,
+        VCardBase,
         VModeToggle,
         JetResponsiveNavLink
     }
