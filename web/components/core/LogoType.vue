@@ -57,7 +57,7 @@
         </g >
     </svg >
 </template>
-<style >
+<style scoped>
     .c {
         fill: #231f20;
     }
