@@ -1,6 +1,8 @@
 <template>
     <div>
         <LayoutTheNavigation />
-        <slot />
+        <div class="pb-14" >
+            <slot />
+        </div >
     </div>
 </template>
