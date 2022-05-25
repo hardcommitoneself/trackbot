@@ -22,39 +22,41 @@
                                 </button >
                             </span >
 
-                            <div :class="['fixed z-10 inset-0 overflow-y-auto',  {'hidden': !openSearchModal}]" >
-                                <div
-                                    class="relative flex items-end justify-center m-auto py-4 px-4 text-center sm:block" >
-                                    <!-- Background overlay -->
-                                    <div class="fixed inset-0 transition-opacity" >
-                                        <div class="absolute inset-0 bg-gray-500 opacity-50" ></div >
-                                    </div >
 
-                                    <div id="search-modal" :class="['absolute top-14 inset-x-0 p-2 mx-auto transition transform w-full lg:w-3/4 origin-center z-50', {hidden: !openSearchModal}]" >
-                                        <v-card-base class="border dark:border-none border-gray-300 px-4">
-                                            <div class="flex items-center justify-between" >
-                                                <v-h4 >Search</v-h4 >
-                                                <div >
-                                                    <button @click="openSearchModal = false" type="button"
-                                                            class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out" >
-                                                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                                                                stroke="currentColor" >
-                                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                                    stroke-width="2"
-                                                                    d="M6 18L18 6M6 6l12 12" >
-                                                            </path >
-                                                        </svg >
-                                                    </button >
+                            <!-- Background overlay -->
+                            <div v-if="openSearchModal" class="fixed inset-0 transition-opacity" >
+                                <div class="absolute inset-0 bg-gray-500 opacity-50" ></div >
+                            </div >
+                            <transition name="bot-transition-seach-modal">
+                                <div v-if="openSearchModal" class="fixed z-10 inset-0 overflow-y-auto" >
+                                    <div
+                                        class="relative flex items-end justify-center m-auto py-4 px-4 text-center sm:block" >
+                                        <div id="search-modal" class="absolute top-14 inset-x-0 p-2 mx-auto lg:w-3/4 origin-center z-50" >
+                                            <v-card-base class="border dark:border-none border-gray-300 px-4">
+                                                <div class="flex items-center justify-between" >
+                                                    <v-h4 >Search</v-h4 >
+                                                    <div >
+                                                        <button @click="openSearchModal = false" type="button"
+                                                                class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out" >
+                                                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                                                    stroke="currentColor" >
+                                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                                        stroke-width="2"
+                                                                        d="M6 18L18 6M6 6l12 12" >
+                                                                </path >
+                                                            </svg >
+                                                        </button >
+                                                    </div >
                                                 </div >
-                                            </div >
-                                            <div >
-                                                <!-- TODO: Add command palette -->
-                                            </div >
-                                            <div class="text-sm py-2 my-2" >Schools by name, mascot, or city</div >
-                                        </v-card-base>
+                                                <div >
+                                                    <!-- TODO: Add command palette -->
+                                                </div >
+                                                <div class="text-sm py-2 my-2" >Schools by name, mascot, or city</div >
+                                            </v-card-base>
+                                        </div >
                                     </div >
                                 </div >
-                            </div >
+                            </transition>
                         </div >
                         <v-mode-toggle class="ml-3 pt-1" />
                         <div>
