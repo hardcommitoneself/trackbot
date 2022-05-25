@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\MeetController;
+use App\Http\Controllers\OrganizationController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,4 +22,10 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
 });
 
 Route::apiResource('meets', MeetController::class)
+    ->only(['index', 'show']);
+
+Route::apiResource('events', EventController::class)
+    ->only(['index', 'show']);
+
+Route::apiResource('organizations', OrganizationController::class)
     ->only(['index', 'show']);

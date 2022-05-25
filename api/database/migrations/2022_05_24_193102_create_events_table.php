@@ -444,6 +444,6 @@ return new class extends Migration {
      */
     public function down()
     {
-        Schema::dropIfExists('events');
+        Schema::dropIfExists('sport_events');
     }
 };
