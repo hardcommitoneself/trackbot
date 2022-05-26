@@ -4,9 +4,9 @@ namespace App\Http\Resources;
 
 use TiMacDonald\JsonApi\JsonApiResource;
 
-class OrgResource extends JsonApiResource
+class OrganizationResource extends JsonApiResource
 {
-    public function toAttributes($request) : array
+    public function toAttributes($request): array
     {
         return [
             'name' => $this->name,

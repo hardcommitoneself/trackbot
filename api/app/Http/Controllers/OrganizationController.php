@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreOrgRequest;
 use App\Http\Requests\UpdateOrgRequest;
+use App\Http\Resources\OrganizationResource;
 use App\Models\Organization;
+use Spatie\QueryBuilder\QueryBuilder;
 
-class OrgController extends Controller
+class OrganizationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +16,12 @@ class OrgController extends Controller
      */
     public function index()
     {
-        //
+        return OrganizationResource::collection(
+            QueryBuilder::for(Organization::class)
+                ->allowedFilters(['name'])
+                ->allowedSorts(['name'])
+                ->get()
+        );
     }
 
     /**
@@ -38,12 +45,12 @@ class OrgController extends Controller
 
     /**
      * Display the specified resource.
-     * @param  \App\Models\Organization  $org
+     * @param  \App\Models\Organization  $organization
      * @return \Illuminate\Http\Response
      */
-    public function show(Organization $org)
+    public function show(Organization $organization)
     {
-        //
+        return OrganizationResource::make($organization);
     }
 
     /**

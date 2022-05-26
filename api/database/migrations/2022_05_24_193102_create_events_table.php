@@ -371,6 +371,7 @@ return new class extends Migration {
             'constant'    => 'boys-4x800-relay',
             'sport'       => 'TRACK',
             'gender'      => 'MALE',
+            'is_track'    => 1,
             'is_distance' => 1,
             'is_relay'    => 1,
             'mark_type'   => 'TIME',
@@ -410,14 +411,14 @@ return new class extends Migration {
         ]);
         Event::create([
             'constant'  => 'girls-5k',
-            'sport'     => 'TRACK',
+            'sport'     => 'XC',
             'gender'    => 'FEMALE',
             'mark_type' => 'TIME',
             'sort'      => 10010,
         ]);
         Event::create([
             'constant'  => 'boys-5k',
-            'sport'     => 'TRACK',
+            'sport'     => 'XC',
             'gender'    => 'MALE',
             'mark_type' => 'TIME',
             'sort'      => 10020,
@@ -444,6 +445,6 @@ return new class extends Migration {
      */
     public function down()
     {
-        Schema::dropIfExists('events');
+        Schema::dropIfExists('sport_events');
     }
 };

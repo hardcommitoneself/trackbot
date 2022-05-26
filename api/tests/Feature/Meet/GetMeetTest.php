@@ -15,7 +15,7 @@ it('should return 400 if attempting to filter by unsupported field', function ()
         ->assertStatus(Response::HTTP_BAD_REQUEST);
 });
 
-it('show get a single meet', function () {
+it('it can get a single meet', function () {
     $meet = Meet::factory()->create([
         'name' => 'Skyhawk Invite',
     ]);
