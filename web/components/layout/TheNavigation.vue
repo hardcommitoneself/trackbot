@@ -22,16 +22,16 @@
                                 </button >
                             </span >
 
-
-                            <!-- Background overlay -->
-                            <div v-if="openSearchModal" class="fixed inset-0 transition-opacity" >
-                                <div class="absolute inset-0 bg-gray-500 opacity-50" ></div >
-                            </div >
-                            <transition name="bot-transition-seach-modal">
-                                <div v-if="openSearchModal" class="fixed z-10 inset-0 overflow-y-auto" >
+                            
+                                <div :class="{'fixed z-10 inset-0 overflow-y-auto': openSearchModal}" >
                                     <div
-                                        class="relative flex items-end justify-center m-auto py-4 px-4 text-center sm:block" >
-                                        <div id="search-modal" v-click-outside="closeSearchModal" class="absolute top-14 inset-x-0 p-2 mx-auto lg:w-3/4 origin-center z-50" >
+                                        :class="{'relative flex items-end justify-center m-auto py-4 px-4 text-center sm:block': openSearchModal}" >
+                                        <!-- Background overlay -->
+                                        <div v-if="openSearchModal  " class="fixed inset-0 transition-opacity" >
+                                            <div class="absolute inset-0 bg-gray-500 opacity-50" ></div >
+                                        </div >
+                                        <transition name="bot-transition-seach-modal">
+                                        <div id="search-modal" v-if="openSearchModal" v-click-outside="closeSearchModal" class="absolute top-14 inset-x-0 p-2 mx-auto lg:w-3/4 origin-center z-50" >
                                             <v-card-base class="border dark:border-none border-gray-300 px-4">
                                                 <div class="flex items-center justify-between" >
                                                     <v-h4 >Search</v-h4 >
@@ -54,9 +54,9 @@
                                                 <div class="text-sm py-2 my-2" >Schools by name, mascot, or city</div >
                                             </v-card-base>
                                         </div >
+                                        </transition>
                                     </div >
                                 </div >
-                            </transition>
                         </div >
                         <v-mode-toggle class="ml-3 pt-1" />
                         <div>
