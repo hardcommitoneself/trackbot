@@ -49,7 +49,7 @@
                                                     </div >
                                                 </div >
                                                 <div >
-                                                    <!-- TODO: Add command palette -->
+                                                    <main-command-palette />
                                                 </div >
                                                 <div class="text-sm py-2 my-2" >Schools by name, mascot, or city</div >
                                             </v-card-base>
@@ -113,6 +113,7 @@ import VLogoType from "../core/VLogoType.vue"
 import VCardBase from "../core/cards/VCardBase.vue"
 import VModeToggle from "../core/VModeToggle.vue"
 import JetResponsiveNavLink from "../jet/JetResponsiveNavLink.vue"
+import MainCommandPalette from "../main/CommandPalette.vue"
 
 export default defineComponent({
     data() {
@@ -127,7 +128,8 @@ export default defineComponent({
         VLogoType,
         VCardBase,
         VModeToggle,
-        JetResponsiveNavLink
+        JetResponsiveNavLink,
+        MainCommandPalette
     }
 })
 </script>
