@@ -31,7 +31,7 @@
                                 <div v-if="openSearchModal" class="fixed z-10 inset-0 overflow-y-auto" >
                                     <div
                                         class="relative flex items-end justify-center m-auto py-4 px-4 text-center sm:block" >
-                                        <div id="search-modal" class="absolute top-14 inset-x-0 p-2 mx-auto lg:w-3/4 origin-center z-50" >
+                                        <div id="search-modal" v-click-outside="closeSearchModal" class="absolute top-14 inset-x-0 p-2 mx-auto lg:w-3/4 origin-center z-50" >
                                             <v-card-base class="border dark:border-none border-gray-300 px-4">
                                                 <div class="flex items-center justify-between" >
                                                     <v-h4 >Search</v-h4 >
@@ -106,6 +106,7 @@
 </template>
 <script>
 import { defineComponent } from "vue"
+import VClickOutside from "click-outside-vue3"
 
 import VH4 from "../core/header/H4.vue"
 import VLogo from "../core/VLogo.vue"
@@ -116,10 +117,18 @@ import JetResponsiveNavLink from "../jet/JetResponsiveNavLink.vue"
 import MainCommandPalette from "../main/CommandPalette.vue"
 
 export default defineComponent({
+    directives: {
+      clickOutside: VClickOutside.directive
+    },
     data() {
         return {
             openSearchModal: false,
             openDropdownMenu: false
+        }
+    },
+    methods: {
+        closeSearchModal(event) {
+            this.openSearchModal = false
         }
     },
     components: {

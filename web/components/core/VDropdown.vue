@@ -4,7 +4,7 @@
             <slot name="trigger"/>
         </div>
         <transition name="bot-transition-dropdown">
-            <div v-if="open" :class="['absolute z-50 mt-1', widthClass, 'rounded-md shadow-lg', alignmentClasses, dropdownClasses]">
+            <div v-if="open" v-click-outside="hideDropdown"  :class="['absolute z-50 mt-1', widthClass, 'rounded-md shadow-lg', alignmentClasses, dropdownClasses]">
                 <div :class="['rounded-md p-4', contentClasses]" >
                     <slot name="content"/>
                     <div v-if="!closeOnClick" class="flex mt-4" >
@@ -17,6 +17,7 @@
 </template>
 <script>
 import { defineComponent } from "vue"
+import VClickOutside from "click-outside-vue3"
 
 export default defineComponent({
     props: {
@@ -41,9 +42,17 @@ export default defineComponent({
             default: true
         }
     },
+    directives: {
+      clickOutside: VClickOutside.directive
+    },
     data() {
         return {
             open: false
+        }
+    },
+    methods: {
+        hideDropdown() {
+            this.open = false
         }
     },
     computed: {      
