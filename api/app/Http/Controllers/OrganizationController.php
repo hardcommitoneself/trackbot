@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreOrgRequest;
 use App\Http\Requests\UpdateOrgRequest;
-use App\Http\Resources\MeetResource;
 use App\Http\Resources\OrganizationResource;
 use App\Models\Organization;
 use Spatie\QueryBuilder\QueryBuilder;
@@ -17,7 +16,7 @@ class OrganizationController extends Controller
      */
     public function index()
     {
-        return MeetResource::collection(
+        return OrganizationResource::collection(
             QueryBuilder::for(Organization::class)
                 ->allowedFilters(['name'])
                 ->allowedSorts(['name'])

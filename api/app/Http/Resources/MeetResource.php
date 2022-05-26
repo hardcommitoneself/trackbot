@@ -31,7 +31,7 @@ class MeetResource extends JsonApiResource
     public function toRelationships($request): array
     {
         return [
-            'organization' => fn() => new OrgResource($this->organization),
+            'organization' => fn() => new OrganizationResource($this->organization),
         ];
     }
 }

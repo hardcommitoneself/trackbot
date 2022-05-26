@@ -6,6 +6,7 @@ use App\Http\Requests\StoreEventRequest;
 use App\Http\Requests\UpdateEventRequest;
 use App\Http\Resources\EventResource;
 use App\Models\Event;
+use Spatie\QueryBuilder\AllowedFilter;
 use Spatie\QueryBuilder\QueryBuilder;
 
 class EventController extends Controller
@@ -13,7 +14,23 @@ class EventController extends Controller
     public function index()
     {
         return EventResource::collection(
-            QueryBuilder::for(\App\Models\Event::class)
+            QueryBuilder::for(Event::class)
+                ->allowedFilters([
+                    'constant',
+                    AllowedFilter::exact('sport'),
+                    AllowedFilter::exact('gender'),
+                    AllowedFilter::exact('mark_type'),
+                    AllowedFilter::exact('is_relay'),
+                    AllowedFilter::exact('is_field'),
+                    AllowedFilter::exact('is_track'),
+                    AllowedFilter::exact('is_hurdles'),
+                    AllowedFilter::exact('is_distance'),
+                    AllowedFilter::exact('is_sprint'),
+                    AllowedFilter::exact('is_jump'),
+                    AllowedFilter::exact('is_throw'),
+                    AllowedFilter::exact('is_multi'),
+                    AllowedFilter::exact('has_wind'),
+                ])
                 ->allowedSorts(['name'])
                 ->get()
         );
