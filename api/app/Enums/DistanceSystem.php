@@ -2,7 +2,7 @@
 
 namespace App\Enums;
 
-enum DistanceUnit: string
+enum DistanceSystem: string
 {
     case METRIC = "METRIC";
     case ENGLISH = "ENGLISH";
