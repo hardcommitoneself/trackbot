@@ -178,3 +178,7 @@
 .bot-transition-seach-modal-leave-to {
     @apply transform opacity-0 scale-95
 }
+
+.bot-row-hover {
+  @apply hover:bg-gray-50 dark:hover:bg-gray-700
+}
