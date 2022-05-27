@@ -58,7 +58,7 @@
                                     </div >
                                 </div >
                         </div >
-                        <v-mode-toggle class="ml-3 pt-1" />
+                        <v-mode-toggle />
                         <div>
                             <v-mark-distances-in-selector />
                         </div>
