@@ -36,7 +36,7 @@
             <v-list-stacked-container>
                 <template #header>
                     <div class="flex items-center justify-between" >
-                        <v-core-h-3 >Meets ({{ meets.data.length }})</v-core-h-3 >
+                        <v-core-h-3 >Meets ({{ meets.length }})</v-core-h-3 >
 
                         <div class="flex justify-end" >
                             <div class="ml-3 relative" >
@@ -74,16 +74,16 @@
                         </div >
                     </div>
                 </template>
-                <v-card-no-results v-if="!meets.data.length"/>
+                <v-card-no-results v-if="!meets.length"/>
                 <div v-else>
-                    <v-meeet-list-item v-for="(meet, key) in meets.data" :key="key" :meet="meet"/>
+                    <v-meeet-list-item v-for="(meet, key) in meets" :key="key" :meet="meet"/>
                 </div>
             </v-list-stacked-container>
         </div >
     </div>
 </template>
 <script setup>
-const { pending, data: meets } = useLazyFetch("http://localhost:8000/api/v1/meets");
+const { pending, data: meets } = await $fetch("/api/v1/meets");
 </script>
 
 <script>
