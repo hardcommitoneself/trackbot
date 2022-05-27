@@ -20,6 +20,9 @@ return new class extends Migration {
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('timezone')->default('America/Boise');
+            $table->string('profile_photo_path', 2048)->nullable();
+            $table->foreignId('default_organization_id')->nullable()->constrained('organizations'); // when logging in this is the organization we will set to
+            $table->char('default_distance_unit', 7)->default('ENGLISH'); // DistanceUnit Enum
             $table->rememberToken();
             $table->timestamps();
         });
