@@ -71,10 +71,74 @@
                         </div >
 
                         <div class="hidden sm:flex sm:items-center" >
-                            <!-- TODO: guest mode -->
-                            <NuxtLink class="bot-href">Login</NuxtLink>
+                            <!-- TODO: Authenticate -->
+                            <NuxtLink v-if="!isAuthenticated" class="bot-href" @click="isAuthenticated = true">Login</NuxtLink>
 
-                            <!-- TODO: settings dropdown(auth) -->
+                            <!-- Settings Dropdown -->
+                            <div v-else class="mt-1 relative" >
+                                <jet-dropdown align="right" width="48" >
+                                    <template #trigger>
+                                        <div class="flex items-center" >
+                                            <!-- TODO: Check Jetstream mangesProfilePhotos exist -->
+                                            <button
+                                                class="flex text-sm rounded-full transition pr-2" >
+                                                <img class="h-8 w-8 rounded-full object-cover"
+                                                        src="~/assets/images/avatar.jpg"
+                                                        alt="Jhon Doe" />
+                                            </button >
+                                            <span class="inline-flex rounded-md" >
+                                                <button type="button"
+                                                        class="inline-flex font-semibold hover:text-primary-500 items-center py-2 border border-transparent text-sm leading-4 font-medium rounded-md bot-bg-and-text focus:outline-none transition" >
+                                                    Jhon Doe
+                                                    <svg class="-mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg"
+                                                            viewBox="0 0 20 20" fill="currentColor" >
+                                                        <path fill-rule="evenodd"
+                                                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                                                clip-rule="evenodd" />
+                                                    </svg >
+                                                </button >
+                                            </span >
+                                        </div >
+                                    </template>
+
+                                    <template #content>
+                                        <div class="space-y-1" >
+                                            <jet-dropdown-link href="{{ route('my.home') }}" :active="true" >
+                                                Home {{ this.$route.name }}
+                                            </jet-dropdown-link >
+
+                                            <!-- TODO: Check auth user id equals 1 -->
+                                            <jet-dropdown-link href="/nova" >
+                                                Nova
+                                            </jet-dropdown-link >
+
+                                            <div class="border-t bot-border" ></div >
+
+                                            <!-- Account Management -->
+                                            <div
+                                                class="block px-4 py-2 text-xs font-semibold text-gray-400 uppercase" >
+                                                Manage Account
+                                            </div >
+
+                                            <jet-dropdown-link href="/profile/view" :active="false" >
+                                                Profile
+                                            </jet-dropdown-link >
+
+                                            <!-- TODO: Check Jetstream hasApiFeatures -->
+                                            <jet-dropdown-link href="/api-tokens" >
+                                                API Tokens
+                                            </jet-dropdown-link >
+
+                                            <div class="border-t bot-border" ></div >
+
+                                            <!-- Authentication -->
+                                            <jet-dropdown-link @click="isAuthenticated = false">
+                                                Log out
+                                            </jet-dropdown-link >
+                                        </div >
+                                    </template>
+                                </jet-dropdown>
+                            </div>
                         </div >
                     </div >
 
@@ -100,7 +164,76 @@
             <div class="py-1 border-t border-b border-gray-300 bg-gray-200 dark:border-gray-700 dark:bg-gray-800" >
                 <jet-responsive-nav-link :active="false">Login</jet-responsive-nav-link>
             </div >
-            <!-- TODO: settings options -->
+            <!-- TODO: Autenticate -->
+            <!-- Responsive Settings Options -->
+            <div
+                class="pt-4 pb-1 border-t border-b border-gray-300 bg-gray-200 dark:border-gray-700 dark:bg-gray-800" >
+                <div class="flex items-center px-4" >
+                    <!-- TODO: Check Jetstream mangesProfilePhotos exist -->
+                    <div class="shrink-0 mr-3" >
+                        <img class="h-10 w-10 rounded-full object-cover"
+                                src="~/assets/images/avatar.jpg"
+                                alt="Jhon Doe" />
+                    </div >
+
+                    <div >
+                        <div class="font-semibold text-base" >Jhon Doe</div >
+                        <div class="font-medium text-sm" >jhondoe@trackbot.com</div >
+                    </div >
+                </div >
+
+                <div class="mt-3 space-y-1" >
+                    <jet-responsive-nav-link href="/home" :active="true" >
+                        Home
+                    </jet-responsive-nav-link >
+
+                    <!-- TODO: Check auth user id equlas 1 -->
+                    <jet-responsive-nav-link href="/nova" >
+                        Nova
+                    </jet-responsive-nav-link >
+
+                    <!-- Account Management -->
+                    <jet-responsive-nav-link href="/profile" :active="false" >
+                        Profile
+                    </jet-responsive-nav-link >
+
+                    <!-- TODO: Check Jetstream hasApiFeatures -->
+                    <jet-responsive-nav-link href="/api-tokens" :active="false" >
+                        API Tokens
+                    </jet-responsive-nav-link >
+
+                    <!-- Authentication -->
+                    <jet-responsive-nav-link @click="isAuthenticated = false">
+                        Log Out
+                    </jet-responsive-nav-link >
+
+                    <!-- Team Management -->
+                    <!-- TODO: Check Jetstream hasTeamFeatures -->
+                    <div class="border-t border-gray-200" ></div >
+
+                    <div class="block px-4 py-2 text-xs text-gray-400" >
+                        Manage Team
+                    </div >
+
+                    <!-- Team Settings -->
+                    <jet-responsive-nav-link href="teams/cureentuserteamid" :active="false" >
+                        Team Settings
+                    </jet-responsive-nav-link >
+
+                    <!-- TODO: Check Jetstream can create new team modal -->
+                    <jet-responsive-nav-link href="teams/create" :active="false" >
+                        Create New team
+                    </jet-responsive-nav-link >
+
+                    <div class="border-t border-gray-200" ></div >
+
+                    <!-- Team Switcher -->
+                    <div class="block px-4 py-2 text-xs text-gray-400" >
+                        Switch Team
+                    </div >
+                    <!-- TODO: Add Jet switchable team component -->
+                </div >
+            </div >
         </div >
     </nav>
 </template>
@@ -113,9 +246,11 @@ import VLogo from "../core/VLogo.vue"
 import VLogoType from "../core/VLogoType.vue"
 import VCardBase from "../core/cards/VCardBase.vue"
 import VModeToggle from "../core/VModeToggle.vue"
-import JetResponsiveNavLink from "../jet/JetResponsiveNavLink.vue"
 import MainCommandPalette from "../main/CommandPalette.vue"
 import VMarkDistancesInSelector from "../main/mark/VMarkDistancesInSelector.vue"
+import JetResponsiveNavLink from "../jet/JetResponsiveNavLink.vue"
+import JetDropdown from "../jet/JetDropdown.vue"
+import JetDropdownLink from "../jet/JetDropdownLink.vue"
 
 export default defineComponent({
     directives: {
@@ -124,7 +259,8 @@ export default defineComponent({
     data() {
         return {
             openSearchModal: false,
-            openDropdownMenu: false
+            openDropdownMenu: false,
+            isAuthenticated: false
         }
     },
     methods: {
@@ -138,9 +274,11 @@ export default defineComponent({
         VLogoType,
         VCardBase,
         VModeToggle,
-        JetResponsiveNavLink,
         MainCommandPalette,
-        VMarkDistancesInSelector
+        VMarkDistancesInSelector,
+        JetResponsiveNavLink,
+        JetDropdown,
+        JetDropdownLink
     }
 })
 </script>
