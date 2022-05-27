@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Meet;
 use App\Models\Organization;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -19,5 +20,11 @@ class DatabaseSeeder extends Seeder
             ->create([
                 'name' => 'Salem Hills High School',
             ]);
+
+        $coach = User::factory()->create([
+            'first_name' => 'Coach',
+            'last_name'  => 'Hansen',
+            'email'      => 'coach@trackbot.test',
+        ]);
     }
 }

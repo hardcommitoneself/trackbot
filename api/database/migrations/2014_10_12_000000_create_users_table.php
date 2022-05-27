@@ -22,7 +22,7 @@ return new class extends Migration {
             $table->string('timezone')->default('America/Boise');
             $table->string('profile_photo_path', 2048)->nullable();
             $table->foreignId('default_organization_id')->nullable()->constrained('organizations'); // when logging in this is the organization we will set to
-            $table->char('default_distance_unit', 7)->default('ENGLISH'); // DistanceUnit Enum
+            $table->char('distance_system', 7)->default('ENGLISH'); // DistanceSystem Enum
             $table->rememberToken();
             $table->timestamps();
         });
