@@ -60,7 +60,7 @@
                         </div >
                         <v-mode-toggle class="ml-3 pt-1" />
                         <div>
-                            <!-- TODO: distances in selector -->
+                            <v-mark-distances-in-selector />
                         </div>
                     </div >
                 </div >
@@ -115,6 +115,7 @@ import VCardBase from "../core/cards/VCardBase.vue"
 import VModeToggle from "../core/VModeToggle.vue"
 import JetResponsiveNavLink from "../jet/JetResponsiveNavLink.vue"
 import MainCommandPalette from "../main/CommandPalette.vue"
+import VMarkDistancesInSelector from "../main/mark/VMarkDistancesInSelector.vue"
 
 export default defineComponent({
     directives: {
@@ -138,7 +139,8 @@ export default defineComponent({
         VCardBase,
         VModeToggle,
         JetResponsiveNavLink,
-        MainCommandPalette
+        MainCommandPalette,
+        VMarkDistancesInSelector
     }
 })
 </script>

@@ -1,5 +1,5 @@
 <template>
-    <v-list-stacked-item-base>
+    <v-list-stacked-item-base :href="`/meets/${meet.id}`">
         <div class="flex items-center justify-between" >
             <div class="flex items-center" >
                 <p class="bot-href-colors bot-href-border-bottom font-semibold" >{{ meet.attributes.name }}
