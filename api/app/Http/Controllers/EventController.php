@@ -16,7 +16,7 @@ class EventController extends Controller
         return EventResource::collection(
             QueryBuilder::for(Event::class)
                 ->allowedFilters([
-                    'constant',
+                    AllowedFilter::exact('constant'),
                     AllowedFilter::exact('sport'),
                     AllowedFilter::exact('gender'),
                     AllowedFilter::exact('mark_type'),
@@ -31,7 +31,7 @@ class EventController extends Controller
                     AllowedFilter::exact('is_multi'),
                     AllowedFilter::exact('has_wind'),
                 ])
-                ->allowedSorts(['name'])
+                ->allowedSorts(['sort', 'sport', 'gender'])
                 ->get()
         );
     }
