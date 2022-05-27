@@ -1,5 +1,8 @@
-
+# osx
 .DS_Store
 
 # Prevent accidental use of npm
 package-lock.json
+
+# nodejs
+node_modules
