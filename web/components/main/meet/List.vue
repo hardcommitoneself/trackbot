@@ -36,8 +36,7 @@
             <v-list-stacked-container>
                 <template #header>
                     <div class="flex items-center justify-between" >
-                        <!-- TODO: Get meets count -->
-                        <v-core-h-3 >Meets (3)</v-core-h-3 >
+                        <v-core-h-3 >Meets ({{ meets.data.length }})</v-core-h-3 >
 
                         <div class="flex justify-end" >
                             <div class="ml-3 relative" >
@@ -75,16 +74,27 @@
                         </div >
                     </div>
                 </template>
+                <v-card-no-results v-if="!meets.data.length"/>
+                <div v-else>
+                    <v-meeet-list-item v-for="(meet, key) in meets.data" :key="key" :meet="meet"/>
+                </div>
             </v-list-stacked-container>
         </div >
     </div>
 </template>
+<script setup>
+const { pending, data: meets } = useLazyFetch("http://localhost:8000/api/v1/meets");
+</script>
+
 <script>
-import {defineComponent} from "vue"
+import { defineComponent } from "vue"
+
 import VCoreH1 from "../../core/header/H1.vue"
 import VCoreH3 from "../../core/header/H3.vue"
 import VListStackedContainer from "../../core/lists/VListStackedContainer.vue"
 import VDropdown from "../../core/VDropdown.vue"
+import VCardNoResults from "../../core/cards/VCardNoResults.vue"
+import VMeeetListItem from "../../core/meet/VMeetListItem.vue"
 
 export default defineComponent({
     data() {
@@ -97,7 +107,9 @@ export default defineComponent({
         VCoreH1,
         VCoreH3,
         VDropdown,
-        VListStackedContainer
+        VListStackedContainer,
+        VCardNoResults,
+        VMeeetListItem
     }
 })
 </script>
