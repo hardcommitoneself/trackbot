@@ -135,7 +135,7 @@
 }
 
 .bot-transition-dropdown-leave-active {
-    @apply transition ease-out duration-75
+    @apply transition ease-in duration-75
 }
 
 .bot-transition-dropdown-enter-from {
@@ -160,21 +160,21 @@
 }
 
 .bot-transition-seach-modal-leave-active {
-    @apply transition ease-out
+    @apply transition ease-in
 }
 
 .bot-transition-seach-modal-enter-from {
-    @apply opacity-0 scale-95
+    @apply transform opacity-0 scale-95
 }
 
 .bot-transition-seach-modal-leave-from {
-    @apply opacity-80 scale-100
+    @apply transform opacity-80 scale-100
 }
 
 .bot-transition-seach-modal-enter-to {
-    @apply opacity-80 scale-100
+    @apply transform opacity-80 scale-100
 }
 
 .bot-transition-seach-modal-leave-to {
-    @apply opacity-0 scale-95
+    @apply transform opacity-0 scale-95
 }
