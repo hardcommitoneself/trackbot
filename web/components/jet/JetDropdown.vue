@@ -1,45 +1,42 @@
 <template>
     <div class="relative overflow-visible" >
-        <div @click="open = !open">
+        <div @click="open = ! open" >
             <slot name="trigger"/>
-        </div>
+        </div >
         <transition name="bot-transition-dropdown">
-            <div v-if="open" v-click-outside="hideDropdown"  :class="['absolute z-50 mt-1', widthClass, 'rounded-md shadow-lg', alignmentClasses, dropdownClasses]">
-                <div :class="['rounded-md p-4', contentClasses]" >
+            <div v-if="open" v-click-outside="hideDropdown"  :class="['absolute z-50 mt-1', widthClass, 'whitespace-nowrap rounded-md shadow-lg', alignmentClasses, dropdownClasses]">
+                <div @click="hideDropdown" :class="['rounded-md', contentClasses]" >
                     <slot name="content"/>
-                    <div v-if="!closeOnClick" class="flex mt-4" >
-                        <button class="bot-alt-button" @click="open = false">Close</button>
-                    </div >
                 </div >
             </div>
         </transition>
-    </div>
+    </div >
 </template>
 <script>
-import { defineComponent } from "vue"
+import { defineComponent } from "vue";
 import VClickOutside from "click-outside-vue3"
 
 export default defineComponent({
     props: {
         align: {
             type: String,
-            default: 'right'
+            default: "right"
         },
         width: {
-            type: Number,
+            type: String,
             default: 48
         },
         contentClasses: {
             type: String,
-            default: 'py-1 bot-bg-and-text-accent'
+            default: "py-1 bot-bg-and-text-accent dark:border-gray-700 dark:border"
         },
         dropdownClasses: {
             type: String,
-            default: ''
+            default: ""
         },
         closeOnClick: {
             type: Boolean,
-            default: true
+            default: false
         }
     },
     directives: {
@@ -55,7 +52,7 @@ export default defineComponent({
             this.open = false
         }
     },
-    computed: {      
+    computed: {
         alignmentClasses() {
             switch (this.align) {
                 case 'left':
@@ -72,12 +69,12 @@ export default defineComponent({
         },
         widthClass() {
             switch (this.width) {
-                case 48:
+                case '48':
                     return 'w-48';
-                case 64:
-                    return 'w-64';
-                case 72:
-                    return 'w-72';
+                case '40':
+                    return 'w-40';
+                case 'flex':
+                    return 'flex';
             }
         }
     }
