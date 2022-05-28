@@ -13,7 +13,7 @@ class EventResource extends JsonApiResource
         return $this->id;
     }
 
-    public function toAttributes($request): array
+    public function toAttributes(Request $request): array
     {
         return [
             'constant'    => $this->constant,

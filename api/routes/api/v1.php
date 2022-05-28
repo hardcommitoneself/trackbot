@@ -3,6 +3,7 @@
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\MeetController;
 use App\Http\Controllers\OrganizationController;
+use App\Http\Controllers\VenueController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -25,6 +26,9 @@ Route::apiResource('meets', MeetController::class)
     ->only(['index', 'show']);
 
 Route::apiResource('events', EventController::class)
+    ->only(['index', 'show']);
+
+Route::apiResource('venues', VenueController::class)
     ->only(['index', 'show']);
 
 Route::apiResource('organizations', OrganizationController::class)

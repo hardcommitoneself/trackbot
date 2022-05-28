@@ -13,6 +13,7 @@ return new class extends Migration {
     {
         Schema::create('venues', function (Blueprint $table) {
             $table->id();
+            $table->uuid();
             $table->foreignId('organization_id')->constrained('organizations')->cascadeOnDelete();
             $table->string('name');
             $table->text('description')->nullable(); // text area for describing the facility
