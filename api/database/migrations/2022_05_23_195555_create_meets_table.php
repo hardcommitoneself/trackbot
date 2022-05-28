@@ -16,6 +16,8 @@ return new class extends Migration {
             $table->uuid();
             $table->char('sport', 20); // Sport Enum
             $table->foreignId('organization_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreignId('director_user_id')->nullable()->constrained('users')->cascadeOnDelete();
+            $table->foreignId('venue_id')->nullable()->constrained('venues');
             $table->string('name', 100)->fulltext(); // name of the meet
             $table->text('information')->nullable(); // details about the meet
             $table->boolean('is_indoor')->default(0); // is the meet being held indoors

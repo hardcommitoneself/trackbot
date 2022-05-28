@@ -1,0 +1,28 @@
+<?php
+
+namespace App\Models;
+
+use App\Models\Concerns\Addressable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Venue extends Model
+{
+    use HasFactory;
+    use Addressable;
+
+    protected $fillable = [
+        'organization_id',
+        'name',
+        'description',
+        'surface',
+        'capacity',
+        'parking_information',
+        'profile_photo_path',
+    ];
+
+    public function organization()
+    {
+        return $this->belongsTo(Organization::class);
+    }
+}

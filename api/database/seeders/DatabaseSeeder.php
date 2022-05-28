@@ -21,6 +21,20 @@ class DatabaseSeeder extends Seeder
                 'name' => 'Salem Hills High School',
             ]);
 
+        $skyhawk_stadium_venue = $salem->venues()->create([
+            'name' => 'Skyhawk Stadium',
+        ]);
+
+        $skyhawk_stadium_venue->address()->create([
+            'addressable_type' => 'Venue',
+            'addressable_id'   => $skyhawk_stadium_venue->id,
+            'country_code'     => 'US',
+            'state_code'       => 'UT',
+            'city'             => 'Salem',
+            'zip'              => '84653',
+            'line_1'           => '150 N Skyhawk Blvd',
+        ]);
+
         $coach = User::factory()->create([
             'first_name' => 'Coach',
             'last_name'  => 'Hansen',

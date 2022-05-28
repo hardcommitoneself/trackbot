@@ -22,4 +22,14 @@ class Meet extends Model
     {
         return $this->belongsTo(Organization::class);
     }
+
+    public function venue()
+    {
+        return $this->belongsTo(Venue::class);
+    }
+
+    public function director()
+    {
+        return $this->belongsTo(User::class, 'director_user_id');
+    }
 }

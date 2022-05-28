@@ -25,4 +25,9 @@ class Organization extends Model
         return $this->hasMany(Meet::class);
     }
 
+    public function venues()
+    {
+        return $this->hasMany(Venue::class);
+    }
+
 }
