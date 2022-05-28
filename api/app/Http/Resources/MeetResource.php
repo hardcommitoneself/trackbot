@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use Illuminate\Http\Request;
 use TiMacDonald\JsonApi\JsonApiResource;
 use TiMacDonald\JsonApi\Link;
 
@@ -9,7 +10,7 @@ use TiMacDonald\JsonApi\Link;
 
 class MeetResource extends JsonApiResource
 {
-    public function toAttributes($request): array
+    public function toAttributes(Request $request): array
     {
         return [
             'name'          => $this->name,
@@ -20,7 +21,7 @@ class MeetResource extends JsonApiResource
         ];
     }
 
-    protected function toLinks($request): array
+    protected function toLinks(Request $request): array
     {
         return [
             Link::self(route('meets.show', $this->resource)),
@@ -28,10 +29,12 @@ class MeetResource extends JsonApiResource
         ];
     }
 
-    public function toRelationships($request): array
+    public function toRelationships(Request $request): array
     {
         return [
+            'director'     => fn() => new OrganizationResource($this->director),
             'organization' => fn() => new OrganizationResource($this->organization),
+            'venue'        => fn() => new VenueResource($this->venue),
         ];
     }
 }

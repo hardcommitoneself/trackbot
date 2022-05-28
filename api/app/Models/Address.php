@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Nnjeim\World\Models\City;
 
 class Address extends Model
 {
@@ -42,15 +41,6 @@ class Address extends Model
                     $model->setGeodata();
                     $model->setTimezone();
                     $model->setElevation();
-                } else {
-                    $city = City::where([
-                        ['country_code', $model->country_code],
-                        ['state_code', $model->state_code],
-                        ['name', $model->city],
-                    ])->firstOrFail();
-
-                    $model->latitude = $city->latitude;
-                    $model->longitude = $city->longitude;
                 }
             }
         });

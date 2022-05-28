@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\Meet;
 use App\Models\Organization;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -15,16 +14,80 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        /////// START SALEM HILLS /////////
         $salem = Organization::factory()
-            ->has(Meet::factory()->count(3))
             ->create([
                 'name' => 'Salem Hills High School',
             ]);
 
+        $skyhawk_stadium_venue = $salem->venues()->create([
+            'name' => 'Skyhawk Stadium',
+        ]);
+
+        $skyhawk_stadium_venue->address()->create([
+            'addressable_type' => 'Venue',
+            'addressable_id'   => $skyhawk_stadium_venue->id,
+            'country_code'     => 'US',
+            'state_code'       => 'UT',
+            'city'             => 'Salem',
+            'zip'              => '84653',
+            'line_1'           => '150 N Skyhawk Blvd',
+        ]);
+
+        $skyhawk_first_flight_meet = $salem->meets()->create([
+            'sport'    => 'TRACK',
+            'name'     => 'Skyhawk First Flight',
+            'venue_id' => $skyhawk_stadium_venue->id,
+        ]);
+
+        $skyhawk_invitational_meet = $salem->meets()->create([
+            'sport'    => 'TRACK',
+            'name'     => 'Skyhawk Invitational',
+            'venue_id' => $skyhawk_stadium_venue->id,
+        ]);
+
         $coach = User::factory()->create([
             'first_name' => 'Coach',
-            'last_name'  => 'Hansen',
-            'email'      => 'coach@trackbot.test',
+            'last_name'  => 'Salem Hills',
+            'email'      => 'salemhills@trackbot.test',
+        ]);
+
+        /////// START SALEM HILLS /////////
+        $spanish_fork = Organization::factory()
+            ->create([
+                'name' => 'Spanish Fork High School',
+            ]);
+
+        $don_stadium_venue = $spanish_fork->venues()->create([
+            'name' => 'Don Stadium',
+        ]);
+
+        $don_stadium_venue->address()->create([
+            'addressable_type' => 'Venue',
+            'addressable_id'   => $don_stadium_venue->id,
+            'country_code'     => 'US',
+            'state_code'       => 'UT',
+            'city'             => 'Spanish Fork',
+            'zip'              => '84660',
+            'line_1'           => '99 N 300 W',
+        ]);
+
+        $spanish_fork_challenge_meet = $spanish_fork->meets()->create([
+            'sport'    => 'TRACK',
+            'name'     => 'Spanish Fork Challenge',
+            'venue_id' => $don_stadium_venue->id,
+        ]);
+
+        $don_midnight_invite = $spanish_fork->meets()->create([
+            'sport'    => 'TRACK',
+            'name'     => 'Don Midnight Invite',
+            'venue_id' => $don_stadium_venue->id,
+        ]);
+
+        $coach = User::factory()->create([
+            'first_name' => 'Coach',
+            'last_name'  => 'Spanish Fork',
+            'email'      => 'spanishfork@trackbot.test',
         ]);
     }
 }
