@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Organization;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -41,10 +42,24 @@ class DatabaseSeeder extends Seeder
             'venue_id' => $skyhawk_stadium_venue->id,
         ]);
 
+        $skyhawk_first_flight_meet->sessions()->create([
+            'start_at' => Carbon::now()->addWeek()->hour(14)->minute(0)->second(0),
+        ]);
+
         $skyhawk_invitational_meet = $salem->meets()->create([
             'sport'    => 'TRACK',
             'name'     => 'Skyhawk Invitational',
             'venue_id' => $skyhawk_stadium_venue->id,
+        ]);
+
+        $skyhawk_invitational_meet->sessions()->create([
+            'start_at' => Carbon::now()->addMonth()->hour(14)->minute(0)->second(0),
+            'end_at'   => Carbon::now()->addMonth()->hour(22)->minute(0)->second(0),
+        ]);
+
+        $skyhawk_invitational_meet->sessions()->create([
+            'start_at' => Carbon::now()->addMonth()->addDay()->hour(14)->minute(0)->second(0),
+            'end_at'   => Carbon::now()->addMonth()->addDay()->hour(22)->minute(0)->second(0),
         ]);
 
         $coach = User::factory()->create([
