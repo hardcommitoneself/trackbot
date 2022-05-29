@@ -31,4 +31,9 @@ class Event extends Model
         'has_wind'    => 'boolean',
         'is_multi'    => 'boolean',
     ];
+
+    public function getRouteKeyName()
+    {
+        return 'constant';
+    }
 }

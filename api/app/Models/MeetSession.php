@@ -12,8 +12,8 @@ class MeetSession extends Model
     use HasUuid;
 
     protected $casts = [
-        'start_at' => 'datetime',
-        'end_at'   => 'datetime',
+        'starting_at' => 'datetime',
+        'ending_at'   => 'datetime',
     ];
 
     public function meet()

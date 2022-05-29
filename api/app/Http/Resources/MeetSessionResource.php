@@ -4,14 +4,30 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Request;
 use TiMacDonald\JsonApi\JsonApiResource;
+use TiMacDonald\JsonApi\Link;
 
 class MeetSessionResource extends JsonApiResource
 {
     public function toAttributes(Request $request): array
     {
         return [
-            'start_at' => $this->start_at,
-            'end_at'   => $this->end_at,
+            'starting_at' => $this->starting_at,
+            'ending_at'   => $this->ending_at,
+        ];
+    }
+
+    protected function toLinks(Request $request): array
+    {
+        return [
+            Link::self(route('meetSessions.show', $this->resource)),
+            //'related' => 'https://example.com/related'
+        ];
+    }
+
+    protected function toMeta(Request $request): array
+    {
+        return [
+            'timezone' => $this->meet->timezone,
         ];
     }
 }

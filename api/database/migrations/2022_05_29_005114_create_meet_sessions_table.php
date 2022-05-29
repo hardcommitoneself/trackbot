@@ -15,8 +15,8 @@ return new class extends Migration {
             $table->id();
             $table->uuid();
             $table->foreignId('meet_id')->constrained('meets')->cascadeOnDelete();
-            $table->dateTime('start_at');
-            $table->dateTime('end_at')->nullable();
+            $table->dateTime('starting_at');
+            $table->dateTime('ending_at')->nullable();
             $table->timestamps();
         });
     }

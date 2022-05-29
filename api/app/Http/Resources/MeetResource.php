@@ -35,6 +35,14 @@ class MeetResource extends JsonApiResource
             'director'     => fn() => new OrganizationResource($this->director),
             'organization' => fn() => new OrganizationResource($this->organization),
             'venue'        => fn() => new VenueResource($this->venue),
+            'sessions'     => fn() => MeetSessionResource::collection($this->sessions),
+        ];
+    }
+
+    protected function toMeta(Request $request): array
+    {
+        return [
+            'timezone' => $this->timezone,
         ];
     }
 }

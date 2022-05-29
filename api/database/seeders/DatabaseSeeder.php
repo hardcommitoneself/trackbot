@@ -43,7 +43,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $skyhawk_first_flight_meet->sessions()->create([
-            'start_at' => Carbon::now()->addWeek()->hour(14)->minute(0)->second(0),
+            'starting_at' => Carbon::now()->addWeek()->hour(14)->minute(0)->second(0),
         ]);
 
         $skyhawk_invitational_meet = $salem->meets()->create([
@@ -53,13 +53,13 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $skyhawk_invitational_meet->sessions()->create([
-            'start_at' => Carbon::now()->addMonth()->hour(14)->minute(0)->second(0),
-            'end_at'   => Carbon::now()->addMonth()->hour(22)->minute(0)->second(0),
+            'starting_at' => Carbon::now()->addMonth()->hour(14)->minute(0)->second(0),
+            'ending_at'   => Carbon::now()->addMonth()->hour(22)->minute(0)->second(0),
         ]);
 
         $skyhawk_invitational_meet->sessions()->create([
-            'start_at' => Carbon::now()->addMonth()->addDay()->hour(14)->minute(0)->second(0),
-            'end_at'   => Carbon::now()->addMonth()->addDay()->hour(22)->minute(0)->second(0),
+            'starting_at' => Carbon::now()->addMonth()->addDay()->hour(14)->minute(0)->second(0),
+            'ending_at'   => Carbon::now()->addMonth()->addDay()->hour(22)->minute(0)->second(0),
         ]);
 
         $coach = User::factory()->create([

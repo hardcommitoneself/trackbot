@@ -4,6 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Request;
 use TiMacDonald\JsonApi\JsonApiResource;
+use TiMacDonald\JsonApi\Link;
 
 class VenueResource extends JsonApiResource
 {
@@ -17,6 +18,13 @@ class VenueResource extends JsonApiResource
             'lanes'               => $this->lanes,
             'capacity'            => $this->capacity,
             'parking_information' => $this->parking_information,
+        ];
+    }
+
+    protected function toLinks(Request $request): array
+    {
+        return [
+            Link::self(route('venues.show', $this->resource)),
         ];
     }
 }

@@ -27,4 +27,5 @@ class Venue extends Model
     {
         return $this->belongsTo(Organization::class);
     }
+    
 }

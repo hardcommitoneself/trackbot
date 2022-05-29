@@ -37,4 +37,14 @@ class Meet extends Model
     {
         return $this->hasMany(MeetSession::class)->orderBy('start_at');
     }
+
+    public function getAddressAttribute()
+    {
+        return $this->venue->address;
+    }
+
+    public function getTimezoneAttribute()
+    {
+        return $this->venue->address->timezone;
+    }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Request;
 use TiMacDonald\JsonApi\JsonApiResource;
+use TiMacDonald\JsonApi\Link;
 
 class OrganizationResource extends JsonApiResource
 {
@@ -14,6 +15,14 @@ class OrganizationResource extends JsonApiResource
             'name'  => $this->name,
             'abbr'  => $this->abbr,
             'sport' => $this->sport,
+        ];
+    }
+
+    protected function toLinks(Request $request): array
+    {
+        return [
+            Link::self(route('organizations.show', $this->resource)),
+            //'related' => 'https://example.com/related'
         ];
     }
 }
