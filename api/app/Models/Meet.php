@@ -35,7 +35,7 @@ class Meet extends Model
 
     public function sessions()
     {
-        return $this->hasMany(MeetSession::class)->orderBy('start_at');
+        return $this->hasMany(MeetSession::class);
     }
 
     public function getAddressAttribute()
