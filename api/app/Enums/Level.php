@@ -2,12 +2,13 @@
 
 namespace App\Enums;
 
-enum Classification: string
+enum Level: string
 {
     case PROFESSIONAL = "PROFESSIONAL";
-    case COLLEGIATE = "COLLEGIATE";
+    case COLLEGE = "COLLEGE";
     case HIGH_SCHOOL = "HIGH_SCHOOL";
     case MIDDLE_SCHOOL = "MIDDLE_SCHOOL";
     case ELEMENTARY = "ELEMENTARY";
+    case UNATTACHED = "UNATTACHED";
     case CLUB = "CLUB";
 }
