@@ -32,4 +32,9 @@ class Meet extends Model
     {
         return $this->belongsTo(User::class, 'director_user_id');
     }
+
+    public function sessions()
+    {
+        return $this->hasMany(MeetSession::class)->orderBy('start_at');
+    }
 }

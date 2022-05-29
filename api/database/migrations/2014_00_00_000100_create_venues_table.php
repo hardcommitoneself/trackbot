@@ -22,7 +22,6 @@ return new class extends Migration {
             $table->integer('capacity')->nullable(); // number of people that can watch the event
             $table->text('parking_information')->nullable(); // text area for describing where to park.
             $table->string('profile_photo_path')->nullable(); // image showing the venue - will upload to s3. Look at user profile_photo_path.  Can add the same trait to handle it.
-            // 1 to 1 to addresses - already in place and seeded.  Need add ability to manage them.
             $table->timestamps();
         });
     }
