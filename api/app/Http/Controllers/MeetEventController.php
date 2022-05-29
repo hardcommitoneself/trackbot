@@ -4,23 +4,31 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreMeetEventRequest;
 use App\Http\Requests\UpdateMeetEventRequest;
+use App\Http\Resources\MeetEventResource;
 use App\Models\MeetEvent;
+use Spatie\QueryBuilder\AllowedFilter;
+use Spatie\QueryBuilder\QueryBuilder;
 
 class MeetEventController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
+        return MeetEventResource::collection(
+            QueryBuilder::for(MeetEvent::class)
+                ->allowedFilters([
+                    AllowedFilter::exact('round'),
+                ])
+                ->allowedSorts(['round'])
+                ->get()
+        );
     }
 
     /**
      * Show the form for creating a new resource.
-     *
      * @return \Illuminate\Http\Response
      */
     public function create()
@@ -30,7 +38,6 @@ class MeetEventController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     *
      * @param  \App\Http\Requests\StoreMeetEventRequest  $request
      * @return \Illuminate\Http\Response
      */
@@ -41,18 +48,16 @@ class MeetEventController extends Controller
 
     /**
      * Display the specified resource.
-     *
      * @param  \App\Models\MeetEvent  $meetEvent
      * @return \Illuminate\Http\Response
      */
     public function show(MeetEvent $meetEvent)
     {
-        //
+        return MeetEventResource::make($meetEvent);
     }
 
     /**
      * Show the form for editing the specified resource.
-     *
      * @param  \App\Models\MeetEvent  $meetEvent
      * @return \Illuminate\Http\Response
      */
@@ -63,7 +68,6 @@ class MeetEventController extends Controller
 
     /**
      * Update the specified resource in storage.
-     *
      * @param  \App\Http\Requests\UpdateMeetEventRequest  $request
      * @param  \App\Models\MeetEvent  $meetEvent
      * @return \Illuminate\Http\Response
@@ -75,7 +79,6 @@ class MeetEventController extends Controller
 
     /**
      * Remove the specified resource from storage.
-     *
      * @param  \App\Models\MeetEvent  $meetEvent
      * @return \Illuminate\Http\Response
      */

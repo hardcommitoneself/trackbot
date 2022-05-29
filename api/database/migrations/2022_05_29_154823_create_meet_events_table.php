@@ -16,7 +16,6 @@ return new class extends Migration {
             $table->uuid();
             $table->foreignId('event_id')->constrained('events')->cascadeOnDelete();
             $table->foreignId('meet_division_id')->constrained('meet_divisions')->cascadeOnDelete();
-            $table->char('round', 24);
             $table->timestamps();
         });
     }

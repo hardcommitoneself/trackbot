@@ -21,8 +21,8 @@ class MeetEvent extends Model
         return $this->belongsTo(Event::class);
     }
 
-    public function division()
+    public function meetDivision()
     {
-        return $this->belongsTo(MeetDivision::class, 'meet_division_id');
+        return $this->belongsTo(MeetDivision::class);
     }
 }
