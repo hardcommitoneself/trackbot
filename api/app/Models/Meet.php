@@ -13,10 +13,9 @@ class Meet extends Model
     use HasUuid;
 
     protected $casts = [
-        'sport'           => Sport::class,
-        'is_indoor'       => 'boolean',
-        'is_sanctioned'   => 'boolean',
-        'classifications' => 'json',
+        'sport'         => Sport::class,
+        'is_indoor'     => 'boolean',
+        'is_sanctioned' => 'boolean',
     ];
 
     public function organization()

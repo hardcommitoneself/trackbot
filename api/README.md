@@ -54,7 +54,7 @@ And serve the API with:
 `attributes`:
 
 + `id`: Internal identifier.
-+ `constant`: External identifier. Unchanging human-readable identifier.
++ `constant`: Unchanging human-readable identifier.
 + `sport`: `Enums\Sport`of the event. Will be either `TRACK` or `XC`.
 + `gender`: `Enums\Gender` of the event. We be one of `MALE`, `FEMALE`, or `MIXED`.
 + `mark_type`: `Enums\MarkType` of the event. Will be one of `TIME`, `DISTANCE` or `SCORE`.
@@ -88,7 +88,6 @@ And serve the API with:
 + `information`: User-provided details about the meet. Rich-text.
 + `is_indoor`: if the meet is held at an indoors venue.
 + `is_sanctioned`: if the meet has been sanctioned by a governing body.
-+ `classifications`: The applicable `Enum\Classification` types in json.
 
 `relationships`:
 
