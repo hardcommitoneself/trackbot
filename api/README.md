@@ -96,6 +96,27 @@ And serve the API with:
 + `user`: A meet belongs to an `Models\User` via `director_user_id`.
 + `sessions`: A meet has many `Models\MeetSession`.
 
+### meet_divisions
+
+`description`:
+
++ Track meets can have multiple age groups or school sizes and types. Divisions describe these. Events will be
+  associated to the divisions.
+
+`attributes`:
+
++ `id`: Internal identifier.
++ `uuid`: External identifier.
++ `meet_id`: `Models\Meet` that owns the session.
++ `name`: User-provided name that we will provide options for but free-form allowed (e.g., Varsity, JV).
++ `abbr`: User-provided abbreviation used when showing entries and results.
++ `level`: `Enum\Level` of the division.
++ `identifier`: An internal id used for identifying entries in meet management and timing systems.
+
+`relationships`:
+
++ `meet`: A meetSession belongs to an `Models\Meet`.
+
 ### meet_sessions
 
 `description`:
