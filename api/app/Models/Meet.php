@@ -38,6 +38,11 @@ class Meet extends Model
         return $this->hasMany(MeetSession::class);
     }
 
+    public function divisions()
+    {
+        return $this->hasMany(MeetDivision::class);
+    }
+
     public function getAddressAttribute()
     {
         return $this->venue->address;

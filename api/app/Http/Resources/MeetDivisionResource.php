@@ -2,18 +2,34 @@
 
 namespace App\Http\Resources;
 
-use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Http\Request;
+use TiMacDonald\JsonApi\JsonApiResource;
+use TiMacDonald\JsonApi\Link;
 
-class MeetDivisionResource extends JsonResource
+class MeetDivisionResource extends JsonApiResource
 {
-    /**
-     * Transform the resource into an array.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return array|\Illuminate\Contracts\Support\Arrayable|\JsonSerializable
-     */
-    public function toArray($request)
+    public function toAttributes(Request $request): array
     {
-        return parent::toArray($request);
+        return [
+            'name'       => $this->name,
+            'abbr'       => $this->abbr,
+            'level'      => $this->level,
+            'identifier' => $this->identifier,
+        ];
     }
+
+    protected function toLinks(Request $request): array
+    {
+        return [
+            Link::self(route('meetDivisions.show', $this->resource)),
+        ];
+    }
+
+    public function toRelationships(Request $request): array
+    {
+        return [
+            'meet' => fn() => new MeetResource($this->meet),
+        ];
+    }
+
 }

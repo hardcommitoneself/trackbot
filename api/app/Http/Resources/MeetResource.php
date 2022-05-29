@@ -36,6 +36,7 @@ class MeetResource extends JsonApiResource
             'organization' => fn() => new OrganizationResource($this->organization),
             'venue'        => fn() => new VenueResource($this->venue),
             'sessions'     => fn() => MeetSessionResource::collection($this->sessions),
+            'divisions'    => fn() => MeetDivisionResource::collection($this->divisions),
         ];
     }
 

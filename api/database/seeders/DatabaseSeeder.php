@@ -46,6 +46,13 @@ class DatabaseSeeder extends Seeder
             'starting_at' => Carbon::now()->addWeek()->hour(14)->minute(0)->second(0),
         ]);
 
+        $skyhawk_first_flight_meet_division_varsity = $skyhawk_first_flight_meet->divisions()->create([
+            'name'       => 'Varsity',
+            'abbr'       => 'V',
+            'level'      => 'HIGH_SCHOOL',
+            'identifier' => 1,
+        ]);
+
         $skyhawk_invitational_meet = $salem->meets()->create([
             'sport'    => 'TRACK',
             'name'     => 'Skyhawk Invitational',
@@ -62,13 +69,27 @@ class DatabaseSeeder extends Seeder
             'ending_at'   => Carbon::now()->addMonth()->addDay()->hour(22)->minute(0)->second(0),
         ]);
 
+        $skyhawk_invitational_meet_division_varsity = $skyhawk_invitational_meet->divisions()->create([
+            'name'       => 'Varsity',
+            'abbr'       => 'V',
+            'level'      => 'HIGH_SCHOOL',
+            'identifier' => 1,
+        ]);
+
+        $skyhawk_invitational_meet_division_varsity = $skyhawk_invitational_meet->divisions()->create([
+            'name'       => 'Junior Varsity',
+            'abbr'       => 'JV',
+            'level'      => 'HIGH_SCHOOL',
+            'identifier' => 2,
+        ]);
+
         $coach = User::factory()->create([
             'first_name' => 'Coach',
             'last_name'  => 'Salem Hills',
             'email'      => 'salemhills@trackbot.test',
         ]);
 
-        /////// START SALEM HILLS /////////
+        /////// START SPANISH FORK /////////
         $spanish_fork = Organization::factory()
             ->create([
                 'name' => 'Spanish Fork High School',
@@ -99,6 +120,13 @@ class DatabaseSeeder extends Seeder
             'sport'    => 'TRACK',
             'name'     => 'Don Midnight Invite',
             'venue_id' => $don_stadium_venue->id,
+        ]);
+
+        $don_midnight_invite_division_varsity = $don_midnight_invite->divisions()->create([
+            'name'       => 'Varsity',
+            'abbr'       => 'V',
+            'level'      => 'HIGH_SCHOOL',
+            'identifier' => 1,
         ]);
 
         $coach = User::factory()->create([
