@@ -5,6 +5,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\MeetController;
 use App\Http\Controllers\MeetDivisionController;
 use App\Http\Controllers\MeetEventController;
+use App\Http\Controllers\MeetEventRoundController;
 use App\Http\Controllers\MeetSessionController;
 use App\Http\Controllers\OrganizationController;
 use App\Http\Controllers\VenueController;
@@ -45,6 +46,9 @@ Route::apiResource('meetDivisions', MeetDivisionController::class)
     ->only(['index', 'show']);
 
 Route::apiResource('meetEvents', MeetEventController::class)
+    ->only(['index', 'show']);
+
+Route::apiResource('meetEventRounds', MeetEventRoundController::class)
     ->only(['index', 'show']);
 
 Route::apiResource('organizations', OrganizationController::class)

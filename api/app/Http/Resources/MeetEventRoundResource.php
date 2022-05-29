@@ -6,27 +6,26 @@ use Illuminate\Http\Request;
 use TiMacDonald\JsonApi\JsonApiResource;
 use TiMacDonald\JsonApi\Link;
 
-class MeetEventResource extends JsonApiResource
+class MeetEventRoundResource extends JsonApiResource
 {
     public function toAttributes(Request $request): array
     {
         return [
+            'round' => $this->round,
         ];
     }
 
     protected function toLinks(Request $request): array
     {
         return [
-            Link::self(route('meetEvents.show', $this->resource)),
+            Link::self(route('meetEventRounds.show', $this->resource)),
         ];
     }
 
     public function toRelationships(Request $request): array
     {
         return [
-            'event'           => fn() => new EventResource($this->event),
-            'meetEventRounds' => fn() => MeetEventRoundResource::collection($this->meetEventRounds),
-            'meetDivision'    => fn() => new MeetDivisionResource($this->meetDivision),
+            'meetEvent' => fn() => new MeetEventResource($this->meetEvent),
         ];
     }
 }

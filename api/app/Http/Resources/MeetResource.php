@@ -32,11 +32,11 @@ class MeetResource extends JsonApiResource
     public function toRelationships(Request $request): array
     {
         return [
-            'director'     => fn() => new OrganizationResource($this->director), // TODO: user resource
-            'organization' => fn() => new OrganizationResource($this->organization),
-            'venue'        => fn() => new VenueResource($this->venue),
-            'sessions'     => fn() => MeetSessionResource::collection($this->sessions),
-            'divisions'    => fn() => MeetDivisionResource::collection($this->divisions),
+            'director'      => fn() => new OrganizationResource($this->director), // TODO: user resource
+            'organization'  => fn() => new OrganizationResource($this->organization),
+            'venue'         => fn() => new VenueResource($this->venue),
+            'meetSessions'  => fn() => MeetSessionResource::collection($this->meetSessions),
+            'meetDivisions' => fn() => MeetDivisionResource::collection($this->meetDivisions),
         ];
     }
 

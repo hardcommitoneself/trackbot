@@ -21,7 +21,7 @@ class MeetDivision extends Model
         return $this->belongsTo(Meet::class);
     }
 
-    public function events()
+    public function meetEvents()
     {
         return $this->hasMany(MeetEvent::class);
     }

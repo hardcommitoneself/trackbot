@@ -33,12 +33,12 @@ class Meet extends Model
         return $this->belongsTo(User::class, 'director_user_id');
     }
 
-    public function sessions()
+    public function meetSessions()
     {
         return $this->hasMany(MeetSession::class);
     }
 
-    public function divisions()
+    public function meetDivisions()
     {
         return $this->hasMany(MeetDivision::class);
     }

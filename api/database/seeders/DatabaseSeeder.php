@@ -42,35 +42,37 @@ class DatabaseSeeder extends Seeder
             'venue_id' => $skyhawk_stadium_venue->id,
         ]);
 
-        $skyhawk_first_flight_meet->sessions()->create([
+        $skyhawk_first_flight_meet->meetSessions()->create([
             'starting_at' => Carbon::now()->addWeek()->hour(14)->minute(0)->second(0),
         ]);
 
-        $skyhawk_first_flight_meet_division_varsity = $skyhawk_first_flight_meet->divisions()->create([
+        $skyhawk_first_flight_meet_division_varsity = $skyhawk_first_flight_meet->meetDivisions()->create([
             'name'       => 'Varsity',
             'abbr'       => 'V',
             'level'      => 'HIGH_SCHOOL',
             'identifier' => 1,
         ]);
 
-        $first_flight_event_hurdles = $skyhawk_first_flight_meet_division_varsity->events()->createMany([
+        $first_flight_events = $skyhawk_first_flight_meet_division_varsity->meetEvents()->createMany([
             [
                 'event_id' => 1,
-                'round'    => 'FINALS',
             ],
             [
                 'event_id' => 2,
-                'round'    => 'FINALS',
             ],
             [
                 'event_id' => 3,
-                'round'    => 'FINALS',
             ],
             [
                 'event_id' => 4,
-                'round'    => 'FINALS',
             ],
         ]);
+
+        foreach ($first_flight_events as $first_flight_event) {
+            $first_flight_event->meetEventRounds()->create([
+                'round' => 'FINALS',
+            ]);
+        }
 
         $skyhawk_invitational_meet = $salem->meets()->create([
             'sport'    => 'TRACK',
@@ -78,24 +80,24 @@ class DatabaseSeeder extends Seeder
             'venue_id' => $skyhawk_stadium_venue->id,
         ]);
 
-        $skyhawk_invitational_meet->sessions()->create([
+        $skyhawk_invitational_meet->meetSessions()->create([
             'starting_at' => Carbon::now()->addMonth()->hour(14)->minute(0)->second(0),
             'ending_at'   => Carbon::now()->addMonth()->hour(22)->minute(0)->second(0),
         ]);
 
-        $skyhawk_invitational_meet->sessions()->create([
+        $skyhawk_invitational_meet->meetSessions()->create([
             'starting_at' => Carbon::now()->addMonth()->addDay()->hour(14)->minute(0)->second(0),
             'ending_at'   => Carbon::now()->addMonth()->addDay()->hour(22)->minute(0)->second(0),
         ]);
 
-        $skyhawk_invitational_meet_division_varsity = $skyhawk_invitational_meet->divisions()->create([
+        $skyhawk_invitational_meet_division_varsity = $skyhawk_invitational_meet->meetDivisions()->create([
             'name'       => 'Varsity',
             'abbr'       => 'V',
             'level'      => 'HIGH_SCHOOL',
             'identifier' => 1,
         ]);
 
-        $skyhawk_invitational_meet_division_varsity = $skyhawk_invitational_meet->divisions()->create([
+        $skyhawk_invitational_meet_division_varsity = $skyhawk_invitational_meet->meetDivisions()->create([
             'name'       => 'Junior Varsity',
             'abbr'       => 'JV',
             'level'      => 'HIGH_SCHOOL',
@@ -141,7 +143,7 @@ class DatabaseSeeder extends Seeder
             'venue_id' => $don_stadium_venue->id,
         ]);
 
-        $don_midnight_invite_division_varsity = $don_midnight_invite->divisions()->create([
+        $don_midnight_invite_division_varsity = $don_midnight_invite->meetDivisions()->create([
             'name'       => 'Varsity',
             'abbr'       => 'V',
             'level'      => 'HIGH_SCHOOL',
