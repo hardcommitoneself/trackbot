@@ -20,10 +20,10 @@ class MeetSessionController extends Controller
         return MeetSessionResource::collection(
             QueryBuilder::for(MeetSession::class)
                 ->allowedFilters([
-                    AllowedFilter::exact('start_at'),
-                    AllowedFilter::exact('end_at'),
+                    AllowedFilter::exact('starting_at'),
+                    AllowedFilter::exact('ending_at'),
                 ])
-                ->allowedSorts(['start_at', 'end_at'])
+                ->allowedSorts(['starting_at', 'ending_at'])
                 ->get()
         );
     }
