@@ -22,6 +22,7 @@ return new class extends Migration {
             $table->text('information')->nullable(); // details about the meet
             $table->boolean('is_indoor')->default(0); // is the meet being held indoors
             $table->boolean('is_sanctioned')->default(0); // has the meet been sanctioned by a governing body
+            $table->json('classifications')->nullable();
             $table->timestamps();
         });
     }

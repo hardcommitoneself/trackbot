@@ -37,9 +37,10 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $skyhawk_first_flight_meet = $salem->meets()->create([
-            'sport'    => 'TRACK',
-            'name'     => 'Skyhawk First Flight',
-            'venue_id' => $skyhawk_stadium_venue->id,
+            'sport'           => 'TRACK',
+            'name'            => 'Skyhawk First Flight',
+            'venue_id'        => $skyhawk_stadium_venue->id,
+            'classifications' => ['HIGH_SCHOOL'],
         ]);
 
         $skyhawk_first_flight_meet->sessions()->create([
@@ -47,9 +48,10 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $skyhawk_invitational_meet = $salem->meets()->create([
-            'sport'    => 'TRACK',
-            'name'     => 'Skyhawk Invitational',
-            'venue_id' => $skyhawk_stadium_venue->id,
+            'sport'           => 'TRACK',
+            'name'            => 'Skyhawk Invitational',
+            'venue_id'        => $skyhawk_stadium_venue->id,
+            'classifications' => ['HIGH_SCHOOL', 'MIDDLE_SCHOOL'],
         ]);
 
         $skyhawk_invitational_meet->sessions()->create([

@@ -13,11 +13,12 @@ class MeetResource extends JsonApiResource
     public function toAttributes(Request $request): array
     {
         return [
-            'name'          => $this->name,
-            'sport'         => $this->sport->name,
-            'information'   => $this->information,
-            'is_indoor'     => $this->is_indoor,
-            'is_sanctioned' => $this->is_sanctioned,
+            'name'            => $this->name,
+            'sport'           => $this->sport->name,
+            'information'     => $this->information,
+            'is_indoor'       => $this->is_indoor,
+            'is_sanctioned'   => $this->is_sanctioned,
+            'classifications' => $this->classifications,
         ];
     }
 
