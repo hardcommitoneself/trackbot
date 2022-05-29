@@ -93,8 +93,8 @@ And serve the API with:
 
 + `organization`: A meet belongs to an `Models\Organization`.
 + `venue`: A meet belongs to an `Models\Venue`.
-+ `user`: A meet belongs to an `Models\User` via `director_user_id`.
-+ `sessions`: A meet has many `Models\MeetSession`.
++ `user`: A meet belongs to an `Models\User` via `director_user_id` as `director`.
++ `meetSessions`: A meet has many `Models\MeetSession`.
 
 ### meet_divisions
 
@@ -116,6 +116,44 @@ And serve the API with:
 `relationships`:
 
 + `meet`: A meetSession belongs to an `Models\Meet`.
+
+### meet_events
+
+`description`:
+
++ Stores the events that that will be held at the meet. This is constructed primarily of an `App\Event`
+  and `App\MeetDivision`.
+
+`attributes`:
+
++ `id`: Internal identifier.
++ `uuid`: External identifier.
++ `event_id`: `Models\Event` that owns the meet_event.
++ `meet_division_id`: `Models\MeetDivision` that owns the meet_event.
+
+`relationships`:
+
++ `event`: A meetEvent belongs to an `Models\Event`.
++ `meetDivision`: A meetEvent belongs to an `Models\MeetDivision`.
++ `meetEventRounds`: A meetEvent has many `Models\MeetEventRound`.
+
+### meet_event_rounds
+
+`description`:
+
++ The rounds of a given meetEvent, all with end with `FINALS` but various ways of getting there depending on the event
+  and amount of participants.
+
+`attributes`:
+
++ `id`: Internal identifier.
++ `uuid`: External identifier.
++ `meet_event_id`: `Models\MeetEvent` that owns the round.
++ `round`: `Enums\Round` of the meetEventRound.
+
+`relationships`:
+
++ `meetEvent`: A meetEventRound belongs to an `Models\MeetEventRound`.
 
 ### meet_sessions
 
