@@ -17,6 +17,33 @@ And serve the API with:
 
 ## Database Design
 
+### addresses ###
+
+`description`:
+
++ Stores address information for various models.
+
+`attributes`:
+
++ `id`: Internal identifier.
++ `uuid`: External identifier.
++ `addressable_type`: Owner model type.
++ `addressable_id`: Owner model id.
++ `country_code`: 2-char country code.
++ `state_code`: 2-char state code.
++ `city`
++ `zip`
++ `line_1`
++ `line_2`
++ `latitude`: Set via google pre-save.
++ `longitude`: Set via google pre-save.
++ `timezone`: Set via google pre-save.
++ `elevation`: Set via google pre-save.
+
+`relationships`:
+
++ `addressable`: A meet belongs to `Models\Venue`. More added later.
+
 ### events ###
 
 `description`:
@@ -55,6 +82,8 @@ And serve the API with:
 + `uuid`: External identifier.
 + `sport`: `Enums\Sport`of the event. Will be either `TRACK` or `XC`.
 + `organization_id`: `Models\Organization` that owns the meet and is hosting it.
++ `director_user_id`: `Models\User` that is the director of the meet.
++ `venue_id`: `Models\Venue` where the meet is to be hosted.
 + `name`: User-provided string identification.
 + `information`: User-provided details about the meet. Rich-text.
 + `is_indoor`: if the meet is held at an indoors venue.
@@ -63,6 +92,28 @@ And serve the API with:
 `relationships`:
 
 + `organization`: A meet belongs to an `Models\Organization`.
++ `venue`: A meet belongs to an `Models\Venue`.
++ `user`: A meet belongs to an `Models\User` via `director_user_id`.
++ `sessions`: A meet has many `Models\MeetSession`.
+
+### meet_sessions
+
+`description`:
+
++ Track meets can be held on multiple days or multiple sessions per day. Here we store these so we can associate the
+  events will be held at certain times in the session.
+
+`attributes`:
+
++ `id`: Internal identifier.
++ `uuid`: External identifier.
++ `meet_id`: `Models\Meet` that owns the session.
++ `starting_at`: User-provided start time for the session (can be before the first event).
++ `ending_at`: User-provided end time for the session (can be null - mostly likely will be).
+
+`relationships`:
+
++ `meet`: A meetSession belongs to an `Models\Meet`.
 
 ### organizations ###
 
@@ -83,4 +134,51 @@ And serve the API with:
 
 `relationships`:
 
-+ `meets`: An organization as many `Models\Meet`.
++ `meets`: An organization has many `Models\Meet`.
++ `venues`: An organization has many `Models\Venue`.
+
+### users ###
+
+`description`:
+
++ Users of the platform.
+
+`attributes`:
+
++ `id`: Internal identifier.
++ `uuid`: External identifier.
++ `first_name`
++ `last_name`
++ `email`
++ `timezone`: User-supplied timezone.
++ `default_organization_id`: The default organization to load when the user logs in.
++ `profile_photo_path`: Stores the relative path of the profile photo.
++ `distance_system`: The default `Enums\DistanceSystem` to show distances in for the user.
+
+`relationships`:
+
++ `organizations`: A user has many `Models\Organization`. // TODO: implement
+
+### venues ###
+
+`description`:
+
++ Venues describe a physical location where a meet will be held.
+
+`attributes`:
+
++ `id`: Internal identifier.
++ `uuid`: External identifier.
++ `organization_id`: `Models\Organization` that owns the venue.
++ `name`: User-provided string identification.
++ `description`: User-provided details about the venue. Rich-text.
++ `surface_material`: `Enums\SurfaceMaterial` at the venue.
++ `lanes`: If for a track, the number of lanes used.
++ `capacity`: The number of spectators the venue can accommodate.
++ `parking_information`: User-provided information about the parking details.
++ `profile_photo_path`: Stores the relative path of the profile photo for the venue.
+
+`relationships`:
+
++ `address`: A venue has one `Models\Address`.
++ `organization`: A venue belongs to an `Models\Organization`.
