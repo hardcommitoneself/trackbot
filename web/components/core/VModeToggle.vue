@@ -1,8 +1,5 @@
 <template>
     <div>
-        <div v-if="$colorMode.unknown" class="text-primary-500 ml-3 pt-1">
-            <i class="fa-solid fa-spinner fa-spin" ></i >
-        </div>
         <ColorScheme placeholder="" tag="span">
             <button @click="$colorMode.preference = $colorMode.preference === 'dark' ? 'light' : 'dark'" class="text-primary-500 ml-2 pt-3">
                 <svg v-if="$colorMode.preference === 'dark' || $colorMode.preference === 'system'" xmlns="http://www.w3.org/2000/svg"

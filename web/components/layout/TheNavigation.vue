@@ -132,7 +132,7 @@
                                             <div class="border-t bot-border" ></div >
 
                                             <!-- Authentication -->
-                                            <jet-dropdown-link @click="isAuthenticated = false">
+                                            <jet-dropdown-link href="#" @click="isAuthenticated = false">
                                                 Log out
                                             </jet-dropdown-link >
                                         </div >
