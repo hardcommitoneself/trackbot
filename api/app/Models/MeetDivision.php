@@ -20,4 +20,9 @@ class MeetDivision extends Model
     {
         return $this->belongsTo(Meet::class);
     }
+
+    public function events()
+    {
+        return $this->hasMany(MeetEvent::class);
+    }
 }

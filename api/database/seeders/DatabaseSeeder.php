@@ -53,6 +53,25 @@ class DatabaseSeeder extends Seeder
             'identifier' => 1,
         ]);
 
+        $first_flight_event_hurdles = $skyhawk_first_flight_meet_division_varsity->events()->createMany([
+            [
+                'event_id' => 1,
+                'round'    => 'FINALS',
+            ],
+            [
+                'event_id' => 2,
+                'round'    => 'FINALS',
+            ],
+            [
+                'event_id' => 3,
+                'round'    => 'FINALS',
+            ],
+            [
+                'event_id' => 4,
+                'round'    => 'FINALS',
+            ],
+        ]);
+
         $skyhawk_invitational_meet = $salem->meets()->create([
             'sport'    => 'TRACK',
             'name'     => 'Skyhawk Invitational',
