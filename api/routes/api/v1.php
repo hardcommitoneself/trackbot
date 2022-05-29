@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AddressController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\MeetController;
 use App\Http\Controllers\MeetSessionController;
@@ -31,6 +32,9 @@ Route::apiResource('events', EventController::class)
 
 Route::apiResource('venues', VenueController::class)
     ->only(['index', 'show']);
+
+Route::apiResource('address', AddressController::class)
+    ->only(['show']);
 
 Route::apiResource('meetSessions', MeetSessionController::class)
     ->only(['index', 'show']);

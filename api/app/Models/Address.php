@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Concerns\HasUuid;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -9,6 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 class Address extends Model
 {
     use HasFactory;
+    use HasUuid;
 
     protected $guarded = [
         'created_at',
@@ -23,9 +25,6 @@ class Address extends Model
         'country_code',
         'timezone',
         'zip',
-        'latitude',
-        'longitude',
-        'altitude',
     ];
 
     /**

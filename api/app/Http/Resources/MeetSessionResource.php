@@ -20,7 +20,13 @@ class MeetSessionResource extends JsonApiResource
     {
         return [
             Link::self(route('meetSessions.show', $this->resource)),
-            //'related' => 'https://example.com/related'
+        ];
+    }
+
+    public function toRelationships(Request $request): array
+    {
+        return [
+            'meet' => fn() => new MeetResource($this->meet),
         ];
     }
 

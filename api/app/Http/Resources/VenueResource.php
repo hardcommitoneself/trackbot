@@ -27,4 +27,11 @@ class VenueResource extends JsonApiResource
             Link::self(route('venues.show', $this->resource)),
         ];
     }
+
+    public function toRelationships(Request $request): array
+    {
+        return [
+            'address' => fn() => new AddressResource($this->address),
+        ];
+    }
 }

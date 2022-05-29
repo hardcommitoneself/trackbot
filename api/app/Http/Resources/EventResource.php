@@ -42,7 +42,6 @@ class EventResource extends JsonApiResource
     {
         return [
             Link::self(route('events.show', $this->resource)),
-            //'related' => 'https://example.com/related'
         ];
     }
 }
