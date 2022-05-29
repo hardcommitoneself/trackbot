@@ -15,9 +15,9 @@ return new class extends Migration {
         Schema::create('events', function (Blueprint $table) {
             $table->id();
             $table->string('constant')->unique();
-            $table->string('sport');
-            $table->string('gender');
-            $table->string('mark_type');
+            $table->char('sport', 12);
+            $table->char('gender', 12);
+            $table->char('mark_type', 12);
             $table->boolean('is_relay')->default(0);
             $table->boolean('is_field')->default(0);
             $table->boolean('is_track')->default(0);

@@ -2,9 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\Address;
 use App\Models\Organization;
-use App\Models\Venue;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -19,13 +17,13 @@ class VenueFactory extends Factory
     public function definition()
     {
         return [
-            'org_id'              => Organization::factory(),
+            'organization_id'     => Organization::factory(),
             'name'                => $this->faker->city() . ' ' . $this->faker->randomElement([
                     'Track', 'Stadium', 'Arena',
                 ]),
             'description'         => $this->faker->paragraph(),
-            'surface'             => $this->faker->randomElement([
-                'rubberized', 'mondo', 'grass', 'tartan', 'eurotran',
+            'surface_material'    => $this->faker->randomElement([
+                'RUBBER', 'MONDO', 'GRASS',
             ]),
             'capacity'            => mt_rand(100, 1000),
             'parking_information' => $this->faker->paragraph(),
@@ -33,15 +31,15 @@ class VenueFactory extends Factory
         ];
     }
 
-    public function configure()
-    {
-        return $this->afterMaking(function (Venue $venue) {
-            //
-        })->afterCreating(function (Venue $venue) {
-            Address::factory()->create([
-                'addressable_type' => class_basename($venue),
-                'addressable_id'   => $venue->id,
-            ]);
-        });
-    }
+//    public function configure()
+//    {
+//        return $this->afterMaking(function (Venue $venue) {
+//            //
+//        })->afterCreating(function (Venue $venue) {
+//            Address::factory()->create([
+//                'addressable_type' => class_basename($venue),
+//                'addressable_id'   => $venue->id,
+//            ]);
+//        });
+//    }
 }

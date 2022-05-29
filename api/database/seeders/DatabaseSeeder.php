@@ -21,7 +21,8 @@ class DatabaseSeeder extends Seeder
             ]);
 
         $skyhawk_stadium_venue = $salem->venues()->create([
-            'name' => 'Skyhawk Stadium',
+            'name'             => 'Skyhawk Stadium',
+            'surface_material' => 'MONDO',
         ]);
 
         $skyhawk_stadium_venue->address()->create([
@@ -59,7 +60,8 @@ class DatabaseSeeder extends Seeder
             ]);
 
         $don_stadium_venue = $spanish_fork->venues()->create([
-            'name' => 'Don Stadium',
+            'name'             => 'Don Stadium',
+            'surface_material' => 'RUBBER',
         ]);
 
         $don_stadium_venue->address()->create([

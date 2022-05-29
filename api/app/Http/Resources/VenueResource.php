@@ -13,7 +13,7 @@ class VenueResource extends JsonApiResource
         return [
             'name'                => $this->name,
             'description'         => $this->description,
-            'surface'             => $this->surface,
+            'surface_material'    => $this->surface_material,
             'lanes'               => $this->lanes,
             'capacity'            => $this->capacity,
             'parking_information' => $this->parking_information,

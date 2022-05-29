@@ -17,7 +17,7 @@ class Venue extends Model
         'organization_id',
         'name',
         'description',
-        'surface',
+        'surface_material',
         'capacity',
         'parking_information',
         'profile_photo_path',
