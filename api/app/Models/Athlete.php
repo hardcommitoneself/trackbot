@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Concerns\HasProfilePhoto;
 use App\Models\Concerns\HasUuid;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -11,6 +12,7 @@ use Illuminate\Support\Carbon;
 class Athlete extends Model
 {
     use HasFactory;
+    use HasProfilePhoto;
     use HasUuid;
 
     protected $casts = [
@@ -88,10 +90,10 @@ class Athlete extends Model
             return mb_substr($segment, 0, 1);
         })->join(' '));
 
-        if ($this->gender->id === 1) {
+        if ($this->gender === 'MALE') {
             $bgColor = '3b82f6';
         }
-        if ($this->gender->id === 2) {
+        if ($this->gender === 'FEMALE') {
             $bgColor = 'ec4899';
         }
 

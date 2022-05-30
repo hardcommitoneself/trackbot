@@ -37,7 +37,8 @@ class AthleteResource extends JsonApiResource
     protected function toMeta(Request $request): array
     {
         return [
-            'grade' => $this->grade,
+            'grade'             => $this->grade,
+            'profile_photo_url' => $this->profile_photo_url,
         ];
     }
 }
