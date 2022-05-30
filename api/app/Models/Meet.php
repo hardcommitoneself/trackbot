@@ -11,6 +11,7 @@ class Meet extends Model
 {
     use HasFactory;
     use HasUuid;
+    use \Staudenmeir\EloquentHasManyDeep\HasRelationships;
 
     protected $casts = [
         'sport'         => Sport::class,
@@ -28,7 +29,7 @@ class Meet extends Model
         return $this->belongsTo(Venue::class);
     }
 
-    public function director()
+    public function user__director()
     {
         return $this->belongsTo(User::class, 'director_user_id');
     }
@@ -41,6 +42,27 @@ class Meet extends Model
     public function meetDivisions()
     {
         return $this->hasMany(MeetDivision::class);
+    }
+
+    public function organizations__attending()
+    {
+        return $this->belongsToMany(Organization::class, 'meet_organization', 'meet_id')->withTimestamps();
+    }
+
+    public function __meetEvents()
+    {
+        return $this->hasManyThrough(MeetEvent::class, MeetDivision::class);
+    }
+
+    public function __events()
+    {
+        return $this->hasManyDeep(Event::class, [MeetDivision::class, MeetEvent::class],
+            [
+                'meet_id',
+                'meet_division_id',
+                'id',
+            ],
+        );
     }
 
     public function getAddressAttribute()

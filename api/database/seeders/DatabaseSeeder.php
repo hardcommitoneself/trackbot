@@ -209,5 +209,7 @@ class DatabaseSeeder extends Seeder
             'last_name'  => 'Spanish Fork',
             'email'      => 'spanishfork@trackbot.test',
         ]);
+
+        $skyhawk_first_flight_meet->organizations_attending()->attach([$salem->id, $spanish_fork->id]);
     }
 }
