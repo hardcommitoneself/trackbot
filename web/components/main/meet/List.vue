@@ -13,6 +13,7 @@
                             d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" ></path >
                     </svg >
                     <input
+                        v-debounce:750="getMeets"
                         v-model="userSearchString"
                         class="bot-base-input bot-lead-icon pr-10"
                         placeholder="Search" type="text" spellcheck="false" aria-label="Search" />
@@ -36,7 +37,7 @@
             <v-list-stacked-container>
                 <template #header>
                     <div class="flex items-center justify-between" >
-                        <v-core-h-3 >Meets ({{ meets.length }})</v-core-h-3 >
+                        <v-core-h-3 >Meets ({{ meets.data.length }})</v-core-h-3 >
 
                         <div class="flex justify-end" >
                             <div class="ml-3 relative" >
@@ -61,8 +62,8 @@
                                                     class="block text-xs font-medium text-gray-500" >Sanctioned</label >
                                                 <div class="mt-1" >
                                                     <div class="w-32" >
-                                                        <select class="bot-input" >
-                                                                <option v-for="option in options" :key="option">{{ option }}</option >
+                                                        <select class="bot-input" v-model="sanctionedFilter" @change="getMeets">
+                                                            <option v-for="option in options" :key="option">{{ option }}</option >
                                                         </select >
                                                     </div >
                                                 </div >
@@ -74,20 +75,32 @@
                         </div >
                     </div>
                 </template>
-                <v-card-no-results v-if="!meets.length"/>
+                <v-card-no-results v-if="!meets.data.length"/>
                 <div v-else>
-                    <v-meeet-list-item v-for="(meet, key) in meets" :key="key" :meet="meet"/>
+                    <v-meeet-list-item v-for="(meet, key) in meets.data" :key="key" :meet="meet"/>
                 </div>
             </v-list-stacked-container>
         </div >
     </div>
 </template>
 <script setup>
-const { pending, data: meets } = await $fetch("/api/v1/meets");
+const userSearchString = useState("userSearchString", () => "");
+const sanctionedFilter = useState("santionedFilter", () => "All");
+const refUserSearchString = ref("");
+const refSanctionedFilter = ref("");
+
+const { pending, refresh, data: meets } = await useFetch(() => `/api/v1/meets?name=${refUserSearchString.value}&is_sanctioned=${refSanctionedFilter.value}`);
+
+const getMeets = () => {
+    refUserSearchString.value = userSearchString.value;
+    refSanctionedFilter.value = sanctionedFilter.value === "All" ? "" : sanctionedFilter.value === "Sanctioned" ? true : false;
+    refresh();
+}
 </script>
 
 <script>
 import { defineComponent } from "vue"
+import { vue3Debounce } from "vue-debounce"
 
 import VCoreH1 from "../../core/header/H1.vue"
 import VCoreH3 from "../../core/header/H3.vue"
@@ -97,9 +110,11 @@ import VCardNoResults from "../../core/cards/VCardNoResults.vue"
 import VMeeetListItem from "../../core/meet/VMeetListItem.vue"
 
 export default defineComponent({
+    directives: {
+        debounce: vue3Debounce({ lock: true })
+    },
     data() {
         return {
-            userSearchString: "",
             options: ["All", "Sanctioned", "Not Sanctioned"]
         }
     },
