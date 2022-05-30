@@ -27,12 +27,12 @@ class OrganizationFactory extends Factory
 
     public function configure()
     {
-        return $this->afterMaking(function (Organization $org) {
+        return $this->afterMaking(function (Organization $organization) {
             // create a sensible abbr from the name
-            if (empty($org->abbr)) {
-                $org->abbr = strtoupper(substr($org->name, 0, 4));
+            if (empty($organization->abbr)) {
+                $organization->abbr = strtoupper(substr($organization->name, 0, 5));
             }
-        })->afterCreating(function (Organization $org) {
+        })->afterCreating(function (Organization $organization) {
             //
         });
     }

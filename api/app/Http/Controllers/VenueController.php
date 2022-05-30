@@ -6,6 +6,7 @@ use App\Http\Requests\StoreVenueRequest;
 use App\Http\Requests\UpdateVenueRequest;
 use App\Http\Resources\VenueResource;
 use App\Models\Venue;
+use Spatie\QueryBuilder\AllowedFilter;
 use Spatie\QueryBuilder\QueryBuilder;
 
 class VenueController extends Controller
@@ -20,6 +21,7 @@ class VenueController extends Controller
             QueryBuilder::for(Venue::class)
                 ->allowedFilters([
                     'name',
+                    AllowedFilter::exact('surface_material'),
                 ])
                 ->allowedSorts(['name'])
                 ->get()

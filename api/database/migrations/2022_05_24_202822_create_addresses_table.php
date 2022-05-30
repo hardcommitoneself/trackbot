@@ -13,6 +13,7 @@ return new class extends Migration {
     {
         Schema::create('addresses', function (Blueprint $table) {
             $table->id();
+            $table->uuid();
             $table->morphs('addressable');
             $table->string('country_code', 2)->index()->default('US');
             $table->string('state_code', 6)->index()->nullable();

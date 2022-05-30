@@ -4,13 +4,14 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Request;
 use TiMacDonald\JsonApi\JsonApiResource;
+use TiMacDonald\JsonApi\Link;
 
 class EventResource extends JsonApiResource
 {
 
     public function toId(Request $request): string
     {
-        return $this->id;
+        return $this->constant;
     }
 
     public function toAttributes(Request $request): array
@@ -34,6 +35,13 @@ class EventResource extends JsonApiResource
             'has_wind'    => $this->has_wind,
             'has_wind'    => $this->has_wind,
             'sort'        => $this->sort,
+        ];
+    }
+
+    protected function toLinks(Request $request): array
+    {
+        return [
+            Link::self(route('events.show', $this->resource)),
         ];
     }
 }

@@ -32,4 +32,24 @@ class Meet extends Model
     {
         return $this->belongsTo(User::class, 'director_user_id');
     }
+
+    public function meetSessions()
+    {
+        return $this->hasMany(MeetSession::class);
+    }
+
+    public function meetDivisions()
+    {
+        return $this->hasMany(MeetDivision::class);
+    }
+
+    public function getAddressAttribute()
+    {
+        return $this->venue->address;
+    }
+
+    public function getTimezoneAttribute()
+    {
+        return $this->venue->address->timezone;
+    }
 }

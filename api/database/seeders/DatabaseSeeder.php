@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Organization;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -21,7 +22,8 @@ class DatabaseSeeder extends Seeder
             ]);
 
         $skyhawk_stadium_venue = $salem->venues()->create([
-            'name' => 'Skyhawk Stadium',
+            'name'             => 'Skyhawk Stadium',
+            'surface_material' => 'MONDO',
         ]);
 
         $skyhawk_stadium_venue->address()->create([
@@ -40,10 +42,66 @@ class DatabaseSeeder extends Seeder
             'venue_id' => $skyhawk_stadium_venue->id,
         ]);
 
+        $skyhawk_first_flight_meet->meetSessions()->create([
+            'starting_at' => Carbon::now()->addWeek()->hour(14)->minute(0)->second(0),
+        ]);
+
+        $skyhawk_first_flight_meet_division_varsity = $skyhawk_first_flight_meet->meetDivisions()->create([
+            'name'       => 'Varsity',
+            'abbr'       => 'V',
+            'level'      => 'HIGH_SCHOOL',
+            'identifier' => 1,
+        ]);
+
+        $first_flight_events = $skyhawk_first_flight_meet_division_varsity->meetEvents()->createMany([
+            [
+                'event_id' => 1,
+            ],
+            [
+                'event_id' => 2,
+            ],
+            [
+                'event_id' => 3,
+            ],
+            [
+                'event_id' => 4,
+            ],
+        ]);
+
+        foreach ($first_flight_events as $first_flight_event) {
+            $first_flight_event->meetEventRounds()->create([
+                'round' => 'FINALS',
+            ]);
+        }
+
         $skyhawk_invitational_meet = $salem->meets()->create([
             'sport'    => 'TRACK',
             'name'     => 'Skyhawk Invitational',
             'venue_id' => $skyhawk_stadium_venue->id,
+        ]);
+
+        $skyhawk_invitational_meet->meetSessions()->create([
+            'starting_at' => Carbon::now()->addMonth()->hour(14)->minute(0)->second(0),
+            'ending_at'   => Carbon::now()->addMonth()->hour(22)->minute(0)->second(0),
+        ]);
+
+        $skyhawk_invitational_meet->meetSessions()->create([
+            'starting_at' => Carbon::now()->addMonth()->addDay()->hour(14)->minute(0)->second(0),
+            'ending_at'   => Carbon::now()->addMonth()->addDay()->hour(22)->minute(0)->second(0),
+        ]);
+
+        $skyhawk_invitational_meet_division_varsity = $skyhawk_invitational_meet->meetDivisions()->create([
+            'name'       => 'Varsity',
+            'abbr'       => 'V',
+            'level'      => 'HIGH_SCHOOL',
+            'identifier' => 1,
+        ]);
+
+        $skyhawk_invitational_meet_division_varsity = $skyhawk_invitational_meet->meetDivisions()->create([
+            'name'       => 'Junior Varsity',
+            'abbr'       => 'JV',
+            'level'      => 'HIGH_SCHOOL',
+            'identifier' => 2,
         ]);
 
         $coach = User::factory()->create([
@@ -52,14 +110,15 @@ class DatabaseSeeder extends Seeder
             'email'      => 'salemhills@trackbot.test',
         ]);
 
-        /////// START SALEM HILLS /////////
+        /////// START SPANISH FORK /////////
         $spanish_fork = Organization::factory()
             ->create([
                 'name' => 'Spanish Fork High School',
             ]);
 
         $don_stadium_venue = $spanish_fork->venues()->create([
-            'name' => 'Don Stadium',
+            'name'             => 'Don Stadium',
+            'surface_material' => 'RUBBER',
         ]);
 
         $don_stadium_venue->address()->create([
@@ -82,6 +141,13 @@ class DatabaseSeeder extends Seeder
             'sport'    => 'TRACK',
             'name'     => 'Don Midnight Invite',
             'venue_id' => $don_stadium_venue->id,
+        ]);
+
+        $don_midnight_invite_division_varsity = $don_midnight_invite->meetDivisions()->create([
+            'name'       => 'Varsity',
+            'abbr'       => 'V',
+            'level'      => 'HIGH_SCHOOL',
+            'identifier' => 1,
         ]);
 
         $coach = User::factory()->create([
