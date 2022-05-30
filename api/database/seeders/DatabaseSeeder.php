@@ -115,6 +115,8 @@ class DatabaseSeeder extends Seeder
 
         /////// START SPANISH FORK /////////
         $spanish_fork = Organization::factory()
+            ->has(Athlete::factory()->boy()->highSchooler()->count(10))
+            ->has(Athlete::factory()->girl()->highSchooler()->count(10))
             ->create([
                 'name' => 'Spanish Fork High School',
             ]);

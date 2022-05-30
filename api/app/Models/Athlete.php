@@ -16,6 +16,11 @@ class Athlete extends Model
         'hs_graduation_year' => 'integer',
     ];
 
+    public function organizations()
+    {
+        return $this->belongsToMany(Organization::class)->withTimestamps();
+    }
+
     public function meetEntries()
     {
         return $this->hasMany(MeetEntry::class);
