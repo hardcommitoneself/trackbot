@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Athlete;
 use App\Models\Organization;
 use App\Models\User;
 use Carbon\Carbon;
@@ -17,6 +18,8 @@ class DatabaseSeeder extends Seeder
     {
         /////// START SALEM HILLS /////////
         $salem = Organization::factory()
+            ->has(Athlete::factory()->boy()->highSchooler()->count(10))
+            ->has(Athlete::factory()->girl()->highSchooler()->count(10))
             ->create([
                 'name' => 'Salem Hills High School',
             ]);
