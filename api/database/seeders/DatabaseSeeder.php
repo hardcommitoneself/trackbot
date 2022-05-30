@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Athlete;
 use App\Models\Organization;
 use App\Models\User;
 use Carbon\Carbon;
@@ -17,6 +18,8 @@ class DatabaseSeeder extends Seeder
     {
         /////// START SALEM HILLS /////////
         $salem = Organization::factory()
+            ->has(Athlete::factory()->boy()->highSchooler()->count(10))
+            ->has(Athlete::factory()->girl()->highSchooler()->count(10))
             ->create([
                 'name' => 'Salem Hills High School',
             ]);
@@ -74,6 +77,18 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
+        $i = 1;
+        while ($i <= 4) {
+            foreach ($first_flight_events as $first_flight_event) {
+                $first_flight_event->meetEventEntries()->create([
+                    'organization_id' => $salem->id,
+                    'athlete_id'      => $salem->athletes()->where('gender',
+                        $first_flight_event->event->gender)->get()->random()->id,
+                ]);
+            }
+            $i++;
+        }
+
         $skyhawk_invitational_meet = $salem->meets()->create([
             'sport'    => 'TRACK',
             'name'     => 'Skyhawk Invitational',
@@ -97,12 +112,39 @@ class DatabaseSeeder extends Seeder
             'identifier' => 1,
         ]);
 
-        $skyhawk_invitational_meet_division_varsity = $skyhawk_invitational_meet->meetDivisions()->create([
+        $skyhawk_invitational_meet_division_jv = $skyhawk_invitational_meet->meetDivisions()->create([
             'name'       => 'Junior Varsity',
             'abbr'       => 'JV',
             'level'      => 'HIGH_SCHOOL',
             'identifier' => 2,
         ]);
+
+        $skyhawk_invitational_events = $skyhawk_invitational_meet_division_varsity->meetEvents()->createMany([
+            [
+                'event_id' => 1,
+            ],
+            [
+                'event_id' => 2,
+            ],
+            [
+                'event_id' => 3,
+            ],
+            [
+                'event_id' => 4,
+            ],
+        ]);
+
+        $i = 1;
+        while ($i <= 4) {
+            foreach ($skyhawk_invitational_events as $meet_event) {
+                $meet_event->meetEventEntries()->create([
+                    'organization_id' => $salem->id,
+                    'athlete_id'      => $salem->athletes()->where('gender',
+                        $meet_event->event->gender)->get()->random()->id,
+                ]);
+            }
+            $i++;
+        }
 
         $coach = User::factory()->create([
             'first_name' => 'Coach',
@@ -112,6 +154,8 @@ class DatabaseSeeder extends Seeder
 
         /////// START SPANISH FORK /////////
         $spanish_fork = Organization::factory()
+            ->has(Athlete::factory()->boy()->highSchooler()->count(10))
+            ->has(Athlete::factory()->girl()->highSchooler()->count(10))
             ->create([
                 'name' => 'Spanish Fork High School',
             ]);

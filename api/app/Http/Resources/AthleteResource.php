@@ -6,16 +6,16 @@ use Illuminate\Http\Request;
 use TiMacDonald\JsonApi\JsonApiResource;
 use TiMacDonald\JsonApi\Link;
 
-class OrganizationResource extends JsonApiResource
+class AthleteResource extends JsonApiResource
 {
-
     public function toAttributes(Request $request): array
     {
         return [
-            'name'              => $this->name,
-            'abbr'              => $this->abbr,
-            'sport'             => $this->sport,
-            'organization_type' => $this->organization_type,
+            'first_name'         => $this->first_name,
+            'last_name'          => $this->last_name,
+            'gender'             => $this->gender,
+            'hs_graduation_year' => $this->hs_graduation_year,
+            'birthday'           => $this->birthday,
         ];
     }
 
@@ -29,10 +29,8 @@ class OrganizationResource extends JsonApiResource
     public function toRelationships(Request $request): array
     {
         return [
-            'athletes'         => fn() => AthleteResource::collection($this->athletes),
-            'meets'            => fn() => MeetResource::collection($this->meets),
             'meetEventEntries' => fn() => MeetEventEntryResource::collection($this->meetEventEntries),
-            'venues'           => fn() => VenueResource::collection($this->venues),
+            'organizations'    => fn() => OrganizationResource::collection($this->organizations),
         ];
     }
 }

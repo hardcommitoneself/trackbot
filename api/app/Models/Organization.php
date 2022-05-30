@@ -30,4 +30,14 @@ class Organization extends Model
         return $this->hasMany(Venue::class);
     }
 
+    public function athletes()
+    {
+        return $this->belongsToMany(Athlete::class)->withTimestamps();
+    }
+
+    public function meetEventEntries()
+    {
+        return $this->hasMany(MeetEventEntry::class, 'organization_id');
+    }
+
 }
