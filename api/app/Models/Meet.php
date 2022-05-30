@@ -29,7 +29,7 @@ class Meet extends Model
         return $this->belongsTo(Venue::class);
     }
 
-    public function user__director()
+    public function director()
     {
         return $this->belongsTo(User::class, 'director_user_id');
     }
@@ -44,17 +44,17 @@ class Meet extends Model
         return $this->hasMany(MeetDivision::class);
     }
 
-    public function organizations__attending()
+    public function organizationsAttending()
     {
         return $this->belongsToMany(Organization::class, 'meet_organization', 'meet_id')->withTimestamps();
     }
 
-    public function __meetEvents()
+    public function meetEvents()
     {
         return $this->hasManyThrough(MeetEvent::class, MeetDivision::class);
     }
 
-    public function __events()
+    public function events()
     {
         return $this->hasManyDeep(Event::class, [MeetDivision::class, MeetEvent::class],
             [
