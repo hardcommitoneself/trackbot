@@ -44,6 +44,28 @@ And serve the API with:
 
 + `addressable`: A meet belongs to `Models\Venue`. More added later.
 
+### athletes ###
+
+`description`:
+
++ Athletes are the competitors that are on rosters of organizations that will have entries, results, etc.
+
+`attributes`:
+
++ `id`: Internal identifier.
++ `uuid`: External identifier.
++ `first_name`
++ `last_name`
++ `gender`: `Enums\Gender` of the athlete
++ `hs_graduation_year`: Year the athlete has or will graduate from high school (used to determine grade)
++ `birthday`
+
+`relationships`:
+
++ `meetEventEntries`: An athlete has many `Models\MeetEventEntry`.
++ `organizations`: An athlete has many `Models\Organization`. For example, a part of a XC and Track organization at both
+  multiple levels.
+
 ### events ###
 
 `description`:
