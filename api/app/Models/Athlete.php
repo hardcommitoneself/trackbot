@@ -51,7 +51,6 @@ class Athlete extends Model
     }
 
     /**
-     * Get the name from the constants translation file.
      * @return Attribute
      */
     protected function name(): Attribute
