@@ -77,12 +77,16 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
-        foreach ($first_flight_events as $first_flight_event) {
-            $first_flight_event->meetEventEntries()->create([
-                'organization_id' => $salem->id,
-                'athlete_id'      => $salem->athletes()->where('gender',
-                    $first_flight_event->event->gender)->get()->random()->id,
-            ]);
+        $i = 1;
+        while ($i <= 4) {
+            foreach ($first_flight_events as $first_flight_event) {
+                $first_flight_event->meetEventEntries()->create([
+                    'organization_id' => $salem->id,
+                    'athlete_id'      => $salem->athletes()->where('gender',
+                        $first_flight_event->event->gender)->get()->random()->id,
+                ]);
+            }
+            $i++;
         }
 
         $skyhawk_invitational_meet = $salem->meets()->create([
@@ -108,12 +112,39 @@ class DatabaseSeeder extends Seeder
             'identifier' => 1,
         ]);
 
-        $skyhawk_invitational_meet_division_varsity = $skyhawk_invitational_meet->meetDivisions()->create([
+        $skyhawk_invitational_meet_division_jv = $skyhawk_invitational_meet->meetDivisions()->create([
             'name'       => 'Junior Varsity',
             'abbr'       => 'JV',
             'level'      => 'HIGH_SCHOOL',
             'identifier' => 2,
         ]);
+
+        $skyhawk_invitational_events = $skyhawk_invitational_meet_division_varsity->meetEvents()->createMany([
+            [
+                'event_id' => 1,
+            ],
+            [
+                'event_id' => 2,
+            ],
+            [
+                'event_id' => 3,
+            ],
+            [
+                'event_id' => 4,
+            ],
+        ]);
+
+        $i = 1;
+        while ($i <= 4) {
+            foreach ($skyhawk_invitational_events as $meet_event) {
+                $meet_event->meetEventEntries()->create([
+                    'organization_id' => $salem->id,
+                    'athlete_id'      => $salem->athletes()->where('gender',
+                        $meet_event->event->gender)->get()->random()->id,
+                ]);
+            }
+            $i++;
+        }
 
         $coach = User::factory()->create([
             'first_name' => 'Coach',
