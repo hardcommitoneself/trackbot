@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\MeetEventEntry>
  */
-class MeetEntryFactory extends Factory
+class MeetEventEntryFactory extends Factory
 {
     /**
      * Define the model's default state.

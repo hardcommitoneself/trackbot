@@ -22,7 +22,7 @@ class AthleteResource extends JsonApiResource
     protected function toLinks(Request $request): array
     {
         return [
-            Link::self(route('organizations.show', $this->resource)),
+            Link::self(route('athletes.show', $this->resource)),
         ];
     }
 
@@ -31,6 +31,14 @@ class AthleteResource extends JsonApiResource
         return [
             'meetEventEntries' => fn() => MeetEventEntryResource::collection($this->meetEventEntries),
             'organizations'    => fn() => OrganizationResource::collection($this->organizations),
+        ];
+    }
+
+    protected function toMeta(Request $request): array
+    {
+        return [
+            'grade'             => $this->grade,
+            'profile_photo_url' => $this->profile_photo_url,
         ];
     }
 }

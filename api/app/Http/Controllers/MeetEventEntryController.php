@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreMeetEntryRequest;
-use App\Http\Requests\UpdateMeetEntryRequest;
+use App\Http\Requests\StoreMeetEventEntryRequest;
+use App\Http\Requests\UpdateMeetEventEntryRequest;
 use App\Models\MeetEventEntry;
 
-class MeetEntryController extends Controller
+class MeetEventEntryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -28,51 +28,51 @@ class MeetEntryController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     * @param  \App\Http\Requests\StoreMeetEntryRequest  $request
+     * @param  \App\Http\Requests\StoreMeetEventEntryRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreMeetEntryRequest $request)
+    public function store(StoreMeetEventEntryRequest $request)
     {
         //
     }
 
     /**
      * Display the specified resource.
-     * @param  \App\Models\MeetEventEntry  $meetEntry
+     * @param  \App\Models\MeetEventEntry  $meetEventEntry
      * @return \Illuminate\Http\Response
      */
-    public function show(MeetEventEntry $meetEntry)
+    public function show(MeetEventEntry $meetEventEntry)
     {
         //
     }
 
     /**
      * Show the form for editing the specified resource.
-     * @param  \App\Models\MeetEventEntry  $meetEntry
+     * @param  \App\Models\MeetEventEntry  $meetEventEntry
      * @return \Illuminate\Http\Response
      */
-    public function edit(MeetEventEntry $meetEntry)
+    public function edit(MeetEventEntry $meetEventEntry)
     {
         //
     }
 
     /**
      * Update the specified resource in storage.
-     * @param  \App\Http\Requests\UpdateMeetEntryRequest  $request
-     * @param  \App\Models\MeetEventEntry  $meetEntry
+     * @param  \App\Http\Requests\UpdateMeetEventEntryRequest  $request
+     * @param  \App\Models\MeetEventEntry  $meetEventEntry
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateMeetEntryRequest $request, MeetEventEntry $meetEntry)
+    public function update(UpdateMeetEventEntryRequest $request, MeetEventEntry $meetEventEntry)
     {
         //
     }
 
     /**
      * Remove the specified resource from storage.
-     * @param  \App\Models\MeetEventEntry  $meetEntry
+     * @param  \App\Models\MeetEventEntry  $meetEventEntry
      * @return \Illuminate\Http\Response
      */
-    public function destroy(MeetEventEntry $meetEntry)
+    public function destroy(MeetEventEntry $meetEventEntry)
     {
         //
     }

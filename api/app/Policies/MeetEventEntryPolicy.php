@@ -6,7 +6,7 @@ use App\Models\MeetEventEntry;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class MeetEntryPolicy
+class MeetEventEntryPolicy
 {
     use HandlesAuthorization;
 
@@ -23,10 +23,10 @@ class MeetEntryPolicy
     /**
      * Determine whether the user can view the model.
      * @param  \App\Models\User  $user
-     * @param  \App\Models\MeetEventEntry  $meetEntry
+     * @param  \App\Models\MeetEventEntry  $meetEventEntry
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, MeetEventEntry $meetEntry)
+    public function view(User $user, MeetEventEntry $meetEventEntry)
     {
         //
     }
@@ -44,10 +44,10 @@ class MeetEntryPolicy
     /**
      * Determine whether the user can update the model.
      * @param  \App\Models\User  $user
-     * @param  \App\Models\MeetEventEntry  $meetEntry
+     * @param  \App\Models\MeetEventEntry  $meetEventEntry
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, MeetEventEntry $meetEntry)
+    public function update(User $user, MeetEventEntry $meetEventEntry)
     {
         //
     }
@@ -55,10 +55,10 @@ class MeetEntryPolicy
     /**
      * Determine whether the user can delete the model.
      * @param  \App\Models\User  $user
-     * @param  \App\Models\MeetEventEntry  $meetEntry
+     * @param  \App\Models\MeetEventEntry  $meetEventEntry
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, MeetEventEntry $meetEntry)
+    public function delete(User $user, MeetEventEntry $meetEventEntry)
     {
         //
     }
@@ -66,10 +66,10 @@ class MeetEntryPolicy
     /**
      * Determine whether the user can restore the model.
      * @param  \App\Models\User  $user
-     * @param  \App\Models\MeetEventEntry  $meetEntry
+     * @param  \App\Models\MeetEventEntry  $meetEventEntry
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, MeetEventEntry $meetEntry)
+    public function restore(User $user, MeetEventEntry $meetEventEntry)
     {
         //
     }
@@ -77,10 +77,10 @@ class MeetEntryPolicy
     /**
      * Determine whether the user can permanently delete the model.
      * @param  \App\Models\User  $user
-     * @param  \App\Models\MeetEventEntry  $meetEntry
+     * @param  \App\Models\MeetEventEntry  $meetEventEntry
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, MeetEventEntry $meetEntry)
+    public function forceDelete(User $user, MeetEventEntry $meetEventEntry)
     {
         //
     }
