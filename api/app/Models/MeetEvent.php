@@ -16,6 +16,11 @@ class MeetEvent extends Model
         return $this->belongsTo(Event::class);
     }
 
+    public function meetEventEntries()
+    {
+        return $this->hasMany(MeetEventEntry::class);
+    }
+
     public function meetDivision()
     {
         return $this->belongsTo(MeetDivision::class);

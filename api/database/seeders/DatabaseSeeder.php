@@ -77,6 +77,14 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
+        foreach ($first_flight_events as $first_flight_event) {
+            $first_flight_event->meetEventEntries()->create([
+                'organization_id' => $salem->id,
+                'athlete_id'      => $salem->athletes()->where('gender',
+                    $first_flight_event->event->gender)->get()->random()->id,
+            ]);
+        }
+
         $skyhawk_invitational_meet = $salem->meets()->create([
             'sport'    => 'TRACK',
             'name'     => 'Skyhawk Invitational',

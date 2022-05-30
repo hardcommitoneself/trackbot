@@ -29,7 +29,8 @@ class AthleteResource extends JsonApiResource
     public function toRelationships(Request $request): array
     {
         return [
-            'organizations' => fn() => OrganizationResource::collection($this->organizations),
+            'meetEventEntries' => fn() => MeetEventEntryResource::collection($this->meetEventEntries),
+            'organizations'    => fn() => OrganizationResource::collection($this->organizations),
         ];
     }
 }

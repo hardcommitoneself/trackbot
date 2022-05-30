@@ -21,8 +21,8 @@ class Athlete extends Model
         return $this->belongsToMany(Organization::class)->withTimestamps();
     }
 
-    public function meetEntries()
+    public function meetEventEntries()
     {
-        return $this->hasMany(MeetEntry::class);
+        return $this->hasMany(MeetEventEntry::class);
     }
 }

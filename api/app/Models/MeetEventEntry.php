@@ -6,7 +6,7 @@ use App\Models\Concerns\HasUuid;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class MeetEntry extends Model
+class MeetEventEntry extends Model
 {
     use HasFactory;
     use HasUuid;
@@ -14,7 +14,7 @@ class MeetEntry extends Model
 
     public function meet()
     {
-        return $this->belongsTo(Meet::class);
+        return $this->belongsToThrough(Meet::class, MeetEvent::class);
     }
 
     public function organization()

@@ -11,10 +11,9 @@ return new class extends Migration {
      */
     public function up()
     {
-        Schema::create('meet_entries', function (Blueprint $table) {
+        Schema::create('meet_event_entries', function (Blueprint $table) {
             $table->id();
             $table->uuid();
-            $table->foreignId('meet_id')->constrained('meets')->cascadeOnDelete();
             $table->foreignId('meet_event_id')->constrained('meet_events')->cascadeOnDelete();
             $table->foreignId('organization_id')->constrained('organizations')->cascadeOnDelete();
             $table->foreignId('athlete_id')->constrained('athletes')->cascadeOnDelete();

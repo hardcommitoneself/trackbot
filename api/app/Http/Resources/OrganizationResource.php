@@ -29,10 +29,10 @@ class OrganizationResource extends JsonApiResource
     public function toRelationships(Request $request): array
     {
         return [
-            'athletes'    => fn() => AthleteResource::collection($this->athletes),
-            'meets'       => fn() => MeetResource::collection($this->meets),
-            'meetEntries' => fn() => MeetEntryResource::collection($this->meetEntries),
-            'venues'      => fn() => VenueResource::collection($this->venues),
+            'athletes'         => fn() => AthleteResource::collection($this->athletes),
+            'meets'            => fn() => MeetResource::collection($this->meets),
+            'meetEventEntries' => fn() => MeetEventEntryResource::collection($this->meetEventEntries),
+            'venues'           => fn() => VenueResource::collection($this->venues),
         ];
     }
 }
