@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AddressController;
+use App\Http\Controllers\AthleteController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\MeetController;
 use App\Http\Controllers\MeetDivisionController;
@@ -38,6 +39,9 @@ Route::apiResource('venues', VenueController::class)
 
 Route::apiResource('address', AddressController::class)
     ->only(['show']);
+
+Route::apiResource('athletes', AthleteController::class)
+    ->only(['index', 'show']);
 
 Route::apiResource('meetSessions', MeetSessionController::class)
     ->only(['index', 'show']);
