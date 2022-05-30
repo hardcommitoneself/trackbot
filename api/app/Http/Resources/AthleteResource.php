@@ -25,4 +25,11 @@ class AthleteResource extends JsonApiResource
             Link::self(route('organizations.show', $this->resource)),
         ];
     }
+
+    public function toRelationships(Request $request): array
+    {
+        return [
+            'organizations' => fn() => OrganizationResource::collection($this->organizations),
+        ];
+    }
 }
