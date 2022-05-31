@@ -33,6 +33,7 @@ class ResultResource extends JsonApiResource
     public function toRelationships(Request $request): array
     {
         return [
+            'mark'           => fn() => new MarkResource($this->mark),
             'athlete'        => fn() => new AthleteResource($this->athlete),
             'organization'   => fn() => new OrganizationResource($this->organization),
             'meet'           => fn() => new MeetResource($this->meet),

@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use App\Models\Concerns\HasMark;
 use App\Models\Concerns\HasUuid;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Result extends Model
 {
-    use HasFactory, HasUuid;
+    use HasFactory, HasUuid, HasMark;
 
     protected $casts = [
         'is_official' => 'boolean',

@@ -100,6 +100,12 @@ class DatabaseSeeder extends Seeder
                 'meet_event_entry_id' => $meetEventEntry->id,
                 'athlete_id'          => $meetEventEntry->athlete->id,
             ]);
+
+            $field = strtolower($result->event->mark_type->value);
+            $result->mark()->create([
+                'mark_type' => $result->event->mark_type->value,
+                $field      => $result->event->sample(),
+            ]);
         }
 
         $skyhawk_invitational_meet = $salem->meets()->create([

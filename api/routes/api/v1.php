@@ -3,6 +3,7 @@
 use App\Http\Controllers\AddressController;
 use App\Http\Controllers\AthleteController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\MarkController;
 use App\Http\Controllers\MeetController;
 use App\Http\Controllers\MeetDivisionController;
 use App\Http\Controllers\MeetEventController;
@@ -33,6 +34,9 @@ Route::apiResource('meets', MeetController::class)
     ->only(['index', 'show']);
 
 Route::apiResource('results', ResultController::class)
+    ->only(['index', 'show']);
+
+Route::apiResource('marks', MarkController::class)
     ->only(['index', 'show']);
 
 Route::apiResource('events', EventController::class)

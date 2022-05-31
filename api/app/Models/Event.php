@@ -36,4 +36,22 @@ class Event extends Model
     {
         return 'constant';
     }
+
+    public function sample()
+    {
+        if ($this->sport->value === 'TRACK') {
+            if ($this->is_sprint) {
+                return sampleTime(1, 9, 59);
+            }
+            if ($this->is_distance) {
+                return sampleTime(2, 1, 20);
+            }
+            if ($this->is_field) {
+                return sampleDistance();
+            }
+            if ($this->is_multi) {
+                return sampleScore();
+            }
+        }
+    }
 }
