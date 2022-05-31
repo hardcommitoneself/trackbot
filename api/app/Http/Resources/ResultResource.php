@@ -11,6 +11,8 @@ class ResultResource extends JsonApiResource
     public function toAttributes(Request $request): array
     {
         return [
+            'sport'                     => $this->sport->value,
+            'gender'                    => $this->gender->value,
             'static_athlete_first_name' => $this->static_athlete_first_name,
             'static_athlete_last_name'  => $this->static_athlete_last_name,
             'static_athlete_grade'      => $this->static_athlete_grade,

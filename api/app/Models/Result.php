@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Enums\Gender;
+use App\Enums\Sport;
 use App\Models\Concerns\HasMark;
 use App\Models\Concerns\HasUuid;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -12,6 +14,8 @@ class Result extends Model
     use HasFactory, HasUuid, HasMark;
 
     protected $casts = [
+        'sport'       => Sport::class,
+        'gender'      => Gender::class,
         'is_official' => 'boolean',
         'is_dns'      => 'boolean',
         'is_dq'       => 'boolean',

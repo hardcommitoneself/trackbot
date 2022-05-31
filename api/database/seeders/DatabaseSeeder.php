@@ -95,6 +95,8 @@ class DatabaseSeeder extends Seeder
 
         foreach ($skyhawk_first_flight_meet->meetEventEntries as $meetEventEntry) {
             $result = Result::factory()->create([
+                'sport'               => $meetEventEntry->meetEvent->event->sport,
+                'gender'              => $meetEventEntry->athlete->gender,
                 'meet_id'             => $skyhawk_first_flight_meet->id,
                 'meet_event_id'       => $meetEventEntry->meet_event_id,
                 'meet_event_entry_id' => $meetEventEntry->id,
