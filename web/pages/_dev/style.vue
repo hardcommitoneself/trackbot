@@ -56,7 +56,7 @@
               Secondary Color (titles)
             </div>
             <div class="mt-3 bg-tertiary-500 text-white px-2">
-              Tertiary Color (special)
+              Tertiary Color (selected / special)
             </div>
 
             <div class="mt-9 font-mono">Headings</div>

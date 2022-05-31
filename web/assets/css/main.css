@@ -66,11 +66,11 @@
 }
 
 .bot-page-px {
-  @apply px-4 sm:px-6 lg:px-8
+  @apply px-4
 }
 
 .bot-page-px-list {
-  @apply px-0 sm:px-6 lg:px-8
+  @apply px-0 sm:px-4
 }
 
 .bot-button {
@@ -89,6 +89,10 @@
   @apply text-primary-500 hover:text-primary-400;
 }
 
+.bot-href-active-colors {
+  @apply text-tertiary-500 hover:text-tertiary-400;
+}
+
 .bot-href-alt-colors {
   @apply text-secondary-500 hover:text-secondary-400;
 }
@@ -97,8 +101,16 @@
   @apply border-b border-dashed border-primary-500;
 }
 
+.bot-href-active-border-bottom {
+  @apply border-b border-dashed border-tertiary-500;
+}
+
 .bot-href {
     @apply cursor-pointer bot-href-colors bot-href-border-bottom;
+}
+
+.bot-href-active {
+    @apply cursor-pointer bot-href-active-colors bot-href-active-border-bottom;
 }
 
 .dev-db-table {
@@ -114,7 +126,7 @@
 }
 
 .bot-base-input {
-    @apply block w-full mt-1 px-2 py-1 rounded-lg border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-primary-500 focus:border-primary-500 dark:focus:border-primary-500 disabled:text-gray-400 disabled:dark:bg-gray-600 disabled:bg-gray-100 disabled:bg-gray-100 transition
+    @apply block w-full mt-1 px-2 py-1 rounded-lg border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-primary-500 focus:border-primary-500 dark:focus:border-primary-500 disabled:text-gray-400 disabled:dark:bg-gray-600 disabled:bg-gray-100 transition
 }
 
 .bot-input {

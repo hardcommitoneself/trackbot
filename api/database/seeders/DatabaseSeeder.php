@@ -49,7 +49,7 @@ class DatabaseSeeder extends Seeder
             'venue_id' => $skyhawk_stadium_venue->id,
         ]);
 
-        $skyhawk_first_flight_meet->meetSessions()->create([
+        $first_flight_session = $skyhawk_first_flight_meet->meetSessions()->create([
             'starting_at' => Carbon::now()->addWeek()->hour(14)->minute(0)->second(0),
         ]);
 
@@ -77,7 +77,9 @@ class DatabaseSeeder extends Seeder
 
         foreach ($first_flight_events as $first_flight_event) {
             $first_flight_event->meetEventRounds()->create([
-                'round' => 'FINALS',
+                'meet_session_id' => $first_flight_session->id,
+                'sort'            => mt_rand(0, 10),
+                'round'           => 'FINALS',
             ]);
         }
 

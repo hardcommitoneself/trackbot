@@ -6,10 +6,10 @@
         <div class="flex">
           <!-- Logo -->
           <div class="flex items-center">
-            <a href="#">
+            <NuxtLink to="/">
               <v-logo-type class="hidden sm:block h-9"></v-logo-type>
               <v-logo class="block sm:hidden h-9"></v-logo>
-            </a>
+            </NuxtLink>
             <!-- SEARCH -->
             <div class="pt-1 ml-4">
               <span class="inline-block relative">
@@ -309,6 +309,16 @@
           <div class="block px-4 py-2 text-xs text-gray-400">Switch Team</div>
           <!-- TODO: Add Jet switchable team component -->
         </div>
+      </div>
+    </div>
+    <div class="py-2 border-y bot-border">
+      <div class="ml-4 flex items-center space-x-6 pb-1">
+        <NuxtLink class="bot-href" activeClass="bot-href-active" to="/"
+          >Home</NuxtLink
+        >
+        <NuxtLink class="bot-href" activeClass="bot-href-active" to="/meets"
+          >Meets</NuxtLink
+        >
       </div>
     </div>
   </nav>

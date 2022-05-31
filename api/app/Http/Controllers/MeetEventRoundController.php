@@ -22,7 +22,8 @@ class MeetEventRoundController extends Controller
                 ->allowedFilters([
                     AllowedFilter::exact('round'),
                 ])
-                ->allowedSorts(['round'])
+                ->defaultSort('sort')
+                ->allowedSorts(['sort', 'round', 'start_at'])
                 ->get()
         );
     }

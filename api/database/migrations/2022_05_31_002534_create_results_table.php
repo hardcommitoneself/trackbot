@@ -19,6 +19,7 @@ return new class extends Migration {
             $table->foreignId('meet_id')->nullable()->constrained('meets')->cascadeOnDelete();
             $table->foreignId('event_id')->constrained('events');
             $table->foreignId('meet_event_id')->nullable()->constrained('meet_events');
+            $table->foreignId('meet_event_round_id')->nullable()->constrained('meet_event_rounds');
             $table->foreignId('meet_event_entry_id')->nullable()->constrained('meet_event_entries');
             $table->char('sport', 12);
             $table->char('gender', 12);
