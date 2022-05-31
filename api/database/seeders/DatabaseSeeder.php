@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Athlete;
 use App\Models\Organization;
+use App\Models\Result;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
@@ -21,10 +22,12 @@ class DatabaseSeeder extends Seeder
             ->has(Athlete::factory()->boy()->highSchooler()->count(10))
             ->has(Athlete::factory()->girl()->highSchooler()->count(10))
             ->create([
+                'uuid' => 'uuid-1',
                 'name' => 'Salem Hills High School',
             ]);
 
         $skyhawk_stadium_venue = $salem->venues()->create([
+            'uuid'             => 'uuid-1',
             'name'             => 'Skyhawk Stadium',
             'surface_material' => 'MONDO',
         ]);
@@ -40,6 +43,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $skyhawk_first_flight_meet = $salem->meets()->create([
+            'uuid'     => 'uuid-1',
             'sport'    => 'TRACK',
             'name'     => 'Skyhawk First Flight',
             'venue_id' => $skyhawk_stadium_venue->id,
@@ -89,7 +93,25 @@ class DatabaseSeeder extends Seeder
             $i++;
         }
 
+        foreach ($skyhawk_first_flight_meet->meetEventEntries as $meetEventEntry) {
+            $result = Result::factory()->create([
+                'sport'               => $meetEventEntry->meetEvent->event->sport,
+                'gender'              => $meetEventEntry->athlete->gender,
+                'meet_id'             => $skyhawk_first_flight_meet->id,
+                'meet_event_id'       => $meetEventEntry->meet_event_id,
+                'meet_event_entry_id' => $meetEventEntry->id,
+                'athlete_id'          => $meetEventEntry->athlete->id,
+            ]);
+
+            $field = strtolower($result->event->mark_type->value);
+            $result->mark()->create([
+                'mark_type' => $result->event->mark_type->value,
+                $field      => $result->event->sample(),
+            ]);
+        }
+
         $skyhawk_invitational_meet = $salem->meets()->create([
+            'uuid'     => 'uuid-2',
             'sport'    => 'TRACK',
             'name'     => 'Skyhawk Invitational',
             'venue_id' => $skyhawk_stadium_venue->id,
@@ -147,6 +169,7 @@ class DatabaseSeeder extends Seeder
         }
 
         $coach = User::factory()->create([
+            'uuid'       => 'uuid-1',
             'first_name' => 'Coach',
             'last_name'  => 'Salem Hills',
             'email'      => 'salemhills@trackbot.test',
@@ -157,10 +180,12 @@ class DatabaseSeeder extends Seeder
             ->has(Athlete::factory()->boy()->highSchooler()->count(10))
             ->has(Athlete::factory()->girl()->highSchooler()->count(10))
             ->create([
+                'uuid' => 'uuid-2',
                 'name' => 'Spanish Fork High School',
             ]);
 
         $don_stadium_venue = $spanish_fork->venues()->create([
+            'uuid'             => 'uuid-2',
             'name'             => 'Don Stadium',
             'surface_material' => 'RUBBER',
         ]);
@@ -176,12 +201,14 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $spanish_fork_challenge_meet = $spanish_fork->meets()->create([
+            'uuid'     => 'uuid-3',
             'sport'    => 'TRACK',
             'name'     => 'Spanish Fork Challenge',
             'venue_id' => $don_stadium_venue->id,
         ]);
 
         $don_midnight_invite = $spanish_fork->meets()->create([
+            'uuid'     => 'uuid-4',
             'sport'    => 'TRACK',
             'name'     => 'Don Midnight Invite',
             'venue_id' => $don_stadium_venue->id,
@@ -195,9 +222,12 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $coach = User::factory()->create([
+            'uuid'       => 'uuid-2',
             'first_name' => 'Coach',
             'last_name'  => 'Spanish Fork',
             'email'      => 'spanishfork@trackbot.test',
         ]);
+
+        $skyhawk_first_flight_meet->organizationsAttending()->attach([$salem->id, $spanish_fork->id]);
     }
 }

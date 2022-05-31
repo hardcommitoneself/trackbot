@@ -44,6 +44,28 @@ And serve the API with:
 
 + `addressable`: A meet belongs to `Models\Venue`. More added later.
 
+### athletes ###
+
+`description`:
+
++ Athletes are the competitors that are on rosters of organizations that will have entries, results, etc.
+
+`attributes`:
+
++ `id`: Internal identifier.
++ `uuid`: External identifier.
++ `first_name`
++ `last_name`
++ `gender`: `Enums\Gender` of the athlete
++ `hs_graduation_year`: Year the athlete has or will graduate from high school (used to determine grade)
++ `birthday`
+
+`relationships`:
+
++ `meetEventEntries`: An athlete has many `Models\MeetEventEntry`.
++ `organizations`: An athlete has many `Models\Organization`. For example, a part of a XC and Track organization at both
+  multiple levels.
+
 ### events ###
 
 `description`:
@@ -69,6 +91,23 @@ And serve the API with:
 + `is_multi`: if the track event involves multiple events (decathlon, heptathlon, etc.).
 + `has_wind`: if the track event records a wind reading.
 + `sort`: used as a default order when showing a list of events (shortest to longest, field, multi).
+
+### marks ###
+
+`description`:
+
++ Stores the actual distance, time or score of a result or meetEntry, etc.
+
+`attributes`:
+
++ `id`: Internal identifier.
++ `uuid`: External identifier.
++ `markable_type`: Can be `App\Model\Result` or `App\Model\MeetEventEntry`.
++ `markable_id`
++ `mark_type`: `Enums\MarkType` of the mark.
++ `time`: Use if the `mark_type` is TIME.
++ `distance`: Use if the `mark_type` is DISTANCE.
++ `score`: Use if the `mark_type` is SCORE.
 
 ### meets ###
 
@@ -195,6 +234,40 @@ And serve the API with:
 
 + `meets`: An organization has many `Models\Meet`.
 + `venues`: An organization has many `Models\Venue`.
+
+### results ###
+
+`description`:
+
++ Store results from meets.
+
+`attributes`:
+
++ `id`: Internal identifier.
++ `uuid`: External identifier.
++ `sport`: `Enums\Sport`of the result.
++ `gender`: `Enums\Gender`of the result.
++ `timing_type`: `Enums\TimingType`of the result.
++ `static_athlete_first_name`: Immutable `athlete` first name set on create.
++ `static_athlete_last_name`: Immutable `athlete` last name set on create.
++ `static_athlete_grade`: Immutable `athlete` grade at time of result set on create.
++ `place`: Place finished in the round.
++ `points`: Points awarded.
++ `is_official`: If the result is official.
++ `is_dns`: If the result is "Did Not Start".
++ `is_dq`: If the result is "Disqualified".
++ `dq_note`: If the result is "Disqualified" then this is the note describing the violation.
++ `at`: Date the result was performed.
+
+`relationships`:
+
++ `athlete`: A result belongs to a `Models\Athlete`.
++ `organization`: A result belongs to a `Models\Organization`.
++ `meet`: A result belongs to a `Models\Meet`.
++ `event`: A result belongs to a `Models\Event`.
++ `meetEvent`: A result belongs to a `Models\MeetEvent`.
++ `meetEventEntry`: A result belongs to a `Models\MeetEventEntry`.
++ `mark`: An organization has one `Models\Mark`.
 
 ### users ###
 

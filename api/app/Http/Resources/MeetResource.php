@@ -32,18 +32,35 @@ class MeetResource extends JsonApiResource
     public function toRelationships(Request $request): array
     {
         return [
-            'director'      => fn() => new OrganizationResource($this->director), // TODO: user resource
-            'organization'  => fn() => new OrganizationResource($this->organization),
-            'venue'         => fn() => new VenueResource($this->venue),
-            'meetSessions'  => fn() => MeetSessionResource::collection($this->meetSessions),
-            'meetDivisions' => fn() => MeetDivisionResource::collection($this->meetDivisions),
+            'director'               => fn() => optional($this->director,
+                fn() => new UserResource($this->director)),
+            'organization'           => fn() => new OrganizationResource($this->organization),
+            'venue'                  => fn() => new VenueResource($this->venue),
+            'athletes'               => fn() => AthleteResource::collection($this->athletes),
+            'results'                => fn() => ResultResource::collection($this->results),
+            'meetSessions'           => fn() => MeetSessionResource::collection($this->meetSessions),
+            'meetDivisions'          => fn() => MeetDivisionResource::collection($this->meetDivisions),
+            'events'                 => fn() => EventResource::collection($this->events),
+            'meetEvents'             => fn() => MeetEventResource::collection($this->meetEvents),
+            'meetEventEntries'       => fn() => MeetEventEntryResource::collection($this->meetEventEntries),
+            'organizationsAttending' => fn() => OrganizationResource::collection($this->organizationsAttending),
         ];
     }
 
     protected function toMeta(Request $request): array
     {
         return [
-            'timezone' => $this->timezone,
+            'timezone'                    => $this->timezone,
+            'countAthletes'               => $this->athletes()->count(),
+            'countMeetSessions'           => $this->meetSessions()->count(),
+            'countMeetDivisions'          => $this->meetDivisions()->count(),
+            'countEvents'                 => $this->events()->count(),
+            'countMeetEvents'             => $this->meetEvents()->count(),
+            'countMeetEventEntries'       => $this->meetEventEntries()->count(),
+            'countOrganizationsAttending' => $this->organizationsAttending()->count(),
+            'countResults'                => $this->results()->count(),
+            'levels'                      => $this->levelValues(),
+            'days'                        => $this->days(),
         ];
     }
 }

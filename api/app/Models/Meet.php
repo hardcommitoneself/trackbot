@@ -11,6 +11,7 @@ class Meet extends Model
 {
     use HasFactory;
     use HasUuid;
+    use \Staudenmeir\EloquentHasManyDeep\HasRelationships;
 
     protected $casts = [
         'sport'         => Sport::class,
@@ -41,6 +42,67 @@ class Meet extends Model
     public function meetDivisions()
     {
         return $this->hasMany(MeetDivision::class);
+    }
+
+    public function results()
+    {
+        return $this->hasMany(Result::class);
+    }
+
+    public function organizationsAttending()
+    {
+        return $this->belongsToMany(Organization::class, 'meet_organization', 'meet_id')->withTimestamps();
+    }
+
+    public function meetEventEntries()
+    {
+        return $this->hasManyDeep(MeetEventEntry::class, [MeetDivision::class, MeetEvent::class]);
+    }
+
+    public function meetEvents()
+    {
+        return $this->hasManyThrough(MeetEvent::class, MeetDivision::class);
+    }
+
+    public function levels()
+    {
+        return $this->meetDivisions->pluck('level')->unique();
+    }
+
+    public function days()
+    {
+        return $this->meetSessions->map(function ($session) {
+            return $session->starting_at->timezone($this->timezone)->startOfDay();
+        })->unique();
+    }
+
+    public function levelValues()
+    {
+        return $this->levels()->map(function ($level) {
+            return $level->value;
+        });
+    }
+
+    public function events()
+    {
+        return $this->hasManyDeep(Event::class, [MeetDivision::class, MeetEvent::class],
+            [
+                'meet_id',
+                'meet_division_id',
+                'id',
+            ],
+        );
+    }
+
+    public function athletes()
+    {
+        return $this->hasManyDeep(Athlete::class, [MeetDivision::class, MeetEvent::class],
+            [
+                'meet_id',
+                'meet_division_id',
+                'id',
+            ],
+        );
     }
 
     public function getAddressAttribute()

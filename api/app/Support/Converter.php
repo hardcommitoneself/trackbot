@@ -6,7 +6,7 @@ use Exception;
 
 class Converter
 {
-    function toImperial($value, $cmValue = null)
+    function toEnglish($value, $cmValue = null)
     {
         $cmVal = is_null($cmValue) ? 0 : $cmValue;
 

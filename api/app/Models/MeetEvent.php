@@ -30,4 +30,9 @@ class MeetEvent extends Model
     {
         return $this->hasMany(MeetEventRound::class);
     }
+
+    public function results()
+    {
+        return $this->hasMany(Result::class);
+    }
 }

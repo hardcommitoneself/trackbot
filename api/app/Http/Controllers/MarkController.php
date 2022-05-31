@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreMeetEntryRequest;
-use App\Http\Requests\UpdateMeetEntryRequest;
-use App\Models\MeetEventEntry;
+use App\Http\Requests\StoreMarkRequest;
+use App\Http\Requests\UpdateMarkRequest;
+use App\Http\Resources\MarkResource;
+use App\Models\Mark;
+use Spatie\QueryBuilder\QueryBuilder;
 
-class MeetEntryController extends Controller
+class MarkController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +16,13 @@ class MeetEntryController extends Controller
      */
     public function index()
     {
-        //
+        return MarkResource::collection(
+            QueryBuilder::for(Mark::class)
+                ->allowedFilters([
+                ])
+                ->allowedSorts([])
+                ->get()
+        );
     }
 
     /**
@@ -28,51 +36,51 @@ class MeetEntryController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     * @param  \App\Http\Requests\StoreMeetEntryRequest  $request
+     * @param  \App\Http\Requests\StoreMarkRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreMeetEntryRequest $request)
+    public function store(StoreMarkRequest $request)
     {
         //
     }
 
     /**
      * Display the specified resource.
-     * @param  \App\Models\MeetEventEntry  $meetEntry
+     * @param  \App\Models\Mark  $mark
      * @return \Illuminate\Http\Response
      */
-    public function show(MeetEventEntry $meetEntry)
+    public function show(Mark $mark)
     {
-        //
+        return MarkResource::make($mark);
     }
 
     /**
      * Show the form for editing the specified resource.
-     * @param  \App\Models\MeetEventEntry  $meetEntry
+     * @param  \App\Models\Mark  $mark
      * @return \Illuminate\Http\Response
      */
-    public function edit(MeetEventEntry $meetEntry)
+    public function edit(Mark $mark)
     {
         //
     }
 
     /**
      * Update the specified resource in storage.
-     * @param  \App\Http\Requests\UpdateMeetEntryRequest  $request
-     * @param  \App\Models\MeetEventEntry  $meetEntry
+     * @param  \App\Http\Requests\UpdateMarkRequest  $request
+     * @param  \App\Models\Mark  $mark
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateMeetEntryRequest $request, MeetEventEntry $meetEntry)
+    public function update(UpdateMarkRequest $request, Mark $mark)
     {
         //
     }
 
     /**
      * Remove the specified resource from storage.
-     * @param  \App\Models\MeetEventEntry  $meetEntry
+     * @param  \App\Models\Mark  $mark
      * @return \Illuminate\Http\Response
      */
-    public function destroy(MeetEventEntry $meetEntry)
+    public function destroy(Mark $mark)
     {
         //
     }
