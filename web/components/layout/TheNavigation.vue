@@ -58,7 +58,7 @@
                                     </div >
                                 </div >
                         </div >
-                        <v-mode-toggle class="ml-3 pt-1" />
+                        <v-mode-toggle />
                         <div>
                             <v-mark-distances-in-selector />
                         </div>
@@ -132,7 +132,7 @@
                                             <div class="border-t bot-border" ></div >
 
                                             <!-- Authentication -->
-                                            <jet-dropdown-link @click="isAuthenticated = false">
+                                            <jet-dropdown-link href="#" @click="isAuthenticated = false">
                                                 Log out
                                             </jet-dropdown-link >
                                         </div >
