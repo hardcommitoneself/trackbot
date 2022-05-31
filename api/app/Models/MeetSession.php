@@ -20,4 +20,5 @@ class MeetSession extends Model
     {
         return $this->belongsTo(Meet::class);
     }
+
 }
