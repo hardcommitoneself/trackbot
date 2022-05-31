@@ -25,6 +25,8 @@ module.exports = {
             'tertiary': colors.amber,
         }
     },
-},
-  plugins: [],
+  },
+  plugins: [
+    require('@tailwindcss/forms'),
+  ],
 }
