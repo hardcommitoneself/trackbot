@@ -26,6 +26,7 @@ class AthleteController extends Controller
                     AllowedFilter::exact('hs_graduation_year'),
                     AllowedFilter::exact('birthday'),
                 ])
+                ->defaultSort('last_name', 'first_name')
                 ->allowedSorts(['last_name', 'first_name', 'gender', 'hs_graduation_year', 'birthday'])
                 ->get()
         );
