@@ -9,11 +9,22 @@ export default defineNuxtConfig({
   ],
 
   css: [
-    "~/assets/css/main.css", 
-    '@fortawesome/fontawesome-free/css/all.css'
+    "~/assets/css/main.css",
   ],
 
   colorMode: {
     classSuffix: '',
-  }
+  },
+
+  app: {
+  head: {
+    title: 'trackbot',
+    script: [
+        {
+            src: "https://kit.fontawesome.com/82fac68b65.js",
+            crossorigin: "anonymous",
+        }
+    ],
+    }
+}
 });

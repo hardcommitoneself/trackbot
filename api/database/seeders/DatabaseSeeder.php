@@ -43,10 +43,11 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $skyhawk_first_flight_meet = $salem->meets()->create([
-            'uuid'     => 'uuid-1',
-            'sport'    => 'TRACK',
-            'name'     => 'Skyhawk First Flight',
-            'venue_id' => $skyhawk_stadium_venue->id,
+            'uuid'          => 'uuid-1',
+            'sport'         => 'TRACK',
+            'name'          => 'Skyhawk First Flight',
+            'is_sanctioned' => true,
+            'venue_id'      => $skyhawk_stadium_venue->id,
         ]);
 
         $first_flight_session = $skyhawk_first_flight_meet->meetSessions()->create([
@@ -113,10 +114,11 @@ class DatabaseSeeder extends Seeder
         }
 
         $skyhawk_invitational_meet = $salem->meets()->create([
-            'uuid'     => 'uuid-2',
-            'sport'    => 'TRACK',
-            'name'     => 'Skyhawk Invitational',
-            'venue_id' => $skyhawk_stadium_venue->id,
+            'uuid'          => 'uuid-2',
+            'sport'         => 'TRACK',
+            'name'          => 'Skyhawk Invitational',
+            'is_sanctioned' => true,
+            'venue_id'      => $skyhawk_stadium_venue->id,
         ]);
 
         $skyhawk_invitational_meet->meetSessions()->create([
@@ -210,10 +212,11 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $don_midnight_invite = $spanish_fork->meets()->create([
-            'uuid'     => 'uuid-4',
-            'sport'    => 'TRACK',
-            'name'     => 'Don Midnight Invite',
-            'venue_id' => $don_stadium_venue->id,
+            'uuid'          => 'uuid-4',
+            'sport'         => 'TRACK',
+            'name'          => 'Don Midnight Invite',
+            'is_sanctioned' => true,
+            'venue_id'      => $don_stadium_venue->id,
         ]);
 
         $don_midnight_invite_division_varsity = $don_midnight_invite->meetDivisions()->create([
