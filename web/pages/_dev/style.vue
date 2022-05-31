@@ -107,8 +107,8 @@
               </NuxtLink>
             </div>
             <div class="mt-9 font-mono">Forms</div>
-            <p class="bot-input-label">Form Label</p>
-            <input class="bot-base-input" placeholder="bot-base-input" />
+            <!-- Core input component -->
+            <CoreInputsVInput id="name" name="name" label="Form Label" type="text" placeholder="bot-base-input"/>
           </div>
         </div>
 
@@ -120,3 +120,9 @@
     </div>
   </div>
 </template>
+<script setup>
+import { ref } from 'vue'
+import { Switch } from '@headlessui/vue'
+
+const enabled = ref(false)
+</script>
