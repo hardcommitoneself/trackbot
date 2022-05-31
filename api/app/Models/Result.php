@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Enums\Gender;
 use App\Enums\Sport;
+use App\Enums\TimingType;
 use App\Models\Concerns\HasMark;
 use App\Models\Concerns\HasUuid;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -16,6 +17,7 @@ class Result extends Model
     protected $casts = [
         'sport'       => Sport::class,
         'gender'      => Gender::class,
+        'timing_type' => TimingType::class,
         'is_official' => 'boolean',
         'is_dns'      => 'boolean',
         'is_dq'       => 'boolean',
@@ -54,6 +56,21 @@ class Result extends Model
     public function event()
     {
         return $this->belongsTo(Event::class);
+    }
+
+    public function meetEvent()
+    {
+        return $this->belongsTo(MeetEvent::class);
+    }
+
+    public function scheduledEvent()
+    {
+        return $this->belongsTo(ScheduledEvent::class);
+    }
+
+    public function meetEventEntry()
+    {
+        return $this->belongsTo(MeetEventEntry::class);
     }
 
 }

@@ -13,11 +13,17 @@ class MeetEventRound extends Model
     use HasUuid;
 
     protected $casts = [
-        'round' => Round::class,
+        'round'      => Round::class,
+        'start_time' => 'datetime',
     ];
 
     public function meetEvent()
     {
         return $this->belongsTo(MeetEvent::class);
+    }
+
+    public function meetSession()
+    {
+        return $this->belongsTo(MeetSession::class);
     }
 }
