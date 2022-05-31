@@ -96,7 +96,7 @@ And serve the API with:
 
 `description`:
 
-+ Stores the actual distance, time or score of a result or meetEntry, etc.
++ Stores the actual distance, time or score of a result or meetEventEntry, etc.
 
 `attributes`:
 

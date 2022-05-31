@@ -1082,16 +1082,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v9.14.1",
+            "version": "v9.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "2ca86f96118635a79ee3389013ccab110ae14bea"
+                "reference": "dc32641f5963578858fb71a9d2fbf995fe1e1ea3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/2ca86f96118635a79ee3389013ccab110ae14bea",
-                "reference": "2ca86f96118635a79ee3389013ccab110ae14bea",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/dc32641f5963578858fb71a9d2fbf995fe1e1ea3",
+                "reference": "dc32641f5963578858fb71a9d2fbf995fe1e1ea3",
                 "shasum": ""
             },
             "require": {
@@ -1257,7 +1257,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2022-05-25T18:18:07+00:00"
+            "time": "2022-05-31T14:56:46+00:00"
         },
         {
             "name": "laravel/sanctum",
@@ -3315,20 +3315,20 @@
         },
         {
             "name": "spatie/macroable",
-            "version": "2.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/macroable.git",
-                "reference": "ec2c320f932e730607aff8052c44183cf3ecb072"
+                "reference": "7a99549fc001c925714b329220dea680c04bfa48"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/macroable/zipball/ec2c320f932e730607aff8052c44183cf3ecb072",
-                "reference": "ec2c320f932e730607aff8052c44183cf3ecb072",
+                "url": "https://api.github.com/repos/spatie/macroable/zipball/7a99549fc001c925714b329220dea680c04bfa48",
+                "reference": "7a99549fc001c925714b329220dea680c04bfa48",
                 "shasum": ""
             },
             "require": {
-                "php": "^8.0"
+                "php": "^7.2|^8.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "^8.0|^9.3"
@@ -3359,22 +3359,22 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/macroable/issues",
-                "source": "https://github.com/spatie/macroable/tree/2.0.0"
+                "source": "https://github.com/spatie/macroable/tree/1.0.1"
             },
-            "time": "2021-03-26T22:39:02+00:00"
+            "time": "2020-11-03T10:15:05+00:00"
         },
         {
             "name": "spatie/ray",
-            "version": "1.34.2",
+            "version": "1.34.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/ray.git",
-                "reference": "ef5836b44f7bc4a0162f1a590cbaf33e8ab655dd"
+                "reference": "17654b955e189c646405dececb482c833e8a9a0f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/ray/zipball/ef5836b44f7bc4a0162f1a590cbaf33e8ab655dd",
-                "reference": "ef5836b44f7bc4a0162f1a590cbaf33e8ab655dd",
+                "url": "https://api.github.com/repos/spatie/ray/zipball/17654b955e189c646405dececb482c833e8a9a0f",
+                "reference": "17654b955e189c646405dececb482c833e8a9a0f",
                 "shasum": ""
             },
             "require": {
@@ -3383,7 +3383,7 @@
                 "php": "^7.3|^8.0",
                 "ramsey/uuid": "^3.0|^4.1",
                 "spatie/backtrace": "^1.1",
-                "spatie/macroable": "^1.0|^2.0",
+                "spatie/macroable": "^1.0",
                 "symfony/stopwatch": "^4.0|^5.1|^6.0",
                 "symfony/var-dumper": "^4.2|^5.1|^6.0"
             },
@@ -3424,7 +3424,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/ray/issues",
-                "source": "https://github.com/spatie/ray/tree/1.34.2"
+                "source": "https://github.com/spatie/ray/tree/1.34.3"
             },
             "funding": [
                 {
@@ -3436,7 +3436,7 @@
                     "type": "other"
                 }
             ],
-            "time": "2022-04-08T13:41:27+00:00"
+            "time": "2022-05-31T08:03:35+00:00"
         },
         {
             "name": "staudenmeir/belongs-to-through",
@@ -6624,16 +6624,16 @@
         },
         {
             "name": "laravel/breeze",
-            "version": "v1.9.1",
+            "version": "v1.9.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/breeze.git",
-                "reference": "cde98d03954bfcad0c9370c825187b8a579d94e1"
+                "reference": "6f6a2588c429ea39821ec9add48442b05fe343f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/breeze/zipball/cde98d03954bfcad0c9370c825187b8a579d94e1",
-                "reference": "cde98d03954bfcad0c9370c825187b8a579d94e1",
+                "url": "https://api.github.com/repos/laravel/breeze/zipball/6f6a2588c429ea39821ec9add48442b05fe343f7",
+                "reference": "6f6a2588c429ea39821ec9add48442b05fe343f7",
                 "shasum": ""
             },
             "require": {
@@ -6677,20 +6677,20 @@
                 "issues": "https://github.com/laravel/breeze/issues",
                 "source": "https://github.com/laravel/breeze"
             },
-            "time": "2022-05-12T00:02:24+00:00"
+            "time": "2022-05-30T13:21:35+00:00"
         },
         {
             "name": "laravel/sail",
-            "version": "v1.14.7",
+            "version": "v1.14.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/sail.git",
-                "reference": "c049316f9bcb02598607307f18b514b66202b639"
+                "reference": "04b425968c6a76940bddd2cfa40bf9e9ce78eee8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/sail/zipball/c049316f9bcb02598607307f18b514b66202b639",
-                "reference": "c049316f9bcb02598607307f18b514b66202b639",
+                "url": "https://api.github.com/repos/laravel/sail/zipball/04b425968c6a76940bddd2cfa40bf9e9ce78eee8",
+                "reference": "04b425968c6a76940bddd2cfa40bf9e9ce78eee8",
                 "shasum": ""
             },
             "require": {
@@ -6737,7 +6737,7 @@
                 "issues": "https://github.com/laravel/sail/issues",
                 "source": "https://github.com/laravel/sail"
             },
-            "time": "2022-05-21T17:14:14+00:00"
+            "time": "2022-05-31T14:48:21+00:00"
         },
         {
             "name": "mockery/mockery",
