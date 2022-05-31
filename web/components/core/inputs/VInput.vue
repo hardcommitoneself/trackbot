@@ -1,13 +1,15 @@
 <template>
     <div>
-        <label :for="id" class="bot-input-label">{{ label }}</label>
+        <label :for="id" class="bot-input-label flex items-center space-x-1">{{ label }} <v-required-dot :v-if="required" /> </label>
         <div class="mt-1">
-        <input :type="type" :name="name" :id="id" class="bot-base-input" :placeholder="placeholder" />
+            <input :type="type" :name="name" :id="id" class="bot-base-input" :placeholder="placeholder" />
         </div>
     </div>
 </template>
 <script>
 import { defineComponent } from "vue";
+
+import VRequiredDot from "./VRequiredDot.vue"
 
 export default defineComponent({
     props: {
@@ -40,6 +42,9 @@ export default defineComponent({
             type: Boolean,
             default: false
         }
+    },
+    components: {
+        VRequiredDot
     }
 })
 </script>

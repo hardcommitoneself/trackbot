@@ -1,5 +1,5 @@
 <template>
-    <svg id="a" {{ $attributes }} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 393.11 92.61" >
+    <svg id="a" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 393.11 92.61" >
         <g >
             <path class="dark:fill-gray-300  fill-brand-gray"
                 d="M129.89,42.86h-7.56l-5.42,25.66c-.92,4.09-.1,5.93,2.45,5.93h3.07l-1.23,10.02h-6.03c-7.87,0-10.73-4.5-8.79-13.59l5.93-28.01h-6.03l2.86-10.02h5.32l1.74-8.18,10.63-6.13h.72l-3.07,14.31h8.28l-2.86,10.02Z" />
