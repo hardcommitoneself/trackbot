@@ -44,6 +44,11 @@ class Meet extends Model
         return $this->hasMany(MeetDivision::class);
     }
 
+    public function results()
+    {
+        return $this->hasMany(Result::class);
+    }
+
     public function organizationsAttending()
     {
         return $this->belongsToMany(Organization::class, 'meet_organization', 'meet_id')->withTimestamps();

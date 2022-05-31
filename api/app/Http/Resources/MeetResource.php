@@ -37,6 +37,7 @@ class MeetResource extends JsonApiResource
             'organization'           => fn() => new OrganizationResource($this->organization),
             'venue'                  => fn() => new VenueResource($this->venue),
             'athletes'               => fn() => AthleteResource::collection($this->athletes),
+            'results'                => fn() => ResultResource::collection($this->results),
             'meetSessions'           => fn() => MeetSessionResource::collection($this->meetSessions),
             'meetDivisions'          => fn() => MeetDivisionResource::collection($this->meetDivisions),
             'events'                 => fn() => EventResource::collection($this->events),
@@ -57,6 +58,7 @@ class MeetResource extends JsonApiResource
             'countMeetEvents'             => $this->meetEvents()->count(),
             'countMeetEventEntries'       => $this->meetEventEntries()->count(),
             'countOrganizationsAttending' => $this->organizationsAttending()->count(),
+            'countResults'                => $this->results()->count(),
         ];
     }
 }

@@ -9,6 +9,7 @@ use App\Http\Controllers\MeetEventController;
 use App\Http\Controllers\MeetEventRoundController;
 use App\Http\Controllers\MeetSessionController;
 use App\Http\Controllers\OrganizationController;
+use App\Http\Controllers\ResultController;
 use App\Http\Controllers\VenueController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -29,6 +30,9 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
 });
 
 Route::apiResource('meets', MeetController::class)
+    ->only(['index', 'show']);
+
+Route::apiResource('results', ResultController::class)
     ->only(['index', 'show']);
 
 Route::apiResource('events', EventController::class)

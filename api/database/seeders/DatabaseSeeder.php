@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Athlete;
 use App\Models\Organization;
+use App\Models\Result;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
@@ -90,6 +91,15 @@ class DatabaseSeeder extends Seeder
                 ]);
             }
             $i++;
+        }
+
+        foreach ($skyhawk_first_flight_meet->meetEventEntries as $meetEventEntry) {
+            $result = Result::factory()->create([
+                'meet_id'             => $skyhawk_first_flight_meet->id,
+                'meet_event_id'       => $meetEventEntry->meet_event_id,
+                'meet_event_entry_id' => $meetEventEntry->id,
+                'athlete_id'          => $meetEventEntry->athlete->id,
+            ]);
         }
 
         $skyhawk_invitational_meet = $salem->meets()->create([
@@ -210,6 +220,6 @@ class DatabaseSeeder extends Seeder
             'email'      => 'spanishfork@trackbot.test',
         ]);
 
-        $skyhawk_first_flight_meet->organizations_attending()->attach([$salem->id, $spanish_fork->id]);
+        $skyhawk_first_flight_meet->organizationsAttending()->attach([$salem->id, $spanish_fork->id]);
     }
 }
