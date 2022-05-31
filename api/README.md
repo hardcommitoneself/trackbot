@@ -271,6 +271,7 @@ And serve the API with:
 + `meet`: A result belongs to a `Models\Meet`.
 + `event`: A result belongs to a `Models\Event`.
 + `meetEvent`: A result belongs to a `Models\MeetEvent`.
++ `meetEventRound`: A result belongs to a `Models\MeetEventRound`.
 + `meetEventEntry`: A result belongs to a `Models\MeetEventEntry`.
 + `mark`: An organization has one `Models\Mark`.
 
