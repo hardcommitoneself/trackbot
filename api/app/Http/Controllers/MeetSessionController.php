@@ -23,6 +23,7 @@ class MeetSessionController extends Controller
                     AllowedFilter::exact('starting_at'),
                     AllowedFilter::exact('ending_at'),
                 ])
+                ->defaultSort('starting_at')
                 ->allowedSorts(['starting_at', 'ending_at'])
                 ->get()
         );

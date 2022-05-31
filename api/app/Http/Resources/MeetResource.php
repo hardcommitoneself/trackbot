@@ -59,6 +59,8 @@ class MeetResource extends JsonApiResource
             'countMeetEventEntries'       => $this->meetEventEntries()->count(),
             'countOrganizationsAttending' => $this->organizationsAttending()->count(),
             'countResults'                => $this->results()->count(),
+            'levels'                      => $this->levelValues(),
+            'days'                        => $this->days(),
         ];
     }
 }

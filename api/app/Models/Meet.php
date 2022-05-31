@@ -64,6 +64,25 @@ class Meet extends Model
         return $this->hasManyThrough(MeetEvent::class, MeetDivision::class);
     }
 
+    public function levels()
+    {
+        return $this->meetDivisions->pluck('level')->unique();
+    }
+
+    public function days()
+    {
+        return $this->meetSessions->map(function ($session) {
+            return $session->starting_at->timezone($this->timezone)->startOfDay();
+        })->unique();
+    }
+
+    public function levelValues()
+    {
+        return $this->levels()->map(function ($level) {
+            return $level->value;
+        });
+    }
+
     public function events()
     {
         return $this->hasManyDeep(Event::class, [MeetDivision::class, MeetEvent::class],
