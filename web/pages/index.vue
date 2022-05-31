@@ -1,5 +1,12 @@
 <template>
-  <div class="p-4">
-      Welcome
-  </div>
+  <NuxtLayout name="app">
+    <MainIndexShow />
+  </NuxtLayout>
 </template>
+<script setup>
+import { defineComponent } from "vue";
+
+definePageMeta({
+  layout: false,
+});
+</script>
