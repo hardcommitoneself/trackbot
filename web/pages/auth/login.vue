@@ -6,9 +6,9 @@
             </template>
 
             <form method="POST" action="/api/v1/login" >
-                <CoreInputsVInput id="email" class="block mt-1 w-full" type="email" name="email" label="Email" placeholder="Enter your email" required autofocus/>
+                <CoreInputsVInput id="email" class="block mt-1 w-full" type="email" name="email" label="Email" placeholder="Enter your email" required />
                 
-                <CoreInputsVInput id="password" class="block mt-1 w-full" type="password" name="password" label="Password" placeholder="Enter your password" required/>
+                <CoreInputsVInput id="password" class="block mt-4 w-full" type="password" name="password" label="Password" placeholder="Enter your password" required/>
                 
                 <div class="block mt-4" >
                     <label for="remember_me" class="flex items-center" >

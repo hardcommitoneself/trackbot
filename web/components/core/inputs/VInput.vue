@@ -2,7 +2,7 @@
     <div>
         <label :for="id" class="bot-input-label flex items-center space-x-1">{{ label }} <v-required-dot :v-if="required" /> </label>
         <div class="mt-1">
-            <input :type="type" :name="name" :id="id" class="bot-base-input" :placeholder="placeholder" />
+            <input :type="type" :name="name" :id="id" class="bot-base-input" :placeholder="placeholder" :disabled="disabled" :required="required" />
         </div>
     </div>
 </template>
