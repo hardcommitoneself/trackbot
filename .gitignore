@@ -6,3 +6,5 @@ package-lock.json
 
 # nodejs
 node_modules
+
+web/.idea/
