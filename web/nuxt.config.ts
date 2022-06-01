@@ -5,7 +5,7 @@ export default defineNuxtConfig({
   modules: [
     // https://tailwindcss.nuxtjs.org/
     "@nuxtjs/tailwindcss",
-    '@nuxtjs/color-mode'
+    '@nuxtjs/color-mode',
   ],
 
   css: [
@@ -17,19 +17,19 @@ export default defineNuxtConfig({
   },
 
   app: {
-  head: {
-    title: 'trackbot',
-    script: [
-        {
-            src: "https://kit.fontawesome.com/82fac68b65.js",
-            crossorigin: "anonymous",
-        }
-    ],
-    }
-},
+    head: {
+      title: 'trackbot',
+      script: [
+          {
+              src: "https://kit.fontawesome.com/82fac68b65.js",
+              crossorigin: "anonymous",
+          }
+      ],
+      }
+  },
 
-publicRuntimeConfig: {
-    API_BASE_URL: process.env.API_BASE_URL
-},
+  publicRuntimeConfig: {
+      API_BASE_URL: process.env.API_BASE_URL
+  },
 
 });
