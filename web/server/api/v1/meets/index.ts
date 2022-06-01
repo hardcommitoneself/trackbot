@@ -1,4 +1,5 @@
 export default defineEventHandler(event => {
+    const config = useRuntimeConfig();
     const query = useQuery(event);
-    return $fetch(`http://localhost:8000/api/v1/meets?filter[name]=${query.name}&filter[is_sanctioned]=${query.is_sanctioned}`);
+    return $fetch(`/meets?filter[name]=${query.name}&filter[is_sanctioned]=${query.is_sanctioned}`, { baseURL: config.API_BASE_URL });
 });

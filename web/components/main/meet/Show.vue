@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="bot-page-px">
-      <v-core-h-1 class="pt-4">{{ organization.attributes.name }}</v-core-h-1>
+      <v-core-h-1 class="pt-4">{{ meet.attributes.name }}</v-core-h-1>
     </div>
   </div>
 </template>
@@ -20,7 +20,5 @@ export default defineComponent({
 
 <script setup>
 const route = useRoute();
-const { data: organization } = await $fetch(
-  `/api/v1/organizations/${route.params.organization}`
-);
+const { data: meet } = await $fetch(`/api/v1/meets/${route.params.meet}`);
 </script>

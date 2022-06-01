@@ -4,11 +4,11 @@
       <div class="flex items-center">
         <p class="bot-href-colors bot-href-border-bottom font-semibold">
           {{ meet.attributes.name }}
-          <i
-            v-if="meet.attributes.is_sanctioned"
-            class="pl-1 text-sm text-green-500 fa-solid fa-fw fa-disease"
-          ></i>
         </p>
+        <i
+          v-if="meet.attributes.is_sanctioned"
+          class="pl-1 text-sm text-green-500 fa-solid fa-fw fa-seal"
+        ></i>
       </div>
       <v-sport-badge :sport="meet.attributes.sport" />
     </div>

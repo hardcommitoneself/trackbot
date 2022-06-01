@@ -11,7 +11,10 @@ class MeetEventRoundResource extends JsonApiResource
     public function toAttributes(Request $request): array
     {
         return [
-            'round' => $this->round,
+            'start_at' => $this->start_at,
+            'sort'     => $this->sort,
+            'round'    => $this->round,
+            'status'   => $this->status,
         ];
     }
 
@@ -25,7 +28,8 @@ class MeetEventRoundResource extends JsonApiResource
     public function toRelationships(Request $request): array
     {
         return [
-            'meetEvent' => fn() => new MeetEventResource($this->meetEvent),
+            'meetEvent'   => fn() => new MeetEventResource($this->meetEvent),
+            'meetSession' => fn() => new MeetSessionResource($this->meetSession),
         ];
     }
 }

@@ -96,7 +96,7 @@ And serve the API with:
 
 `description`:
 
-+ Stores the actual distance, time or score of a result or meetEntry, etc.
++ Stores the actual distance, time or score of a result or meetEventEntry, etc.
 
 `attributes`:
 
@@ -180,19 +180,24 @@ And serve the API with:
 
 `description`:
 
-+ The rounds of a given meetEvent, all with end with `FINALS` but various ways of getting there depending on the event
-  and amount of participants.
++ The rounds of a given meetEvent, all will eventually end with `FINALS` but various ways of getting there depending on
+  the event
+  and amount of participants. Associate with `Models\MeetSession` to schedule the event.
 
 `attributes`:
 
 + `id`: Internal identifier.
 + `uuid`: External identifier.
 + `meet_event_id`: `Models\MeetEvent` that owns the round.
++ `meet_session_id`: `Models\MeetSession` that owns the round.
++ `start_at`: Datetime that the event is scheduled for.
 + `round`: `Enums\Round` of the meetEventRound.
++ `sort`: Order for sorting.
 
 `relationships`:
 
 + `meetEvent`: A meetEventRound belongs to an `Models\MeetEventRound`.
++ `meetSession`: A meetEventRound belongs to an `Models\MeetSession`.
 
 ### meet_sessions
 
@@ -266,6 +271,7 @@ And serve the API with:
 + `meet`: A result belongs to a `Models\Meet`.
 + `event`: A result belongs to a `Models\Event`.
 + `meetEvent`: A result belongs to a `Models\MeetEvent`.
++ `meetEventRound`: A result belongs to a `Models\MeetEventRound`.
 + `meetEventEntry`: A result belongs to a `Models\MeetEventEntry`.
 + `mark`: An organization has one `Models\Mark`.
 

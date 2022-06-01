@@ -58,7 +58,7 @@
     </svg >
 </template>
 <style scoped>
-    .c {
-        fill: #231f20;
-    }
-</style >
+.c {
+  fill: #231f20;
+}
+</style>

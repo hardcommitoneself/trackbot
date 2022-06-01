@@ -1,6 +1,6 @@
 <template>
   <NuxtLayout name="app">
-    <MainIndexShow />
+    <MainMeetShow />
   </NuxtLayout>
 </template>
 <script setup>

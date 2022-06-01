@@ -15,6 +15,9 @@ return new class extends Migration {
             $table->id();
             $table->uuid();
             $table->foreignId('meet_event_id')->constrained('meet_events')->cascadeOnDelete();
+            $table->foreignId('meet_session_id')->nullable()->constrained('meet_sessions')->cascadeOnDelete();
+            $table->dateTime('start_at')->nullable(); // estimated time from meet officials
+            $table->integer('sort')->default(0);
             $table->char('round', 24);
             $table->timestamps();
         });
