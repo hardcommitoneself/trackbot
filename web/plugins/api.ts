@@ -4,7 +4,7 @@ export default defineNuxtPlugin(() => {
     const config = useRuntimeConfig();
     
     const api = axios.create({
-        baseURL: config.API_BASE_URL,
+        baseURL: "http://localhost:8000",
         withCredentials: true
     })
 

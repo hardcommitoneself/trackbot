@@ -2,7 +2,7 @@
     <div>
         <label :for="id" class="bot-input-label flex items-center space-x-1">{{ label }} <v-required-dot :v-if="required" /> </label>
         <div class="mt-1">
-            <input :type="type" :name="name" :id="id" class="bot-base-input" :placeholder="placeholder" :disabled="disabled" :required="required" />
+            <input :id="id" :name="name" :type="type" :value="modelValue" @input="$emit('update:modelValue', $event.target.value)" class="bot-base-input" :placeholder="placeholder" :disabled="disabled" :required="required" />
         </div>
     </div>
 </template>
@@ -25,6 +25,10 @@ export default defineComponent({
             type: String,
             default: "text"
         },
+        modelValue: {
+            type: String,
+            default: ""
+        },  
         label: {
             type: String,
             default: "",
@@ -43,6 +47,7 @@ export default defineComponent({
             default: false
         }
     },
+    emits: ["update:modelValue"],
     components: {
         VRequiredDot
     }
