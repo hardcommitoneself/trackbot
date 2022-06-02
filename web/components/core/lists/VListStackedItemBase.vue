@@ -1,10 +1,10 @@
 <template>
   <li>
-    <a :href="href" class="block bot-row-hover">
+    <NuxtLink :href="href" class="block bot-row-hover">
       <div class="px-4 py-3 sm:px-6">
         <slot />
       </div>
-    </a>
+    </NuxtLink>
   </li>
 </template>
 <script>
