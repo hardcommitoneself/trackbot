@@ -27,20 +27,28 @@
 </template>
 <script setup>
 const { $api } = useNuxtApp();
+const auth = useAuth();
 
 const email = ref("");
 const password = ref("");
 
-const login = (e) => {
+const login = async (e) => {
     if(document.querySelector('form').checkValidity()) {
         e.preventDefault();
-        $api().get("/sanctum/csrf-cookie").then(() => {
-            $api().post("/login", { email: email.value, password: password.value });
-        });
+        try {
+            await $api().post("/login", { email: email.value, password: password.value });
+            
+            const response = await $api().get("/user");
+            auth.value = response.data;
+            
+            navigateTo("/meets");
+        } catch (error) {
+            throw error;
+        }
     }
 }
 
 definePageMeta({
-    layout: false
+    layout: false,
 })
 </script>
