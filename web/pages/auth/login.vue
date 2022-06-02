@@ -41,7 +41,7 @@ const login = async (e) => {
             const response = await $api().get("/user");
             auth.value = response.data;
             
-            navigateTo("/meets");
+            window.location.href = "/meets";
         } catch (error) {
             throw error;
         }
