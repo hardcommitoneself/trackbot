@@ -111,6 +111,9 @@
             <CoreInputsVInput id="dark-base-input" name="dark-base-input" label="Form Label" type="text" placeholder="bot-base-input"/>
             <CoreInputsVInput class="mt-3" id="dark-base-input-required" name="dark-base-input-required" label="Form Label(required)" type="text" placeholder="bot-base-input-required" required/>
             <CoreInputsVInput class="mt-3" id="dark-base-input-with-errors" name="dark-base-input-with-errors" label="Form Label(error)" type="text" placeholder="bot-base-input--with-errors" errors="This is test error"/>
+            
+            <CoreInputsVSelect class="mt-3" v-model="modelOption" label="Form Select" :options="options"/>
+            <CoreInputsVSelect class="mt-3" v-model="modelOption" label="Form Select(Required)" :options="options" required/>
           </div>
         </div>
 
@@ -180,6 +183,9 @@
           <CoreInputsVInput id="ligth-base-input" name="ligth-base-input" label="Form Label" type="text" placeholder="bot-base-input"/>
           <CoreInputsVInput class="mt-3" id="ligth-base-input-required" name="ligth-base-input-required" label="Form Label(required)" type="text" placeholder="bot-base-input-required" required/>
           <CoreInputsVInput class="mt-3" id="light-base-input-with-errors" name="light-base-input-with-errors" label="Form Label(error)" type="text" placeholder="bot-base-input--with-errors" errors="This is test error"/>
+
+          <CoreInputsVSelect class="mt-3" v-model="modelOption" label="Form Select" :options="options"/>
+          <CoreInputsVSelect class="mt-3" v-model="modelOption" label="Form Select(Required)" :options="options" required/>
         </div>
       </div>
     </div>
@@ -189,5 +195,11 @@
 import { ref } from 'vue'
 import { Switch } from '@headlessui/vue'
 
-const enabled = ref(false)
+const options = [
+  'A', 'B', 'C'
+]
+
+const enabled = ref(false);
+const modelOption = ref(options[0]);
+
 </script>
