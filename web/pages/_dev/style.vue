@@ -119,6 +119,11 @@
               <label>FORM DROPDOWN</label>
               <CoreInputsVDropdown :items="items"/>
             </div>
+
+            <CoreInputsVSlider class="mt-3" v-model="modelSliderEnabled" label="Form Slider"/>
+
+            Current selected radio: {{ modelRadio1 }}
+            <CoreInputsVRadio v-model="modelRadio1" name="dark-base-input-radio" label="Form Radio Group" :options="radios"/>
           </div>
         </div>
 
@@ -193,9 +198,14 @@
           <CoreInputsVSelect class="mt-3" v-model="modelOption" label="Form Select(Required)" :options="options" required/>
 
           <div class="mt-3">
-            <label>FORM DROPDOWN</label>
+            <label class="bot-input-label flex items-center space-x-1">FORM DROPDOWN</label>
             <CoreInputsVDropdown :items="items"/>
           </div>
+
+          <CoreInputsVSlider class="mt-3" v-model="modelSliderEnabled" label="Form Slider"/>
+
+          Current selected radio: {{ modelRadio2 }}
+          <CoreInputsVRadio v-model="modelRadio2" name="light-base-input-radio" label="Form Radio Group" :options="radios"/>
         </div>
       </div>
     </div>
@@ -203,17 +213,24 @@
 </template>
 <script setup>
 import { ref } from 'vue'
-import { Switch } from '@headlessui/vue'
 
 const options = [
   'A', 'B', 'C'
-]
+];
 
 const items = [
   'Item A', 'Item B', 'Item C'
 ]
 
-const enabled = ref(false);
+const radios = [
+  'Radio A', 'Radio B', 'Radio C'
+];
+
 const modelOption = ref(options[0]);
+
+const modelSliderEnabled = ref(false);
+
+const modelRadio1 = ref(1);
+const modelRadio2 = ref(0);
 
 </script>
