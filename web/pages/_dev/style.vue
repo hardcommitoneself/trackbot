@@ -114,6 +114,11 @@
             
             <CoreInputsVSelect class="mt-3" v-model="modelOption" label="Form Select" :options="options"/>
             <CoreInputsVSelect class="mt-3" v-model="modelOption" label="Form Select(Required)" :options="options" required/>
+
+            <div class="mt-3">
+              <label>FORM DROPDOWN</label>
+              <CoreInputsVDropdown :items="items"/>
+            </div>
           </div>
         </div>
 
@@ -186,6 +191,11 @@
 
           <CoreInputsVSelect class="mt-3" v-model="modelOption" label="Form Select" :options="options"/>
           <CoreInputsVSelect class="mt-3" v-model="modelOption" label="Form Select(Required)" :options="options" required/>
+
+          <div class="mt-3">
+            <label>FORM DROPDOWN</label>
+            <CoreInputsVDropdown :items="items"/>
+          </div>
         </div>
       </div>
     </div>
@@ -197,6 +207,10 @@ import { Switch } from '@headlessui/vue'
 
 const options = [
   'A', 'B', 'C'
+]
+
+const items = [
+  'Item A', 'Item B', 'Item C'
 ]
 
 const enabled = ref(false);
