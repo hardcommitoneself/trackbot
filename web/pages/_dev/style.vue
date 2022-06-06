@@ -122,8 +122,10 @@
 
             <CoreInputsVSlider class="mt-3" v-model="modelSliderEnabled" label="Form Slider"/>
 
-            Current selected radio: {{ modelRadio1 }}
-            <CoreInputsVRadio v-model="modelRadio1" name="dark-base-input-radio" label="Form Radio Group" :options="radios"/>
+            <div class="mt-3">
+              Current selected radio: {{ modelRadio1 }}
+              <CoreInputsVRadio v-model="modelRadio1" name="dark-base-input-radio" label="Form Radio Group" :options="radios"/>
+            </div>
           </div>
         </div>
 
@@ -206,6 +208,8 @@
 
           Current selected radio: {{ modelRadio2 }}
           <CoreInputsVRadio v-model="modelRadio2" name="light-base-input-radio" label="Form Radio Group" :options="radios"/>
+
+          <CoreInputsVRichEditor class="mt-3" value=""/>
         </div>
       </div>
     </div>
