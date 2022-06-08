@@ -134,6 +134,10 @@
             <div class="mt-3">
               <CoreInputsVDateTimePicker label="Date Time Picker"/>
             </div>
+
+            <div class="mt-3">
+              <CoreInputsVDateRangePicker label="Date Range Picker"/>
+            </div>
           </div>
         </div>
 
@@ -226,6 +230,10 @@
 
           <div class="mt-3">
             <CoreInputsVDateTimePicker label="Date Time Picker"/>
+          </div>
+
+          <div class="mt-3">
+            <CoreInputsVDateRangePicker label="Date Range Picker"/>
           </div>
         </div>
       </div>
