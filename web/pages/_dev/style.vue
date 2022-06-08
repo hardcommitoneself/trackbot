@@ -130,6 +130,10 @@
             <div class="mt-3">
               <CoreInputsVDatePicker label="Date Picker"/>
             </div>
+
+            <div class="mt-3">
+              <CoreInputsVDateTimePicker label="Date Time Picker"/>
+            </div>
           </div>
         </div>
 
@@ -218,6 +222,10 @@
           <!-- <CoreInputsVRichEditor class="mt-3" value=""/> -->
           <div class="mt-3">
             <CoreInputsVDatePicker label="Date Picker"/>
+          </div>
+
+          <div class="mt-3">
+            <CoreInputsVDateTimePicker label="Date Time Picker"/>
           </div>
         </div>
       </div>
