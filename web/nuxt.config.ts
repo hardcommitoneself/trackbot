@@ -10,6 +10,7 @@ export default defineNuxtConfig({
 
   css: [
     "~/assets/css/main.css",
+    "v-calendar/dist/style.css"
   ],
 
   colorMode: {
@@ -32,4 +33,7 @@ export default defineNuxtConfig({
       API_BASE_URL: process.env.API_BASE_URL
   },
 
+  plugins: [
+    {src: "~/plugins/v-calendar.client.ts", mode: "client"}
+  ]
 });
